@@ -1,7 +1,7 @@
 # SciPhi-Mistral:7B-32K
 # TAGS: Logic, Science, Scientific, Education
 
-FROM /mnt/ollama-mnt/models/sciphi-mistral-7b-32k.Q5_K_M.gguf
+FROM /mnt/ollama/models/sciphi-mistral-7b-32k.Q5_K_M.gguf
 
 TEMPLATE """
 {{- if .First }}

@@ -2,7 +2,7 @@
 # TAGS: Question, Generation
 # Description: This is a model that generates a qestion from a text you feed it to - and nothing much else. It is used to generate datasets.
 
-FROM /mnt/ollama-mnt/models/generate_question_mistral_7b.Q5_K_M.gguf
+FROM /mnt/ollama/models/generate_question_mistral_7b.Q5_K_M.gguf
 
 TEMPLATE """
 {{- if .System }}

@@ -2,7 +2,7 @@
 # TAGS: Domain, ToT, Reasoning, Logic, NSFW, Uncensored
 # Tree of Thoughts
 
-FROM /mnt/ollama-mnt/models/synthia-7b-v2.0.Q5_K_M.gguf
+FROM /mnt/ollama/models/synthia-7b-v2.0.Q5_K_M.gguf
 
 TEMPLATE """
 SYSTEM: {{ .System }}

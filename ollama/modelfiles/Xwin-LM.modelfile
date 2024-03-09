@@ -2,7 +2,7 @@
 # TAGS: General
 # DESCRIPTION: Ranked TOP-1 on AlpacaEval. Notably, it's the first to surpass GPT-4 on this benchmark.
 
-FROM /mnt/ollama-mnt/models/xwin-lm-7b-v0.2.Q5_K_M.gguf
+FROM /mnt/ollama/models/xwin-lm-7b-v0.2.Q5_K_M.gguf
 
 TEMPLATE """
 {{ .System }} USER: {{ .Prompt }} ASSISTANT:

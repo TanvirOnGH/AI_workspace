@@ -1,7 +1,7 @@
 # TinyLLaMA-OpenOrca:1.1B
 # TAGS: General, Fine-tune
 
-FROM /mnt/ollama-mnt/models/tinyllama-1.1b-1t-openorca.Q5_K_M.gguf
+FROM /mnt/ollama/models/tinyllama-1.1b-1t-openorca.Q5_K_M.gguf
 
 TEMPLATE """
 {{- if .System }}

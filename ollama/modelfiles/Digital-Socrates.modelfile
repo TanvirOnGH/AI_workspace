@@ -1,7 +1,7 @@
 # Digital-Socrates:7B
 # TAGS: Domain, Explanation-Critiquingm, Reasoning
 
-FROM /mnt/ollama-mnt/models/digital-socrates-7b.Q5_K_M.gguf
+FROM /mnt/ollama/models/digital-socrates-7b.Q5_K_M.gguf
 
 TEMPLATE """
 [INST] <<SYS>>

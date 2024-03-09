@@ -1,7 +1,7 @@
 # Trion-M:7B
 # TAGS: Merges, Gradient BlockMerge, SLERP Merge
 
-FROM /mnt/ollama-mnt/models/trion-m-7b.Q5_K_M.gguf
+FROM /mnt/ollama/models/trion-m-7b.Q5_K_M.gguf
 
 TEMPLATE """
 {{- if .First }}{{ .System }}{{- end }}

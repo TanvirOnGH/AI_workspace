@@ -2,7 +2,7 @@
 # TAGS: Chat, Multilingual, Translation
 # Chinese, English, Japanese, Korean, French, Germany and more!
 
-FROM /mnt/ollama-mnt/models/openbuddy-zephyr-7b-v14.1.Q5_K_M.gguf
+FROM /mnt/ollama/models/openbuddy-zephyr-7b-v14.1.Q5_K_M.gguf
 
 TEMPLATE """
 {{- if .First }}{{ .System }}{{- end }}

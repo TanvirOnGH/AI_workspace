@@ -1,7 +1,7 @@
 # Arithmo-Mistral:7B
 # TAGS: Logic, Math
 
-FROM /mnt/ollama-mnt/models/arithmo-mistral-7b.Q5_K_M.gguf
+FROM /mnt/ollama/models/arithmo-mistral-7b.Q5_K_M.gguf
 
 TEMPLATE """
 {{- if .First }}{{ .System }}{{- end }}

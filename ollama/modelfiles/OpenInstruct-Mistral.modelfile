@@ -1,7 +1,7 @@
 # OpenInstruct-Mistral:7B
 # TAGS: Instruct, Further Instruct
 
-FROM /mnt/ollama-mnt/models/openinstruct-mistral-7b.Q5_K_M.gguf
+FROM /mnt/ollama/models/openinstruct-mistral-7b.Q5_K_M.gguf
 
 TEMPLATE """
 {{ .System }}

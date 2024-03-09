@@ -1,7 +1,7 @@
 # Mistral:7B-Instruct
 # TAGS: Instruct
 
-FROM /mnt/ollama-mnt/models/mistral-7b-instruct-v0.1.Q5_K_M.gguf
+FROM /mnt/ollama/models/mistral-7b-instruct-v0.1.Q5_K_M.gguf
 
 TEMPLATE """
 [INST] {{ .System }} {{ .Prompt }} [/INST]

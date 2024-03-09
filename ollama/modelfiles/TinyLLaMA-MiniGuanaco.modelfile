@@ -1,7 +1,7 @@
 # TinyLLaMA-MiniGuanaco:1B
 # TAGS: General, Fine-tune
 
-FROM /mnt/ollama-mnt/models/tinyllama-2-1b-miniguanaco.Q8_0.gguf
+FROM /mnt/ollama/models/tinyllama-2-1b-miniguanaco.Q8_0.gguf
 
 TEMPLATE """
 {{- if .First }}{{ .System }}{{- end }}

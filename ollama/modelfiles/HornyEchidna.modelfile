@@ -1,7 +1,7 @@
 # HornyEchidna:13B_v0.1
 # TAGS: General, RP, ERP, NSFW, Uncensored, Merges
 
-FROM /mnt/ollama-mnt/models/hornyechidna-13b-v0.1.Q5_K_M.gguf
+FROM /mnt/ollama/models/hornyechidna-13b-v0.1.Q5_K_M.gguf
 
 TEMPLATE """
 {{ .System }}

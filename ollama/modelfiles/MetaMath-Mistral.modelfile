@@ -1,7 +1,7 @@
 # MetaMath-Mistral:7B
 # TAGS: Logic, Math
 
-FROM /mnt/ollama-mnt/models/metamath-mistral-7b.Q5_K_M.gguf
+FROM /mnt/ollama/models/metamath-mistral-7b.Q5_K_M.gguf
 
 TEMPLATE """
 {{- if .First }}{{ .System }}{{- end }}

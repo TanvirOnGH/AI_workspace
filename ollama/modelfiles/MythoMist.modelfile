@@ -1,7 +1,7 @@
 # MythoMist:7B
 # TAGS: General, Fine-tune, Merges, Uncensored
 
-FROM /mnt/ollama-mnt/models/mythomist-7b.Q5_K_M.gguf
+FROM /mnt/ollama/models/mythomist-7b.Q5_K_M.gguf
 
 TEMPLATE """
 {{- if .First }}{{ .System }}{{- end }}

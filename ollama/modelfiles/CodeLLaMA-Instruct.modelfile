@@ -1,7 +1,7 @@
 # CodeLLaMA:7B-Instruct
 # TAGS: Code, Programming, SWD, CS
 
-FROM /mnt/ollama-mnt/models/codellama-7b-instruct.Q5_K_M.gguf
+FROM /mnt/ollama/models/codellama-7b-instruct.Q5_K_M.gguf
 
 TEMPLATE """
 [INST] <<SYS>>{{ .System }}<</SYS>>

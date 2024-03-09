@@ -2,7 +2,7 @@
 # TAGS: Function-Calling, Task, Domain, Security, Cybersecurity
 # DESCRIPTION: An open-source and commercially viable function calling LLM that surpasses the state-of-the-art in function calling capabilities.
 
-FROM /mnt/ollama-mnt/models/nexusraven-13b.Q5_K_M.gguf
+FROM /mnt/ollama/models/nexusraven-13b.Q5_K_M.gguf
 
 TEMPLATE """
 <human>:

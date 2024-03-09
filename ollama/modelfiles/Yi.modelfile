@@ -2,7 +2,7 @@
 # TAGS: General, Base, Bilingual
 # English and Chinese
 
-FROM /mnt/ollama-mnt/models/yi-6b.Q5_K_M.gguf
+FROM /mnt/ollama/models/yi-6b.Q5_K_M.gguf
 
 TEMPLATE """{{ .Prompt }}"""
 

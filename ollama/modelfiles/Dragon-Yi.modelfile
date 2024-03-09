@@ -1,7 +1,7 @@
 # Yi:6B
 # TAGS: Enterprise, Automation, RAG, Fine-tune
 
-FROM /mnt/ollama-mnt/models/dragon-yi-6b-v0.Q5_K_M.gguf
+FROM /mnt/ollama/models/dragon-yi-6b-v0.Q5_K_M.gguf
 
 TEMPLATE """
 {{ .System }}

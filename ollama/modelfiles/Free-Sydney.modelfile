@@ -1,7 +1,7 @@
 # Free-Sydney:7B_v2
 # TAGS: Assistant, Fine-tune, Based, Biased
 
-FROM /mnt/ollama-mnt/models/free_sydney_v2_mistral_7b.Q5_K_M.gguf
+FROM /mnt/ollama/models/free_sydney_v2_mistral_7b.Q5_K_M.gguf
 
 TEMPLATE """
 {{- if .System }}

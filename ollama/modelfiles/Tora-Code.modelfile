@@ -1,7 +1,7 @@
 # Tora-Code:7B_v1.0
 # TAGS: Logic, Math, Reasoning, Code, Programming, Tooling, Interactive, Library
 
-FROM /mnt/ollama-mnt/models/tora-code-7b-v1.0.Q5_K_M.gguf
+FROM /mnt/ollama/models/tora-code-7b-v1.0.Q5_K_M.gguf
 
 TEMPLATE """
 {{- if .First }}{{ .System }}{{- end }}

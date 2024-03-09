@@ -1,6 +1,6 @@
 # Mistral-CollectiveCognition:7B_v1.1
 
-FROM /mnt/ollama-mnt/models/collectivecognition-v1.1-mistral-7b.Q5_K_M.gguf
+FROM /mnt/ollama/models/collectivecognition-v1.1-mistral-7b.Q5_K_M.gguf
 
 TEMPLATE """
 {{- if .First }}{{ .System }}{{- end }}

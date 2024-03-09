@@ -1,7 +1,7 @@
 # SMDOPS:7B
 # TAGS: General, Censored, Merges
 
-FROM /mnt/ollama-mnt/models/speechless-mistral-dolphin-orca-platypus-samantha-7b.Q5_K_M.gguf
+FROM /mnt/ollama/models/speechless-mistral-dolphin-orca-platypus-samantha-7b.Q5_K_M.gguf
 
 TEMPLATE """
 {{- if .System }}

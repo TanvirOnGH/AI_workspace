@@ -1,7 +1,7 @@
 # Rocket:3B
 # TAGS: General
 
-FROM /mnt/ollama-mnt/models/rocket-3b.Q5_K_M.gguf
+FROM /mnt/ollama/models/rocket-3b.Q5_K_M.gguf
 
 TEMPLATE """
 {{- if .System }}

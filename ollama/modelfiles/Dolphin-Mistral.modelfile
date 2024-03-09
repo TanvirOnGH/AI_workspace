@@ -1,7 +1,7 @@
 # Dolphin-Mistral:7B_v2.2.1
 # TAGS: General, Fine-tune, Uncensored, NSFW
 
-FROM /mnt/ollama-mnt/models/dolphin-2.2.1-mistral-7b.Q5_K_M.gguf
+FROM /mnt/ollama/models/dolphin-2.2.1-mistral-7b.Q5_K_M.gguf
 
 TEMPLATE """
 {{- if .System }}

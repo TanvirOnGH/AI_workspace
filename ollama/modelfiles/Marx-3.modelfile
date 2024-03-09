@@ -1,7 +1,7 @@
 # Marx:3B_v3
 # TAGS: General, Fine-tune
 
-FROM /mnt/ollama-mnt/models/marx-3b-v3.Q5_K_M.gguf
+FROM /mnt/ollama/models/marx-3b-v3.Q5_K_M.gguf
 
 TEMPLATE """
 {{- if .First }}{{ .System }}{{- end }}

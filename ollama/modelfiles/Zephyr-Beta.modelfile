@@ -1,7 +1,7 @@
 # Zephyr-Beta:7B
 # TAGS: General, Fine-tune, Uncensored (To a certain extent)
 
-FROM /mnt/ollama-mnt/models/zephyr-7b-beta.Q5_K_M.gguf
+FROM /mnt/ollama/models/zephyr-7b-beta.Q5_K_M.gguf
 
 TEMPLATE """
 <|system|>

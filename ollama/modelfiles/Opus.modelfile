@@ -1,7 +1,7 @@
 # Opus:7B_v0
 # TAGS: NSFW, Uncensored, RP, Story-telling
 
-FROM /mnt/ollama-mnt/models/opus-v0-7b.Q5_K_M.gguf
+FROM /mnt/ollama/models/opus-v0-7b.Q5_K_M.gguf
 
 TEMPLATE """
 <setting>

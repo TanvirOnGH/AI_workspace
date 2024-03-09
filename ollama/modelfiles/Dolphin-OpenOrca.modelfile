@@ -1,7 +1,7 @@
 # Dolphin-OpenOrca:7B_v2.1
 # TAGS: General, Fine-tune, Merge
 
-FROM /mnt/ollama-mnt/models/dolphin2.1-openorca-7b.Q5_K_M.gguf
+FROM /mnt/ollama/models/dolphin2.1-openorca-7b.Q5_K_M.gguf
 
 TEMPLATE """
 {{- if .System }}

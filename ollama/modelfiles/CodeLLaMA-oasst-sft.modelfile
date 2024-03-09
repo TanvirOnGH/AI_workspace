@@ -1,7 +1,7 @@
 # CodeLLaMA-oasst-sft:13B_v10
 # TAGS: Code, Programming, SWD, CS
 
-FROM /mnt/ollama-mnt/models/codellama-13b-oasst-sft-v10.Q5_K_M.gguf
+FROM /mnt/ollama/models/codellama-13b-oasst-sft-v10.Q5_K_M.gguf
 
 TEMPLATE """
 {{- if .System }}

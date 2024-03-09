@@ -1,7 +1,7 @@
 # Alsclepius:13B
 # TAGS: Clinical, Medical, Domain
 
-FROM /mnt/ollama-mnt/models/asclepius-13b.Q5_K_M.gguf
+FROM /mnt/ollama/models/asclepius-13b.Q5_K_M.gguf
 
 TEMPLATE """
 {{- if .First }}{{ .System }}{{- end }}

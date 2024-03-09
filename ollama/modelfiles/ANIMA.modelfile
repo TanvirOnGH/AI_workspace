@@ -1,7 +1,7 @@
 # ANIMA:7B
 # TAGS: Domain, Biology, Biomimicry, Scientific
 
-FROM /mnt/ollama-mnt/models/anima-phi-neptune-mistral-7b.Q5_K_M.gguf
+FROM /mnt/ollama/models/anima-phi-neptune-mistral-7b.Q5_K_M.gguf
 
 TEMPLATE """
 {{- if .First }}

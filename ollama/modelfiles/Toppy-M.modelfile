@@ -1,7 +1,7 @@
 # Toppy-M:7B
 # TAGS: NSFW, ERP, RP, Uncensored, LoRAs
 
-FROM /mnt/ollama-mnt/models/toppy-m-7b.Q5_K_M.gguf
+FROM /mnt/ollama/models/toppy-m-7b.Q5_K_M.gguf
 
 TEMPLATE """
 {{- if .First }}{{ .System }}{{- end }}

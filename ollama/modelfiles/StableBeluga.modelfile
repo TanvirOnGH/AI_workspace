@@ -1,7 +1,7 @@
 # StableBeluga:7B
 # TAGS: General, Chat
 
-FROM /mnt/ollama-mnt/models/stablebeluga-7b.Q5_K_M.gguf
+FROM /mnt/ollama/models/stablebeluga-7b.Q5_K_M.gguf
 
 TEMPLATE """
 ### System

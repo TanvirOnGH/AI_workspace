@@ -1,7 +1,7 @@
 # Samantha-Mistral:7B_v1.2
 # TAGS: Philosophy, Psychology, Relationship
 
-FROM /mnt/ollama-mnt/models/samantha-1.2-mistral-7b.Q5_K_M.gguf
+FROM /mnt/ollama/models/samantha-1.2-mistral-7b.Q5_K_M.gguf
 
 TEMPLATE """
 {{- if .System }}

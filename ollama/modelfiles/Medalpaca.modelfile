@@ -1,7 +1,7 @@
 # Medalpaca:13B
 # TAGS: Medical, Domain
 
-FROM /mnt/ollama-mnt/models/medalpaca-13b.Q5_K_M.gguf
+FROM /mnt/ollama/models/medalpaca-13b.Q5_K_M.gguf
 
 TEMPLATE """
 {{- if .First }}{{ .System }}{{- end }}

@@ -1,6 +1,6 @@
 # OpenOrca-Platypus2:13B
 
-FROM /mnt/ollama-mnt/models/openorca-platypus2-13b.Q5_K_M.gguf
+FROM /mnt/ollama/models/openorca-platypus2-13b.Q5_K_M.gguf
 
 TEMPLATE """
 {{- if .First }}

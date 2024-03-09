@@ -1,7 +1,7 @@
 # TinyLLaMA-Chat:1.1B
 # TAGS: General
 
-FROM /mnt/ollama-mnt/models/tinyllama-1.1b-chat-v0.3.Q5_K_M.gguf
+FROM /mnt/ollama/models/tinyllama-1.1b-chat-v0.3.Q5_K_M.gguf
 
 TEMPLATE """
 {{- if .System }}

@@ -1,7 +1,7 @@
 # CodeLLaMA-Python:7B
 # TAGS: Code, Programming, SWD, CS, Domain, Python
 
-FROM /mnt/ollama-mnt/models/codellama-7b-python.Q5_K_M.gguf
+FROM /mnt/ollama/models/codellama-7b-python.Q5_K_M.gguf
 
 TEMPLATE """
 [INST] <<SYS>>{{ .System }}<</SYS>>

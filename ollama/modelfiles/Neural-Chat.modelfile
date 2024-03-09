@@ -1,7 +1,7 @@
 # Neural-Chat:7B_v3.1
 # TAGS: General
 
-FROM /mnt/ollama-mnt/models/neural-chat-7b-v3-1.Q5_K_M.gguf
+FROM /mnt/ollama/models/neural-chat-7b-v3-1.Q5_K_M.gguf
 
 TEMPLATE """
 ### System:

@@ -1,6 +1,6 @@
 # Nous-Capybara:7B_v1.9
 
-FROM /mnt/ollama-mnt/models/nous-capybara-7b-v1.9.Q5_K_M.gguf
+FROM /mnt/ollama/models/nous-capybara-7b-v1.9.Q5_K_M.gguf
 
 TEMPLATE """
 {{- if .First }}{{ .System }}{{- end }}

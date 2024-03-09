@@ -1,7 +1,7 @@
 # Writing-Partner-Mistral:7B
 # TAGS: Creative, Writing, Story, Novel
 
-FROM /mnt/ollama-mnt/models/writing_partner_mistral_7b.Q5_K_M.gguf
+FROM /mnt/ollama/models/writing_partner_mistral_7b.Q5_K_M.gguf
 
 TEMPLATE """
 {{- if .System }}

@@ -1,7 +1,7 @@
 # Nous-Hermes-LLaMA:7B_v2
 # TAGS: General, Fine-tune, Uncensored, NSFW, RP
 
-FROM /mnt/ollama-mnt/models/nous-hermes-llama-2-7b.Q5_K_M.gguf
+FROM /mnt/ollama/models/nous-hermes-llama-2-7b.Q5_K_M.gguf
 
 TEMPLATE """
 {{- if .First }}{{ .System }}{{- end }}

@@ -1,7 +1,7 @@
 # Mistral:7B
 # TAGS: General, Base
 
-FROM /mnt/ollama-mnt/models/mistral-7b-v0.1.Q5_K_M.gguf
+FROM /mnt/ollama/models/mistral-7b-v0.1.Q5_K_M.gguf
 
 TEMPLATE """{{ .Prompt }}"""
 

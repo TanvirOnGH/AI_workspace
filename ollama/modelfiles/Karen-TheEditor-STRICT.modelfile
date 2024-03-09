@@ -1,7 +1,7 @@
 # Karen-TheEditor-STRICT:7B_v2
 # TAGS: Strict, Writing, Grammar
 
-FROM /mnt/ollama-mnt/models/karen_theeditor_v2_strict_mistral_7b.Q5_K_M.gguf
+FROM /mnt/ollama/models/karen_theeditor_v2_strict_mistral_7b.Q5_K_M.gguf
 
 TEMPLATE """
 {{- if .System }}

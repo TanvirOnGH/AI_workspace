@@ -1,7 +1,7 @@
 # DeepSeek-Coder:6.7B-Instruct
 # TAGS: Code, Programming, SWD, CS
 
-FROM /mnt/ollama-mnt/models/deepseek-coder-6.7b-instruct.Q5_K_M.gguf
+FROM /mnt/ollama/models/deepseek-coder-6.7b-instruct.Q5_K_M.gguf
 
 TEMPLATE """
 {{ .System }}

@@ -1,7 +1,7 @@
 # AshhlimaRP-Mistral:7B
 # TAGS: NSFW, ERP, RP, Uncensored, LoRAs
 
-FROM /mnt/ollama-mnt/models/ashhlimarp-mistral-7b.Q5_K_M.gguf
+FROM /mnt/ollama/models/ashhlimarp-mistral-7b.Q5_K_M.gguf
 
 TEMPLATE """
 {{- if .First }}

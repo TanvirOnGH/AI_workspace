@@ -1,7 +1,7 @@
 # Rift-Coder:7B_v0
 # TAGS: Code, Programming, SWD, CS
 
-FROM /mnt/ollama-mnt/models/rift-coder-v0-7b_Q4_0.gguf
+FROM /mnt/ollama/models/rift-coder-v0-7b_Q4_0.gguf
 
 TEMPLATE """
 [INST] <<SYS>>{{ .System }}<</SYS>>

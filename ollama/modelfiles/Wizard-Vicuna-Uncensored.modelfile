@@ -2,7 +2,7 @@
 # TAGS: General, Uncensored, NSFW
 # Description: An uncensored model has no guardrails.
 
-FROM /mnt/ollama-mnt/models/Wizard-Vicuna-7B-Uncensored.Q5_K_M.gguf
+FROM /mnt/ollama/models/Wizard-Vicuna-7B-Uncensored.Q5_K_M.gguf
 TEMPLATE """
 {{ .System }}
 

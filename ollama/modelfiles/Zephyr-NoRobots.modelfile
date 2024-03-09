@@ -1,7 +1,7 @@
 # Zephyr-NoRobots:7B
 # TAGS: General, Human Dataset, SFT
 
-FROM /mnt/ollama-mnt/models/zephyr_7b_norobots.Q5_K_M.gguf
+FROM /mnt/ollama/models/zephyr_7b_norobots.Q5_K_M.gguf
 
 TEMPLATE """
 <|system|> {{ .System }} </s> <|user|> {{ .Prompt }} </s> <|assistant|>

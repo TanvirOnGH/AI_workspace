@@ -1,7 +1,7 @@
 # MedLLaMa-2:7B
 # TAGS: Medical, Domain
 
-FROM /mnt/ollama-mnt/models/MedLlama-2-7B.q5_K_M.gguf
+FROM /mnt/ollama/models/MedLlama-2-7B.q5_K_M.gguf
 
 TEMPLATE """
 {{- if .First }}{{ .System }}{{- end }}

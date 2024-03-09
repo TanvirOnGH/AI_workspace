@@ -1,7 +1,7 @@
 # GPT4all-Falcon:7B
 # TAGS: Code, Programming, SWD, CS
 
-FROM /mnt/ollama-mnt/models/gpt4all-falcon-Q5_K_M.gguf
+FROM /mnt/ollama/models/gpt4all-falcon-Q5_K_M.gguf
 
 TEMPLATE """
 {{- if .First }}{{ .System }}{{- end }}

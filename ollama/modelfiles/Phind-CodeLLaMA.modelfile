@@ -1,7 +1,7 @@
 # Phind-CodeLLaMA:34B_v2
 # TAGS: Code, Programming, SWD, CS
 
-FROM /mnt/ollama-mnt/models/phind-codellama-34b-v2.Q5_K_M.gguf
+FROM /mnt/ollama/models/phind-codellama-34b-v2.Q5_K_M.gguf
 
 TEMPLATE """
 {{- if .First }}

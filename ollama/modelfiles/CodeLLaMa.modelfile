@@ -1,7 +1,7 @@
 # CodeLLaMA:7B
 # TAGS: Code, Programming, SWD, CS
 
-FROM /mnt/ollama-mnt/models/codellama-7b.Q5_K_M.gguf
+FROM /mnt/ollama/models/codellama-7b.Q5_K_M.gguf
 
 TEMPLATE """{{ .Prompt }}"""
 

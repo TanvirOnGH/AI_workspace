@@ -1,7 +1,7 @@
 # WizardMath:7B
 # TAGS: Domain, Math, Logic, Reasoning
 
-FROM /mnt/ollama-mnt/models/wizardmath-7b-v1.0.Q5_K_M.gguf
+FROM /mnt/ollama/models/wizardmath-7b-v1.0.Q5_K_M.gguf
 
 TEMPLATE """
 {{ .System }}

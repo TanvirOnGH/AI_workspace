@@ -1,7 +1,7 @@
 # Cat:13B_v1
 # TAGS: Domain, Medical, Clinical, NSFW, Uncensored, RP
 
-FROM /mnt/ollama-mnt/models/cat-v1.0-13b.Q5_K_M.gguf
+FROM /mnt/ollama/models/cat-v1.0-13b.Q5_K_M.gguf
 
 TEMPLATE """
 {{ .System }}

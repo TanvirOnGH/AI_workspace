@@ -1,7 +1,7 @@
 # LLaMA2-Tiefighter:13B
 # TAGS: Partially NSFW, Partially Uncensored, LoRAs
 
-FROM /mnt/ollama-mnt/models/llama2-13b-tiefighter.Q4_K_M.gguf
+FROM /mnt/ollama/models/llama2-13b-tiefighter.Q4_K_M.gguf
 
 TEMPLATE """
 {{- if .First }}{{ .System }}{{- end }}

@@ -1,7 +1,7 @@
 # WizardCoder-Python:7B
 # TAGS: Code, Programming, SWD, CS, Python
 
-FROM /mnt/ollama-mnt/models/wizardcoder-python-7b-v1.0.Q5_K_M.gguf
+FROM /mnt/ollama/models/wizardcoder-python-7b-v1.0.Q5_K_M.gguf
 
 TEMPLATE """
 {{ .System }}

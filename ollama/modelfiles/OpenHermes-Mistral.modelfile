@@ -1,7 +1,7 @@
 # OpenHermes-Mistral:7B_v2.5
 # TAGS: General, Fine-tune
 
-FROM /mnt/ollama-mnt/models/openhermes-2.5-mistral-7b.Q5_K_M.gguf
+FROM /mnt/ollama/models/openhermes-2.5-mistral-7b.Q5_K_M.gguf
 
 TEMPLATE """
 {{- if .System }}

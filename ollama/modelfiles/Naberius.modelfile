@@ -1,7 +1,7 @@
 # Naberius:7B
 # TAGS: NSFW, Uncensored, RP, Logic, Merges
 
-FROM /mnt/ollama-mnt/models/naberius-7b.Q5_K_M.gguf
+FROM /mnt/ollama/models/naberius-7b.Q5_K_M.gguf
 
 TEMPLATE """
 {{- if .System }}

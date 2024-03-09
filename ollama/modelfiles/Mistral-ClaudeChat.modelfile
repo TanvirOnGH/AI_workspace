@@ -1,7 +1,7 @@
 # Mistral-ClaudeChat:7B
 # TAGS: General, Fine-tune
 
-FROM /mnt/ollama-mnt/models/mistral-7b-claude-chat.Q5_K_M.gguf
+FROM /mnt/ollama/models/mistral-7b-claude-chat.Q5_K_M.gguf
 
 TEMPLATE """
 {{- if .System }}{{ .System }}{{- end }}

@@ -1,7 +1,7 @@
 # OpenChat:7B_v3.5
 # TAGS: GPT 3, GPT 3.5, GPT 3.5-Turbo, GPT4, General, Censored
 
-FROM /mnt/ollama-mnt/models/openchat_3.5.Q5_K_M.gguf
+FROM /mnt/ollama/models/openchat_3.5.Q5_K_M.gguf
 
 # `GPT4 Correct` means the conversations are verified correct, `GPT4` is normal GPT4 data (unknown correctness),
 # `Code` is coding specific data. `GPT4 Correct` works better on reasoning.

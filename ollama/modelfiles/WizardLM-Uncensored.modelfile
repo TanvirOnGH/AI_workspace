@@ -2,7 +2,7 @@
 # TAGS: General, Uncensored, NSFW
 # Description: An uncensored model has no guardrails. Intended to reduce refusals, avoidance, and bias.
 
-FROM /mnt/ollama-mnt/models/wizardlm-7b-v1.0-uncensored.Q5_K_M.gguf
+FROM /mnt/ollama/models/wizardlm-7b-v1.0-uncensored.Q5_K_M.gguf
 TEMPLATE """
 {{ .System }}
 

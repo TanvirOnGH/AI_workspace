@@ -1,7 +1,7 @@
 # SQLCoder:7B
 # TAGS: Coding, SQL, Database, Domain
 
-FROM /mnt/ollama-mnt/models/sqlcoder-7b.Q5_K_M.gguf
+FROM /mnt/ollama/models/sqlcoder-7b.Q5_K_M.gguf
 
 TEMPLATE """
 ### Instruction:

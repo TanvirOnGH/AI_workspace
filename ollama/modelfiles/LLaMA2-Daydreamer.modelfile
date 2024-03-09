@@ -1,7 +1,7 @@
 # LLaMA2-Daydreamer:22B_v3
 # TAGS: Experimental
 
-FROM /mnt/ollama-mnt/models/llama2-22b-daydreamer-v3.Q4_K_M.gguf
+FROM /mnt/ollama/models/llama2-22b-daydreamer-v3.Q4_K_M.gguf
 
 TEMPLATE """
 {{ .System }}

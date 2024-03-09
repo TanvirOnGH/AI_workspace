@@ -1,7 +1,7 @@
 # Uncensored-Jordan:7B
 # TAGS: Fancy, Uncensored, NSFW
 
-FROM /mnt/ollama-mnt/models/uncensored-jordan-7b.Q5_K_M.gguf
+FROM /mnt/ollama/models/uncensored-jordan-7b.Q5_K_M.gguf
 
 TEMPLATE """
 {{ .System }}
