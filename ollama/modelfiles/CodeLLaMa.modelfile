@@ -3,10 +3,9 @@
 
 FROM /mnt/ollama/models/codellama-7b.Q5_K_M.gguf
 
-TEMPLATE """{{ .Prompt }}"""
+TEMPLATE """{{ .System }}{{ .Prompt }}"""
 
-SYSTEM """
-"""
+#SYSTEM """"""
 
 PARAMETER rope_frequency_base 1e+06
 PARAMETER temperature 0.0
