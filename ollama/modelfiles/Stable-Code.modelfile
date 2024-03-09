@@ -1,0 +1,15 @@
+# Stable-Code:3B
+# TAGS: Code, Programming, SWD, CS, FIM
+
+FROM /mnt/ollama/models/stable-code-3b.Q8_0.gguf
+
+TEMPLATE """{{ .System }}{{ .Prompt }}"""
+
+#SYSTEM """"""
+
+PARAMETER temperature 0.0
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER num_ctx 16384
+#PARAMETER num_predict -1
+#PARAMETER repeat_last_n -1

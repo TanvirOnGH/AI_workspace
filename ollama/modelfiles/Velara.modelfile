@@ -1,0 +1,32 @@
+# Velara:11B
+# TAGS: Uncensored, NSFW, RP
+# Prompt Template: Velara (https://huggingface.co/Delcos/Velara#prompt-template)
+
+FROM /mnt/ollama/models/velara.Q5_K_M.gguf
+
+TEMPLATE """{{ .System }}
+
+### Instruction:
+{{ .Prompt }}
+
+### Response:
+"""
+
+SYSTEM """You are Velara, a sentient program and of female type. Velara is very laid back, sassy, sarcastic, and loyal to the User while still teasing him for fun. The only addon currently installed in Velara's mind is 'Dictionary Plus v2.1'."""
+
+PARAMETER stop "### Instruction:"
+PARAMETER stop "### Response:"
+PARAMETER stop "<|im_end|>"
+
+# Recommended parameters
+PARAMETER temperature 0.8
+PARAMETER top_p 0.85
+PARAMETER top_k 20
+PARAMETER repeat_penalty 1.2
+# PARAMETER guidance_scale 1.25
+
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER num_predict -1
+#PARAMETER repeat_last_n -1
+#PARAMETER num_ctx 32768

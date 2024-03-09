@@ -1,0 +1,31 @@
+# Obsidian:3B_v0.5
+# TAGS: Multimodal, Image, Visual, Vision
+# Prompt Template: ChatML with ### as separator
+
+FROM /mnt/ollama/models/obsidian-q6.gguf
+
+TEMPLATE """{{ if .System }}
+<|im_start|>system
+{{ .System }}
+###
+{{ end }}
+<|im_start|>user
+{{ .Prompt }}
+###
+<|im_start|>assistant
+: 
+"""
+
+# SYSTEM """You are a vision language model called Obsidian."""
+
+PARAMETER stop "###"
+PARAMETER stop "<|im_start|>"
+PARAMETER stop "<|endoftext|>"
+PARAMETER stop "<|im_end|>"
+
+PARAMETER temperature 0.1
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER num_predict -1
+#PARAMETER repeat_last_n -1
+#PARAMETER num_ctx 2048
