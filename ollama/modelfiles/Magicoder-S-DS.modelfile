@@ -1,0 +1,26 @@
+# Magicoder-S-DS:6.7B
+# TAGS: Fine-tune, Code, Programming, SWD, SWE, CS
+# Magicoders are designed and best suited for coding tasks.
+# Magicoders may not work well in non-coding tasks.
+
+FROM /mnt/ollama/models/magicoder-s-ds-6.7b.Q5_K_M.gguf
+
+TEMPLATE """
+{{ .System }}
+
+@@ Instruction
+{{ .Prompt }}
+
+@@ Response
+"""
+
+SYSTEM """
+You are an exceptionally intelligent coding assistant that consistently delivers accurate and reliable responses to user instructions.
+"""
+
+PARAMETER temperature 0.0
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER num_predict -1
+#PARAMETER repeat_last_n -1
+#PARAMETER num_ctx 16384
