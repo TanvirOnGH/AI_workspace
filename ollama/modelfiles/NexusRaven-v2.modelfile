@@ -1,6 +1,7 @@
 # NexusRaven:7B_v2
 # TAGS: Function-Calling, Task, Domain, Security, Cybersecurity
 # DESCRIPTION: An open-source and commercially viable function calling LLM that surpasses the state-of-the-art in function calling capabilities.
+# Prompt Template: NexusRaven v2
 # REPO: <https://huggingface.co/Nexusflow/NexusRaven-V2-13B>
 
 FROM /mnt/ollama/models/nexusraven-v2-13b.Q5_K_M.gguf
@@ -9,6 +10,8 @@ TEMPLATE """{{ .System }}
 
 User Query: {{ .Prompt }}<human_end>"""
 
+# Example System Prompt
+# N.B: When handling irrelevant user queries, users have noticed that specifying a "no-op" function with arguments work best.
 SYSTEM """Function:
 def function(arg):
   """
@@ -19,12 +22,17 @@ def function(arg):
 
     Returns:
     list returns
-    """
+  """
 
 Function:
-def another_function(arg1, arg2):
-  ..."""
+def no_relevant_function(user_query : str):
+  """
+  Call this when no other provided function can be called to answer the user query.
 
+  Args:
+    user_query: The user_query that cannot be answered by any other function calls.
+  """
+"""
 
 PARAMETER stop "<human_end>"
 
