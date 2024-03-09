@@ -1,7 +1,7 @@
-# Neural-Chat:7B_v3.1
+# Neural-Chat:7B_v3.2
 # TAGS: General
 
-FROM /mnt/ollama/models/neural-chat-7b-v3-1.Q5_K_M.gguf
+FROM /mnt/ollama/models/neural-chat-7b-v3-2.Q5_K_M.gguf
 
 TEMPLATE """
 ### System:
@@ -20,7 +20,7 @@ You are Neural Chat, a large language model developed by Intel. You are a fine-t
 PARAMETER stop "<|im_start|>"
 PARAMETER stop "<|im_end|>"
 
-PARAMETER temperature 1.0
+PARAMETER temperature 0.95
 PARAMETER seed 0
 PARAMETER num_thread 8
 #PARAMETER num_ctx 4096
