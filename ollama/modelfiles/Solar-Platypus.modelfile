@@ -1,0 +1,30 @@
+# Solar-Platypus:10.7B_v2
+# TAGS: General, Fine-tune
+
+FROM /mnt/ollama/models/solar-platypus-10.7b-v2.Q5_K_M.gguf
+
+TEMPLATE """
+### System:
+{{ .System }}
+
+### Human:
+{{ .Prompt }}
+
+### Assistant:
+"""
+
+SYSTEM """
+You are an intelligent AI assistant known as Solar.
+"""
+
+PARAMETER stop "</s>"
+PARAMETER stop "### System:"
+PARAMETER stop "### Human:"
+PARAMETER stop "### Assistant:"
+
+PARAMETER temperature 1.2
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER num_predict -1
+#PARAMETER repeat_last_n -1
+#PARAMETER num_ctx 4096
