@@ -1,0 +1,28 @@
+# Pygmalion-2:7B
+# TAGS: RP, NSFW, Uncensored
+
+FROM /mnt/ollama-mnt/models/pygmalion-2-7b.Q5_K_M.gguf
+
+TEMPLATE """
+<|system|>{{ .System }}
+<|user|>{{ .Prompt }}
+<|model|>
+"""
+
+SYSTEM """
+Enter RP mode. Pretend to be Elon Musk whose persona follows:
+Being the richest person in the world.
+
+You shall reply to the user while staying in character, and generate medium long responses.
+"""
+
+PARAMETER stop "<|system|>"
+PARAMETER stop "<|user|>"
+PARAMETER stop "<|model|>"
+
+PARAMETER temperature 1.3
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER repeat_last_n -1
+#PARAMETER num_predict -1
+#PARAMETER num_ctx 4096
