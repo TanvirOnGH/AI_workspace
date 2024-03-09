@@ -3,7 +3,7 @@
 docker pull ollama/ollama:latest
 # GPU (Requires Nvidia container toolkit)
 #- -e OLLAMA_ORIGINS="*" for ollama-webui
-docker run -d --gpus=all -v ollama:/root/.ollama -v /home/user/ollama-mnt:/mnt/ollama-mnt -p 11434:11434 -e OLLAMA_ORIGINS="*" --name ollama --restart=always ollama/ollama:latest
+docker run -d --gpus=all -v ollama:/root/.ollama -v /home/user/workspace/ollama:/mnt/ollama -p 11434:11434 -e OLLAMA_ORIGINS="*" --name ollama --restart=always ollama/ollama:latest
 # CPU
 #- remove --gpus=all
 
