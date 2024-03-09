@@ -1,6 +1,7 @@
 # NexusRaven:7B
 # TAGS: Function-Calling, Task, Domain, Security, Cybersecurity
 # DESCRIPTION: An open-source and commercially viable function calling LLM that surpasses the state-of-the-art in function calling capabilities.
+# REPO: <https://huggingface.co/Nexusflow/NexusRaven-13B>
 
 FROM /mnt/ollama/models/nexusraven-13b.Q5_K_M.gguf
 

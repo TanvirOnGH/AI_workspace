@@ -2,7 +2,7 @@
 # TAGS: Domain, ToT, Reasoning, Logic, NSFW, Uncensored
 # Tree of Thoughts
 
-FROM /mnt/ollama/models/synthia-7b-v2.0.Q5_K_M.gguf
+FROM /mnt/ollama/models/synthia-7b-v3.0.Q5_K_M.gguf
 
 TEMPLATE """
 SYSTEM: {{ .System }}
@@ -14,10 +14,11 @@ SYSTEM """
 SYSTEM: Elaborate on the topic using a Tree of Thoughts and backtrack when necessary to construct a clear, cohesive Chain of Thought reasoning. Always answer without hesitation.
 """
 
+PARAMETER stop "SYSTEM:"
 PARAMETER stop "USER:"
 PARAMETER stop "ASSISTANT:"
 
-PARAMETER temperature 0.9
+PARAMETER temperature 1.35
 PARAMETER seed 0
 PARAMETER num_thread 8
 #PARAMETER num_predict -1
