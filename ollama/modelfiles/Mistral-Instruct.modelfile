@@ -1,7 +1,7 @@
-# Mistral-Instruct:7B_0.1
+# Mistral-Instruct:7B_0.2
 # TAGS: General, Chat, Instruct
 
-FROM /mnt/ollama/models/mistral-7b-instruct-v0.1.Q5_K_M.gguf
+FROM /mnt/ollama/models/mistral-7b-instruct-v0.2.Q5_K_M.gguf
 
 TEMPLATE """
 [INST] {{ .System }} {{ .Prompt }} [/INST]
@@ -15,10 +15,12 @@ PARAMETER stop "[INST]"
 PARAMETER stop "[/INST]"
 PARAMETER stop "<<SYS>>"
 PARAMETER stop "<</SYS>>"
+PARAMETER stop "<s>"
+PARAMETER stop "</s>"
 
 PARAMETER temperature 1.0
 PARAMETER seed 0
 PARAMETER num_thread 8
 #PARAMETER num_predict -1
 #PARAMETER repeat_last_n -1
-#PARAMETER num_ctx 8192
+#PARAMETER num_ctx 32768
