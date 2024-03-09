@@ -23,7 +23,6 @@ PARAMETER stop "### System Prompt:"
 PARAMETER stop "### User Message:"
 PARAMETER stop "### Assistant:"
 
-PARAMETER num_gqa 8
 PARAMETER rope_frequency_base 1e+06
 PARAMETER temperature 0.0
 PARAMETER top_p 0.75
