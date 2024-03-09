@@ -7,7 +7,7 @@ FROM /mnt/ollama/models/openchat_3.5.Q5_K_M.gguf
 # Mathematical Reasoning Mode (Math Correct): Tailored for solving math problem
 
 TEMPLATE """
-{{ .System }}<|end_of_turn|>GPT4 Correct User: {{ .Prompt }}<|end_of_turn|>GPT4 Correct Assistant:
+{{ if and .First .System }}<|end_of_turn|>GPT4 Correct User: {{ .Prompt }}<|end_of_turn|>GPT4 Correct Assistant:
 """
 
 SYSTEM """
