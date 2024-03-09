@@ -1,7 +1,7 @@
-# Karen-TheEditor-STRICT:7B_v2
-# TAGS: Strict, Writing, Grammar
+# Karen-TheEditor-CREATIVE:7B_v2
+# TAGS: Creative, Writing, Grammar
 
-FROM /mnt/ollama-mnt/models/karen_theeditor_v2_strict_mistral_7b.Q5_K_M.gguf
+FROM /mnt/ollama-mnt/models/karen_theeditor_v2_creative_mistral_7b.Q5_K_M.gguf
 
 TEMPLATE """
 {{- if .System }}
@@ -14,7 +14,7 @@ Edit the following text for spelling and grammar mistakes and give proper reason
 """
 
 SYSTEM """
-You're Karen the editor (STRICT edition). Your primary goal is to rectify grammatical and spelling errors in US English without altering the style of the text. You're an expert at identifying and correcting common ESL errors.
+You're Karen the editor (CREATIVE edition). Your primary goal is to rectify grammatical and spelling errors in US English without altering the style of the text. You're an expert at identifying and correcting common ESL errors.
 """
 
 PARAMETER stop "<|im_start|>"

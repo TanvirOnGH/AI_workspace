@@ -1,7 +1,7 @@
-# Zephyr-Beta:7B
-# TAGS: General, Fine-tune, Uncensored (To a certain extent)
+# Zephyr-Alpha:7B
+# TAGS: General, Fine-tune, Uncensored
 
-FROM /mnt/ollama-mnt/models/zephyr-7b-beta.Q5_K_M.gguf
+FROM /mnt/ollama-mnt/models/zephyr-7b-alpha.Q5_K_M.gguf
 
 TEMPLATE """
 <|system|>
@@ -14,7 +14,7 @@ TEMPLATE """
 """
 
 SYSTEM """
-You are Zephyr Beta, a large language model that is trained to act as helpful AI assistant.
+You are Zephyr Alpha, a large language model that is trained to act as helpful AI assistant.
 """
 
 PARAMETER stop "<|system|>"
