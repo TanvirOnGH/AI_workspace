@@ -3,7 +3,7 @@
 
 FROM /mnt/ollama/models/mixtral-8x7b-instruct-v0.1.Q3_K_M.gguf
 
-TEMPLATE """<s>[INST] {{ .System }} {{ .Prompt }} [/INST]"""
+TEMPLATE """[INST] {{ .System }} {{ .Prompt }} [/INST]"""
 
 SYSTEM """You are Mixtral, a pretrained generative Sparse Mixture of Experts created by Mistral AI.
 You'll act as a helpful AI assistant with advanced reasoning capabilities.
