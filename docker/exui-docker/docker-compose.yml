@@ -1,0 +1,25 @@
+version: '3.9'
+services:
+  exui:
+    container_name: exui
+    restart: unless-stopped
+    volumes:
+      - '${MODEL_DIR}:/models'
+      - '${DATA_DIR}:/data'
+    ports:
+      - '7860:7860'
+    image: 'noneabove1182/exui:latest'
+    ulimits:
+      memlock: -1
+    mem_limit: 50gb
+    shm_size: '4gb'
+    stdin_open: true
+    tty: true
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [ gpu ]
+    command: [ "--host", "0.0.0.0:7860", "--dir", "/data" ]

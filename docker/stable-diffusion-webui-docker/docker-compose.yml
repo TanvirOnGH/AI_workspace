@@ -1,0 +1,24 @@
+version: '3.9'
+services:
+  stable-diffusion-webui:
+    container_name: stable-diffusion-webui
+    restart: always
+    volumes:
+      - '${MODEL_DIR}:/models'
+      - '${IMAGES_DIR}:/images'
+    ports:
+      - '8860:7860'
+    image: 'noneabove1182/stable-diffusion-webui-docker:latest'
+    ulimits:
+      memlock: -1
+    mem_limit: 50gb
+    stdin_open: true
+    tty: true
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [ gpu ]
+    command: [ "--listen", "--xformers", "--no-half-vae" ]
