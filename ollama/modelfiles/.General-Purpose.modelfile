@@ -1,17 +1,28 @@
 # The Modelfile is not case sensitive.
 # Instructions can be in any order.
 
+FROM /mnt/ollama/models/<model>.gguf
+
 # Model-Dataset:N_v0.0
 
-TEMPLATE """
-{{- if .First }}
+#TEMPLATE """{{- if .First }}
+#{{ .System }}
+#{{- end }}"""
+
+TEMPLATE """{{ if .First }}
+### System:
 {{ .System }}
-{{- end }}
+{{ end }}
+
+### User:
+{{ .Prompt }}
+
+### Response:
 """
 
-SYSTEM """
-You are a helpful AI Assistant.
-"""
+SYSTEM """You are a helpful AI assistant."""
+
+# ADAPTER /mnt/ollama/adapters/<adapter>.bin
 
 PARAMETER mirostat 0
 PARAMETER mirostat_tau 5
@@ -31,3 +42,7 @@ PARAMETER tfs_z 1
 PARAMETER top_p 1
 #PARAMETER min_p 0.1
 PARAMETER temperature 1.0
+
+LICENSE """
+<license text>
+"""
