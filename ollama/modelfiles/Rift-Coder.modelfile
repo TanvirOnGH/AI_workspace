@@ -18,7 +18,7 @@ PARAMETER stop "<<SYS>>"
 PARAMETER stop "<</SYS>>"
 
 PARAMETER rope_frequency_base 1e+06
-PARAMETER temperature 0.1
+PARAMETER temperature 0.0
 PARAMETER seed 0
 PARAMETER num_thread 8
 #PARAMETER num_ctx 4096

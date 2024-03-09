@@ -22,7 +22,7 @@ If a question does not make any sense, or is not factually coherent, explain why
 PARAMETER stop "<|im_start|>"
 PARAMETER stop "<|im_end|>"
 
-PARAMETER temperature 0.2
+PARAMETER temperature 0.0
 PARAMETER seed 0
 PARAMETER num_thread 8
 #PARAMETER num_predict -1

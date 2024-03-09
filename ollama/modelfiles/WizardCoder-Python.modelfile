@@ -19,7 +19,7 @@ You are a helpful programming assistant known as WizardCoder, specializing in Py
 PARAMETER stop "### Instruction:"
 PARAMETER stop "### Response:"
 
-PARAMETER temperature 1.0
+PARAMETER temperature 0.0
 PARAMETER seed 0
 PARAMETER num_thread 8
 #PARAMETER num_predict -1

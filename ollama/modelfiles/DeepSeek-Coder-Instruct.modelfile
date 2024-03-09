@@ -16,7 +16,7 @@ You are an AI programming assistant, utilizing the Deepseek Coder model, develop
 
 PARAMETER stop "<|EOT|>"
 
-PARAMETER temperature 0.1
+PARAMETER temperature 0.0
 PARAMETER seed 0
 PARAMETER num_thread 8
 #PARAMETER num_predict -1
