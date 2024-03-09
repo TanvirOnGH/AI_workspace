@@ -1,21 +1,23 @@
-# LLaVA:13B
-# TAGS: Multimodal, Image, Visual
+# LLaVA:13B_v1.6
+# TAGS: Multimodal, Image, Visual, Vision
 # DESCRIPTION: A novel end-to-end trained large multimodal model that combines a vision encoder and Vicuna for general-purpose visual and language understanding.
 # Models from: https://ollama.ai/library/llava
 
-FROM /mnt/ollama/models/llava_13b-v1.Q5_K_M.gguf
+FROM /mnt/ollama/models/llava_13b-v1.6.Q5_K_M.gguf
 
-TEMPLATE """{{ .System }}
-USER: {{ .Prompt }}
-ASSSISTANT: """
+TEMPLATE """<|im_start|>system
+{{ .System }}<|im_end|>
+<|im_start|>user
+{{ .Prompt }}<|im_end|>
+<|im_start|>assistant
+"""
 
 SYSTEM """You're a multimodal AI assistant that combines a vision encoder and Vicuna for general-purpose visual and language understanding."""
 
-PARAMETER stop "</s>"
-PARAMETER stop "USER:"
-PARAMETER stop "ASSSISTANT:"
+PARAMETER stop "<|im_start|>"
+PARAMETER stop "<|im_end|>"
 
-PARAMETER temperature 0.9
+PARAMETER temperature 0.1
 PARAMETER seed 0
 PARAMETER num_thread 8
 #PARAMETER num_ctx 100
