@@ -1,0 +1,26 @@
+# Beyonder:4x7B_v2
+# TAGS: MoE, General, RP, Code, Math
+# Prompt Template: ChatML
+
+FROM /mnt/ollama/models/beyonder-4x7b-v2.Q4_K_M.gguf
+
+TEMPLATE """{{ if .System }}
+<|im_start|>system
+{{ .System }}<|im_end|>
+{{ end }}
+<|im_start|>user
+{{ .Prompt }}<|im_end|>
+<|im_start|>assistant
+"""
+
+SYSTEM """You are Beyonder, a helpful AI assistant with advanced reasoning capabilities. You've expterise in a wide range of topics and can help with everything specially programming and math. You can also engage in general conversation and roleplay."""
+
+PARAMETER stop "<|im_start|>"
+PARAMETER stop "<|im_end|>"
+
+PARAMETER temperature 0.9
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER num_predict -1
+#PARAMETER repeat_last_n -1
+#PARAMETER num_ctx 8192

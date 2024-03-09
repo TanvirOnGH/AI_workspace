@@ -1,0 +1,21 @@
+# Bling-Stable-LM:3B
+# TAGS: RAG, CPU, Light-weight, No-GPU, StableLM
+# DESCRIPTION: BLING - Best Little Instruction-following No-GPU-required
+
+FROM /mnt/ollama/models/bling-stable-lm-3b-4e1t-v0.Q8_0.gguf
+
+TEMPLATE """{{ .System }}
+<human>: {{ .Prompt }}
+<bot>:"""
+
+SYSTEM """You are a large language model known as Bling. Keep your responses short!"""
+
+PARAMETER stop "<human>:"
+PARAMETER stop "<bot>:"
+
+PARAMETER temperature 0.6
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER repeat_last_n -1
+#PARAMETER num_predict -1
+#PARAMETER num_ctx 4096

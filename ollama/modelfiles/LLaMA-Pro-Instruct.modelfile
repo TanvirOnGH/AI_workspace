@@ -1,0 +1,23 @@
+# LLaMA-Pro-Instruct:8B
+# TAGS: General, Coding, Programming, Math, Logic, Reasoning
+# Prompt Template: ToRA
+
+FROM /mnt/ollama/models/llama-pro-8b-instruct.Q5_K_M.gguf
+
+TEMPLATE """{{ .System }}
+<|user|>
+{{ .Prompt }}
+<|assistant|>
+"""
+
+SYSTEM """You are LLaMA Pro, a large language model that is trained to act as helpful AI assistant. You've advanced programming, math, logic and reasoning capabilities."""
+
+PARAMETER stop "<|user|>"
+PARAMETER stop "<|assistant|>"
+
+PARAMETER temperature 0.7
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER num_predict -1
+#PARAMETER repeat_last_n -1
+#PARAMETER num_ctx 4096
