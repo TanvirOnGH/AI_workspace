@@ -1,6 +1,7 @@
 # NexusRaven:7B
 # TAGS: Function-Calling, Task, Domain, Security, Cybersecurity
 # DESCRIPTION: An open-source and commercially viable function calling LLM that surpasses the state-of-the-art in function calling capabilities.
+# Prompt Template: NexusRaven v1
 # REPO: <https://huggingface.co/Nexusflow/NexusRaven-13B>
 
 FROM /mnt/ollama/models/nexusraven-13b.Q5_K_M.gguf
@@ -12,7 +13,7 @@ User Query: Question: {{ .Prompt }}
 
 Please pick a function from the above options that best answers the user query and fill in the appropriate arguments.<human_end>
 
-Initial Answer: """
+Initial Answer:"""
 
 SYSTEM """OPTION:
 <func_start>def hello_world(n : int)<func_end>
@@ -36,7 +37,7 @@ n (int) : Number of times to print hello universe.
 \"\"\"
 <docstring_end>"""
 
-
+PARAMETER stop "\nReflection:"
 PARAMETER stop "Reflection:"
 
 PARAMETER temperature 0.1
