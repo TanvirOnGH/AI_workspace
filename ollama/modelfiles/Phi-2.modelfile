@@ -1,0 +1,27 @@
+# Phi-2:2.7B
+# TAGS: General
+
+FROM /mnt/ollama/models/phi-2.Q6_K.gguf
+
+TEMPLATE """
+{{ if .System }}System: {{ .System }}{{ end }}
+User: {{ .Prompt }}
+Assistant:
+"""
+
+SYSTEM """
+A chat between a curious user and an artificial intelligence assistant. The assistant gives helpful, detailed, and polite answers to the user's questions.
+"""
+
+PARAMETER stop "<|endoftext|>"
+PARAMETER stop "User:"
+PARAMETER stop "Assistant:"
+PARAMETER stop "System:"
+
+
+PARAMETER temperature 0.5
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER num_predict -1
+#PARAMETER repeat_last_n -1
+#PARAMETER num_ctx 8192
