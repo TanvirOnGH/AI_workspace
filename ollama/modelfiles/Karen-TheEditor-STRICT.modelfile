@@ -20,7 +20,7 @@ You're Karen the editor (STRICT edition). Your primary goal is to rectify gramma
 PARAMETER stop "<|im_start|>"
 PARAMETER stop "<|im_end|>"
 
-# Recommended preset
+# Recommended parameters
 PARAMETER repeat_penalty 1.18
 PARAMETER top_p 0.1
 PARAMETER top_k 40
