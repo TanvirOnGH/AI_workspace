@@ -1,0 +1,27 @@
+# Alfred:40B
+# TAGS: Chat
+
+FROM /mnt/ollama/models/alfred-40b-1023.Q3_K_S.gguf
+
+TEMPLATE """
+<start_system>{{ .System }}<end_message><start_user>{{ .Prompt }}<end_message><start_assistant>
+"""
+
+SYSTEM """
+You are Alfred, a helpful assistant trained by LightOn.
+"""
+
+PARAMETER stop "<end_message>"
+PARAMETER stop "</end_message>"
+PARAMETER stop "<start_user>"
+PARAMETER stop "</start_user>"
+PARAMETER stop "<start_system>"
+PARAMETER stop "</start_system>"
+PARAMETER stop "</start_assistant>"
+
+PARAMETER temperature 0.8
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER repeat_last_n -1
+#PARAMETER num_predict -1
+#PARAMETER num_ctx 8192
