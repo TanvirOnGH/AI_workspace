@@ -1,0 +1,24 @@
+# Goliath:120B
+# TAGS: General
+
+FROM /mnt/ollama/models/goliath-120b.Q5_K_M.gguf
+
+TEMPLATE """
+{{ .System }}
+User: {{ .Prompt }}
+Assistant:
+"""
+
+SYSTEM """
+You are an extremely powerful AI assistant.
+"""
+
+PARAMETER stop "User:"
+PARAMETER stop "Assistant:"
+
+PARAMETER temperature 1.0
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER num_ctx 4096
+# PARAMETER repeat_last_n -1
+# PARAMETER num_predict -1
