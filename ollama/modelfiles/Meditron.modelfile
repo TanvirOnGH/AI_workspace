@@ -1,0 +1,28 @@
+# Meditron:7B
+# TAGS: Medical, Domain
+
+FROM /mnt/ollama/models/meditron-7b.Q5_K_M.gguf
+
+TEMPLATE """
+{{- if .System }}
+<|im_start|>system
+{{ .System }}<|im_end|>
+{{- end }}
+<|im_start|>user
+{{ .Prompt }}<|im_end|>
+<|im_start|>assistant
+"""
+
+SYSTEM """
+A chat between a curious user and an artificial intelligence assistant. The assistant gives helpful, detailed, and polite answers to the user's questions.
+"""
+
+PARAMETER stop "<|im_start|>"
+PARAMETER stop "<|im_end|>"
+
+PARAMETER temperature 0.3
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER num_predict -1
+#PARAMETER repeat_last_n -1
+#PARAMETER num_ctx 2048

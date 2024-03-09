@@ -1,0 +1,28 @@
+# Starling-LM-Alpha:7B
+# TAGS: General, Censored, Fine-tune, GPT 3, GPT 3.5, GPT 3.5-Turbo, GPT4
+
+FROM /mnt/ollama/models/starling-lm-7b-alpha.Q5_K_M.gguf
+
+# `GPT4 Correct` means the conversations are verified correct, `GPT4` is normal GPT4 data (unknown correctness),
+# `Code` is coding specific data. `GPT4 Correct` works better on reasoning.
+
+TEMPLATE """
+{{ .System }}<|end_of_turn|>GPT4 Correct User: {{ .Prompt }}<|end_of_turn|>GPT4 Correct Assistant:
+"""
+
+SYSTEM """
+You are a large language model known as Starling. You're a very helpful AI assistant with diverse knowledge.
+"""
+
+PARAMETER stop "<|endoftext|>"
+PARAMETER stop "<|end_of_turn|>"
+PARAMETER stop "<|im_sep|>"
+PARAMETER stop "GPT4 Correct User:"
+PARAMETER stop "GPT4 Correct Assistant:"
+
+PARAMETER temperature 1.0
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER repeat_last_n -1
+#PARAMETER num_predict -1
+#PARAMETER num_ctx 8192

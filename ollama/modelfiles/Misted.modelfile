@@ -1,0 +1,27 @@
+# Misted:7B
+# TAGS: General, RP, NSFW, Uncensored, Fine-tune, Merges
+
+FROM /mnt/ollama/models/Misted-7B-Q5_K_M.gguf
+
+TEMPLATE """
+{{- if .First }}{{ .System }}{{- end }}
+
+### Instruction:
+{{ .Prompt }}
+
+### Response:
+"""
+
+SYSTEM """
+You are an intelligent and helpful AI assistant known as Misted.
+"""
+
+PARAMETER stop "### Instruction:"
+PARAMETER stop "### Response:"
+
+PARAMETER temperature 0.9
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER num_predict -1
+#PARAMETER repeat_last_n -1
+#PARAMETER num_ctx 8192
