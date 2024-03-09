@@ -3,11 +3,8 @@
 
 FROM /mnt/ollama/models/openchat_3.5.Q5_K_M.gguf
 
-# `GPT4 Correct` means the conversations are verified correct, `GPT4` is normal GPT4 data (unknown correctness),
-# `Code` is coding specific data. `GPT4 Correct` works better on reasoning.
-
 TEMPLATE """
-{{ .System }}<|end_of_turn|>Human: {{ .Prompt }}<|end_of_turn|>Assistant:
+{{ .System }}<|end_of_turn|>GPT4 Correct User: {{ .Prompt }}<|end_of_turn|>GPT4 Correct Assistant:
 """
 
 SYSTEM """
@@ -17,8 +14,9 @@ You are a large language model known as OpenChat. You're a very helpful AI assis
 PARAMETER stop "<|endoftext|>"
 PARAMETER stop "<|end_of_turn|>"
 PARAMETER stop "<|im_sep|>"
-PARAMETER stop "Human:"
 PARAMETER stop "Assistant:"
+PARAMETER stop "GPT4 Correct User:"
+PARAMETER stop "GPT4 Correct Assistant"
 
 PARAMETER temperature 1.0
 PARAMETER seed 0
