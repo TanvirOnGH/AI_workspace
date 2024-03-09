@@ -1,5 +1,5 @@
 # OpenHermes-Mistral:7B_v2.5
-# TAGS: General, Fine-tune
+# TAGS: General, Fine-tune, RP
 
 FROM /mnt/ollama/models/openhermes-2.5-mistral-7b.Q5_K_M.gguf
 
