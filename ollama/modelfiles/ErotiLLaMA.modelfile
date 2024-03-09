@@ -3,7 +3,7 @@
 
 FROM /mnt/ollama/models/ErotiLLAMA-FFT.gguf
 
-TEMPLATE """{{ .Prompt }}"""
+TEMPLATE """{{ .System }}{{ .Prompt }}"""
 
 # SYSTEM """"""
 
