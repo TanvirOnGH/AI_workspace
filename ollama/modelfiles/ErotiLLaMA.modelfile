@@ -1,0 +1,18 @@
+# ErotiLLaMA:7B
+# TAGS: Base, NSFW, ERP, RP, Uncensored
+
+FROM /mnt/ollama/models/ErotiLLAMA-FFT.gguf
+
+TEMPLATE """{{ .Prompt }}"""
+
+# SYSTEM """"""
+
+# PARAMETER stop "</s>"
+
+PARAMETER temperature 1.2
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER num_ctx 100
+#PARAMETER num_predict -2
+#PARAMETER repeat_last_n -1
+#PARAMETER num_ctx 2048
