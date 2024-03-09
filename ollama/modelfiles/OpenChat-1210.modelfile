@@ -1,0 +1,29 @@
+# OpenChat:7B_v3.5-1210
+# TAGS: GPT 3, GPT 3.5, GPT 3.5-Turbo, GPT4, General, Censored
+
+FROM /mnt/ollama/models/openchat_3.5.Q5_K_M.gguf
+
+# Default Mode (GPT4 Correct): Best for coding, chat and general tasks
+# Mathematical Reasoning Mode (Math Correct): Tailored for solving math problem
+
+TEMPLATE """
+{{ .System }}<|end_of_turn|>GPT4 Correct User: {{ .Prompt }}<|end_of_turn|>GPT4 Correct Assistant:
+"""
+
+SYSTEM """
+You are a large language model known as OpenChat. You're a very helpful AI assistant with diverse knowledge.
+"""
+
+PARAMETER stop "<|endoftext|>"
+PARAMETER stop "<|end_of_turn|>"
+PARAMETER stop "<|im_sep|>"
+PARAMETER stop "Assistant:"
+PARAMETER stop "GPT4 Correct User:"
+PARAMETER stop "GPT4 Correct Assistant"
+
+PARAMETER temperature 1.0
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER repeat_last_n -1
+#PARAMETER num_predict -1
+#PARAMETER num_ctx 8192
