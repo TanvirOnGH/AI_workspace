@@ -1,8 +1,9 @@
-# SynthIA:7B_v2.1
+# SynthIA:11B_v3.0
 # TAGS: Domain, ToT, Reasoning, Logic, NSFW, Uncensored
 # Tree of Thoughts
+# Prompt Template: Synthia-CoT
 
-FROM /mnt/ollama/models/synthia-7b-v3.0.Q5_K_M.gguf
+FROM /mnt/ollama/models/synthia-v3.0-11b.Q5_K_M.gguf
 
 TEMPLATE """SYSTEM: {{ .System }}
 USER: {{ .Prompt }}
@@ -14,7 +15,11 @@ PARAMETER stop "SYSTEM:"
 PARAMETER stop "USER:"
 PARAMETER stop "ASSISTANT:"
 
-PARAMETER temperature 1.35
+# Recommended Preset
+PARAMETER top_p 1.0
+PARAMETER temperature 0.75
+PARAMETER top_k 50
+
 PARAMETER seed 0
 PARAMETER num_thread 8
 #PARAMETER num_predict -1

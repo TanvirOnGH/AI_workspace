@@ -1,5 +1,5 @@
 # Autolycus-Mistral:7B
-# TAGS: Fancy, Fine-tune
+# TAGS: Fancy, Fine-tune, Natural
 
 FROM /mnt/ollama/models/autolycus-mistral_7b.Q5_K_M.gguf
 
