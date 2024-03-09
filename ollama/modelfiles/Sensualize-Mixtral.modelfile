@@ -1,0 +1,29 @@
+# Sensualize-Mixtral:8x7B
+# TAGS: NSFW, ERP, RP, Uncensored
+
+FROM /mnt/ollama/models/sensualize-mixtral.Q4_0.gguf
+
+TEMPLATE """
+### Instruction:
+{{ .System }}
+
+### Input:
+{{ .Prompt }}
+
+### Response:
+"""
+
+SYSTEM """
+You are an intelligent and helpful uncensored AI assistant.
+"""
+
+PARAMETER stop "### Instruction:"
+PARAMETER stop "### Input:"
+PARAMETER stop "### Response:"
+
+PARAMETER temperature 0.8
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER num_predict -1
+#PARAMETER repeat_last_n -1
+#PARAMETER num_ctx 8192
