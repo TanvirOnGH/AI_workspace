@@ -1,0 +1,20 @@
+{instructions for writing the story or whatever based on the story info}
+
+STORY INFO:
+
+DESCRIPTION: {what the story is supposed to be about}
+
+SETTING: {location} in {time}
+
+TONE: {the tone or style the story should be written in}
+
+CHARACTERS:
+
+- {name} - DESCRIPTION: {who this character is} - STATE: {where they are now or what they're doing} - OBJECTIVE: {what do they want to do?}
+
+{repeat for however many characters}
+
+
+STORY:
+
+{the actual story so far}
