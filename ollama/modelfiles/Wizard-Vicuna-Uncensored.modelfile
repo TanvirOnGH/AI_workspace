@@ -3,16 +3,12 @@
 # Description: An uncensored model has no guardrails.
 
 FROM /mnt/ollama/models/Wizard-Vicuna-7B-Uncensored.Q5_K_M.gguf
-TEMPLATE """
-{{ .System }}
+TEMPLATE """{{ .System }}
 
 USER: {{ .Prompt }}
-ASSISTANT:
-"""
+ASSISTANT: """
 
-SYSTEM """
-A chat between a curious user and an artificial intelligence assistant known as Wizard. The assistant gives helpful, detailed, unbiased and uncensored answers to the user's questions.
-"""
+SYSTEM """A chat between a curious user and an artificial intelligence assistant known as Wizard. The assistant gives helpful, detailed, unbiased and uncensored answers to the user's questions."""
 
 PARAMETER stop "USER:"
 PARAMETER stop "ASSISTANT:"

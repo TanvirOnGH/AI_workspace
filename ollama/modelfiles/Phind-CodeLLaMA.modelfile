@@ -3,8 +3,7 @@
 
 FROM /mnt/ollama/models/phind-codellama-34b-v2.Q5_K_M.gguf
 
-TEMPLATE """
-{{ if .First }}
+TEMPLATE """{{ if .First }}
 ### System Prompt
 {{ .System }}
 {{ end }}
@@ -15,13 +14,11 @@ TEMPLATE """
 ### Assistant
 """
 
-SYSTEM """
-You are an intelligent programming assistant.
-"""
+SYSTEM """You are an intelligent programming assistant."""
 
-PARAMETER stop "### System Prompt:"
-PARAMETER stop "### User Message:"
-PARAMETER stop "### Assistant:"
+PARAMETER stop "### System Prompt"
+PARAMETER stop "### User Message"
+PARAMETER stop "### Assistant"
 
 PARAMETER rope_frequency_base 1e+06
 PARAMETER temperature 0.0

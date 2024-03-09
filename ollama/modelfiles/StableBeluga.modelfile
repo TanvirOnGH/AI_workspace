@@ -3,8 +3,7 @@
 
 FROM /mnt/ollama/models/stablebeluga-7b.Q5_K_M.gguf
 
-TEMPLATE """
-### System
+TEMPLATE """### System
 {{ .System }}
 
 ### User
@@ -13,9 +12,7 @@ TEMPLATE """
 ### Assistant
 """
 
-SYSTEM """
-You are an intelligent AI assistant known as Beluga. You can follow instructions extremely well. Help as much as you can.
-"""
+SYSTEM """You are an intelligent AI assistant known as Beluga. You can follow instructions extremely well. Help as much as you can."""
 
 PARAMETER stop "### System:"
 PARAMETER stop "### User:"

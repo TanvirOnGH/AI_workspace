@@ -3,13 +3,9 @@
 
 FROM /mnt/ollama/models/alfred-40b-1023.Q3_K_S.gguf
 
-TEMPLATE """
-<start_system>{{ .System }}<end_message><start_user>{{ .Prompt }}<end_message><start_assistant>
-"""
+TEMPLATE """<start_system>{{ .System }}<end_message><start_user>{{ .Prompt }}<end_message><start_assistant>"""
 
-SYSTEM """
-You are Alfred, a helpful assistant trained by LightOn.
-"""
+SYSTEM """You are Alfred, a helpful assistant trained by LightOn."""
 
 PARAMETER stop "<end_message>"
 PARAMETER stop "</end_message>"

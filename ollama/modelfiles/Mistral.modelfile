@@ -3,7 +3,7 @@
 
 FROM /mnt/ollama/models/mistral-7b-v0.2.Q5_K_M.gguf
 
-TEMPLATE """{{ .Prompt }}"""
+TEMPLATE """{{ .System }}{{ .Prompt }}"""
 
 PARAMETER temperature 1.0
 PARAMETER seed 0

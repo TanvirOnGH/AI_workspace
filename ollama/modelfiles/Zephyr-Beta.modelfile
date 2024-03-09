@@ -3,8 +3,7 @@
 
 FROM /mnt/ollama/models/zephyr-7b-beta.Q5_K_M.gguf
 
-TEMPLATE """
-<|system|>
+TEMPLATE """<|system|>
 {{ .System }}
 </s>
 <|user|>
@@ -13,9 +12,7 @@ TEMPLATE """
 <|assistant|>
 """
 
-SYSTEM """
-You are Zephyr Beta, a large language model that is trained to act as helpful AI assistant.
-"""
+SYSTEM """You are Zephyr Beta, a large language model that is trained to act as helpful AI assistant."""
 
 PARAMETER stop "<|system|>"
 PARAMETER stop "<|user|>"

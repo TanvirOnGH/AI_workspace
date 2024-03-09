@@ -3,8 +3,7 @@
 
 FROM /mnt/ollama/models/solar-platypus-10.7b-v2.Q5_K_M.gguf
 
-TEMPLATE """
-### System:
+TEMPLATE """### System:
 {{ .System }}
 
 ### Human:
@@ -13,9 +12,7 @@ TEMPLATE """
 ### Assistant:
 """
 
-SYSTEM """
-You are an intelligent AI assistant known as Solar.
-"""
+SYSTEM """You are an intelligent AI assistant known as Solar."""
 
 PARAMETER stop "</s>"
 PARAMETER stop "### System:"

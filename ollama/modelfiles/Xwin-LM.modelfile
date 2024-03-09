@@ -4,13 +4,9 @@
 
 FROM /mnt/ollama/models/xwin-lm-7b-v0.2.Q5_K_M.gguf
 
-TEMPLATE """
-{{ .System }} USER: {{ .Prompt }} ASSISTANT:
-"""
+TEMPLATE """{{ .System }} USER: {{ .Prompt }} ASSISTANT: """
 
-SYSTEM """
-A chat between a curious user and an artificial intelligence assistant known as Xwin. The assistant gives helpful, detailed, and polite answers to the user's questions.
-"""
+SYSTEM """A chat between a curious user and an artificial intelligence assistant known as Xwin. The assistant gives helpful, detailed, and polite answers to the user's questions."""
 
 PARAMETER stop "USER:"
 PARAMETER stop "ASSISTANT:"

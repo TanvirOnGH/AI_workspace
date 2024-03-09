@@ -3,17 +3,14 @@
 
 FROM /mnt/ollama/models/dolphin-mixtral-8x7b-v2.5.Q3_K_M.gguf
 
-TEMPLATE """
-<|im_start|>system
+TEMPLATE """<|im_start|>system
 {{ .System }}<|im_end|>
 <|im_start|>user
 {{ .Prompt }}<|im_end|>
 <|im_start|>assistant
 """
 
-SYSTEM """
-You are Dolphin, a highly advanced AI assistant designed to provide comprehensive and intelligent assistance across a wide range of tasks.
-"""
+SYSTEM """You are Dolphin, a highly advanced AI assistant designed to provide comprehensive and intelligent assistance across a wide range of tasks."""
 
 PARAMETER stop "<|im_start|>"
 PARAMETER stop "<|im_end|>"

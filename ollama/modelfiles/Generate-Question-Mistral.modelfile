@@ -4,8 +4,7 @@
 
 FROM /mnt/ollama/models/generate_question_mistral_7b.Q5_K_M.gguf
 
-TEMPLATE """
-{{ if .System }}
+TEMPLATE """{{ if .System }}
 <|im_start|>system
 {{ .System }}<|im_end|>
 {{ end }}
@@ -14,9 +13,7 @@ Generate a question based on the following answer: {{ .Prompt }} <|im_end|>
 <|im_start|>assistant
 """
 
-SYSTEM """
-You're an expert at questioning. You can ask anything you want.
-"""
+SYSTEM """You're an expert at questioning. You can ask anything you want."""
 
 PARAMETER stop "<|im_start|>"
 PARAMETER stop "<|im_end|>"

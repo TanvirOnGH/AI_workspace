@@ -3,14 +3,10 @@
 
 FROM /mnt/ollama/models/codellama-7b-python.Q5_K_M.gguf
 
-TEMPLATE """
-[INST] <<SYS>>{{ .System }}<</SYS>>
-{{ .Prompt }} [/INST]
-"""
+TEMPLATE """[INST] <<SYS>>{{ .System }}<</SYS>>
+{{ .Prompt }} [/INST]"""
 
-SYSTEM """
-Write code to solve the following coding problem that obeys the constraints and passes the example test cases. Please wrap your code answer using ```:
-"""
+SYSTEM """Write code to solve the following coding problem that obeys the constraints and passes the example test cases. Please wrap your code answer using ```:"""
 
 PARAMETER stop "[INST]"
 PARAMETER stop "[/INST]"

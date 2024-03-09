@@ -4,7 +4,7 @@
 
 FROM /mnt/ollama/models/yi-6b.Q5_K_M.gguf
 
-TEMPLATE """{{ .Prompt }}"""
+TEMPLATE """{{ .System }}{{ .Prompt }}"""
 
 PARAMETER temperature 0.6
 PARAMETER seed 0

@@ -3,8 +3,7 @@
 
 FROM /mnt/ollama/models/gpt4all-falcon-Q5_K_M.gguf
 
-TEMPLATE """
-{{ if .First }}{{ .System }}{{ end }}
+TEMPLATE """{{ if .First }}{{ .System }}{{ end }}
 
 ### Instruction:
 {{ .Prompt }}
@@ -12,9 +11,7 @@ TEMPLATE """
 ### Response:
 """
 
-SYSTEM """
-You're a helpful AI assistant.
-"""
+SYSTEM """You're a helpful AI assistant."""
 
 PARAMETER stop "### Instruction:"
 PARAMETER stop "### Response:"

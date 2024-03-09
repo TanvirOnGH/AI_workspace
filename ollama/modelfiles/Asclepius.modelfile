@@ -3,8 +3,7 @@
 
 FROM /mnt/ollama/models/asclepius-13b.Q5_K_M.gguf
 
-TEMPLATE """
-{{ if .First }}{{ .System }}{{ end }}
+TEMPLATE """{{ if .First }}{{ .System }}{{ end }}
 
 [Discharge Summary Begin]
 <Notes Here>
@@ -12,15 +11,12 @@ TEMPLATE """
 
 [Instruction Begin]
 {{ .Prompt }}
-[Instruction End]
-"""
+[Instruction End]"""
 
-SYSTEM """
-You are an intelligent clinical languge model.
+SYSTEM """You are an intelligent clinical languge model.
 Below is a snippet of patient's discharge summary and a following instruction from healthcare professional.
 Write a response that appropriately completes the instruction.
-The response should provide the accurate answer to the instruction, while being concise.
-"""
+The response should provide the accurate answer to the instruction, while being concise."""
 
 PARAMETER stop "[Discharge Summary Begin]"
 PARAMETER stop "[Discharge Summary End]"

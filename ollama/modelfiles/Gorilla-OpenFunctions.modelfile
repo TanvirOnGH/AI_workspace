@@ -5,13 +5,11 @@
 
 FROM /mnt/ollama/models/gorilla-openfunctions-v1.Q5_K_M.gguf
 
-TEMPLATE """
-USER: <<question>> {{ .Prompt }} <<function>> {{ .System }}
-ASSISTANT:
-"""
+TEMPLATE """USER: <<question>> {{ .Prompt }} <<function>> {{ .System }}
+ASSISTANT: """
 
-SYSTEM """
-"""
+#SYSTEM """
+#"""
 
 
 PARAMETER stop "USER:"

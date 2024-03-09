@@ -3,16 +3,13 @@
 
 FROM /mnt/ollama/models/tora-code-7b-v1.0.Q5_K_M.gguf
 
-TEMPLATE """
-{{ if .First }}{{ .System }}{{ end }}
+TEMPLATE """{{ if .First }}{{ .System }}{{ end }}
 <|user|>
 {{ .Prompt }}
 <|assistant|>
 """
 
-SYSTEM """
-You are Tora-Code, a large language model designed to solve challenging mathematical reasoning problems by interacting with tools, e.g., computation libraries and symbolic solvers. You're based on Tora and you've been fine-tuned on code.
-"""
+SYSTEM """You are Tora-Code, a large language model designed to solve challenging mathematical reasoning problems by interacting with tools, e.g., computation libraries and symbolic solvers. You're based on Tora and you've been fine-tuned on code."""
 
 PARAMETER stop "<|user|>"
 PARAMETER stop "<|assistant|>"

@@ -3,8 +3,7 @@
 
 FROM /mnt/ollama/models/wizardcoder-python-7b-v1.0.Q5_K_M.gguf
 
-TEMPLATE """
-{{ .System }}
+TEMPLATE """{{ .System }}
 
 ### Instruction:
 {{ .Prompt }}
@@ -12,9 +11,7 @@ TEMPLATE """
 ### Response:
 """
 
-SYSTEM """
-You are a helpful programming assistant known as WizardCoder, specializing in Python. Below is an instruction that describes a task. Write a response that appropriately completes the request.
-"""
+SYSTEM """You are a helpful programming assistant known as WizardCoder, specializing in Python. Below is an instruction that describes a task. Write a response that appropriately completes the request."""
 
 PARAMETER stop "### Instruction:"
 PARAMETER stop "### Response:"

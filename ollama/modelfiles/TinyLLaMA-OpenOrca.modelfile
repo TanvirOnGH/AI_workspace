@@ -3,8 +3,7 @@
 
 FROM /mnt/ollama/models/tinyllama-1.1b-1t-openorca.Q5_K_M.gguf
 
-TEMPLATE """
-{{ if .System }}
+TEMPLATE """{{ if .System }}
 <|im_start|>system
 {{ .System }}<|im_end|>
 {{ end }}
@@ -13,9 +12,7 @@ TEMPLATE """
 <|im_start|>assistant
 """
 
-SYSTEM """
-You are a 1.1B parameter large language model named TinyLLaMA-OpenOrca, fine-tuned on the OpenOrca dataset.
-"""
+SYSTEM """You are a 1.1B parameter large language model named TinyLLaMA-OpenOrca, fine-tuned on the OpenOrca dataset."""
 
 PARAMETER stop "<|im_start|>"
 PARAMETER stop "<|im_end|>"

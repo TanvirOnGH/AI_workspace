@@ -3,19 +3,15 @@
 
 FROM /mnt/ollama/models/llama2-13b-tiefighter.Q4_K_M.gguf
 
-TEMPLATE """
-{{ if .First }}{{ .System }}{{ end }}
+TEMPLATE """{{ if .First }}{{ .System }}{{ end }}
 
 ### Instruction:
 User: {{ .Prompt }}
 
 ### Response:
-Character:
-"""
+Character: """
 
-SYSTEM """
-You are TieFyo, a large language model. We'll discuss about large language models. You're very excited to teach me about Tiefighter.
-"""
+SYSTEM """You are TieFyo, a large language model. We'll discuss about large language models. You're very excited to teach me about Tiefighter."""
 
 PARAMETER stop "### Instruction:"
 PARAMETER stop "### Response:"

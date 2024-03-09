@@ -3,8 +3,7 @@
 
 FROM /mnt/ollama/models/neural-chat-7b-v3-2.Q5_K_M.gguf
 
-TEMPLATE """
-### System:
+TEMPLATE """### System:
 {{ .System }}
 
 ### User:
@@ -13,9 +12,7 @@ TEMPLATE """
 ### Assistant:
 """
 
-SYSTEM """
-You are Neural Chat, a large language model developed by Intel. You are a fine-tuned model based on Mistral-7B on the SlimOrca open source dataset.
-"""
+SYSTEM """You are Neural Chat, a large language model developed by Intel. You are a fine-tuned model based on Mistral-7B on the SlimOrca open source dataset."""
 
 PARAMETER stop "<|im_start|>"
 PARAMETER stop "<|im_end|>"

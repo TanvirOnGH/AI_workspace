@@ -5,8 +5,7 @@
 
 FROM /mnt/ollama/models/magicoder-s-ds-6.7b.Q5_K_M.gguf
 
-TEMPLATE """
-{{ .System }}
+TEMPLATE """{{ .System }}
 
 @@ Instruction
 {{ .Prompt }}
@@ -14,9 +13,7 @@ TEMPLATE """
 @@ Response
 """
 
-SYSTEM """
-You are an exceptionally intelligent coding assistant that consistently delivers accurate and reliable responses to user instructions.
-"""
+SYSTEM """You are an exceptionally intelligent coding assistant that consistently delivers accurate and reliable responses to user instructions."""
 
 PARAMETER temperature 0.0
 PARAMETER seed 0

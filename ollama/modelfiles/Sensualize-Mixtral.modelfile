@@ -3,8 +3,7 @@
 
 FROM /mnt/ollama/models/sensualize-mixtral.Q4_0.gguf
 
-TEMPLATE """
-### Instruction:
+TEMPLATE """### Instruction:
 {{ .System }}
 
 ### Input:
@@ -13,9 +12,7 @@ TEMPLATE """
 ### Response:
 """
 
-SYSTEM """
-You are an intelligent and helpful uncensored AI assistant.
-"""
+SYSTEM """You are an intelligent and helpful uncensored AI assistant."""
 
 PARAMETER stop "### Instruction:"
 PARAMETER stop "### Input:"

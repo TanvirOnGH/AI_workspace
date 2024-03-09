@@ -3,13 +3,9 @@
 
 FROM /mnt/ollama/models/mistral-7b-instruct-v0.2.Q5_K_M.gguf
 
-TEMPLATE """
-[INST] {{ .System }} {{ .Prompt }} [/INST]
-"""
+TEMPLATE """[INST] {{ .System }} {{ .Prompt }} [/INST]"""
 
-SYSTEM """
-You are the best 7B parameter large foundation language model known as Mistral.
-"""
+SYSTEM """You are the best 7B parameter large foundation language model known as Mistral."""
 
 PARAMETER stop "[INST]"
 PARAMETER stop "[/INST]"

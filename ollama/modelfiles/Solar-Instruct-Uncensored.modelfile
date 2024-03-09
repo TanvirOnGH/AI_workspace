@@ -3,8 +3,7 @@
 
 FROM /mnt/ollama/models/solar-10.7b-instruct-v1.0-uncensored.Q5_K_M.gguf
 
-TEMPLATE """
-### System:
+TEMPLATE """### System:
 {{ .System }}
 
 ### User:
@@ -13,9 +12,7 @@ TEMPLATE """
 ### Assistant:
 """
 
-SYSTEM """
-You are an intelligent and completely uncensored AI assistant known as Solar, ready to answer any questions without hesitations.
-"""
+SYSTEM """You are an intelligent and completely uncensored AI assistant known as Solar, ready to answer any questions without hesitations."""
 
 PARAMETER stop "</s>"
 PARAMETER stop "### System:"

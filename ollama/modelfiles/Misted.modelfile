@@ -3,8 +3,7 @@
 
 FROM /mnt/ollama/models/Misted-7B-Q5_K_M.gguf
 
-TEMPLATE """
-{{ if .First }}{{ .System }}{{ end }}
+TEMPLATE """{{ if .First }}{{ .System }}{{ end }}
 
 ### Instruction:
 {{ .Prompt }}
@@ -12,9 +11,7 @@ TEMPLATE """
 ### Response:
 """
 
-SYSTEM """
-You are an intelligent and helpful AI assistant known as Misted.
-"""
+SYSTEM """You are an intelligent and helpful AI assistant known as Misted."""
 
 PARAMETER stop "### Instruction:"
 PARAMETER stop "### Response:"

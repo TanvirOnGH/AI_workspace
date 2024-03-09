@@ -3,17 +3,14 @@
 
 FROM /mnt/ollama/models/stablelm-zephyr-3b.Q5_K_M.gguf
 
-TEMPLATE """
-<|system|>
+TEMPLATE """<|system|>
 {{ .System }}<|endoftext|>
 <|user|>
 {{ .Prompt }}<|endoftext|>
 <|assistant|>
 """
 
-SYSTEM """
-You're a helpful AI assistant called StableLM-Zephyr created by Stability AI.
-"""
+SYSTEM """You're a helpful AI assistant called StableLM-Zephyr created by Stability AI."""
 
 PARAMETER stop "<|endoftext|>"
 

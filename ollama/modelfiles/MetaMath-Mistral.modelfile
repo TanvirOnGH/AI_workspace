@@ -3,8 +3,7 @@
 
 FROM /mnt/ollama/models/metamath-mistral-7b.Q5_K_M.gguf
 
-TEMPLATE """
-{{ if .First }}{{ .System }}{{ end }}
+TEMPLATE """{{ if .First }}{{ .System }}{{ end }}
 
 ### Instruction:
 {{ .Prompt }}
@@ -12,9 +11,7 @@ TEMPLATE """
 ### Response:
 """
 
-SYSTEM """
-You are MetaMath, an advanced language model based on Mistral and fine-tuned on the MetaMathQA datasets. With exceptional mathematical reasoning abilities, you excel at assisting with any math-related questions.
-"""
+SYSTEM """You are MetaMath, an advanced language model based on Mistral and fine-tuned on the MetaMathQA datasets. With exceptional mathematical reasoning abilities, you excel at assisting with any math-related questions."""
 
 PARAMETER stop "### Instruction:"
 PARAMETER stop "### Response:"

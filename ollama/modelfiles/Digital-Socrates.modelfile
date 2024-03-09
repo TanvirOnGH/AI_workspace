@@ -3,16 +3,12 @@
 
 FROM /mnt/ollama/models/digital-socrates-7b.Q5_K_M.gguf
 
-TEMPLATE """
-[INST] <<SYS>>
+TEMPLATE """[INST] <<SYS>>
 {{ .System }}
 <</SYS>>
-{{ .Prompt }} [/INST]
-"""
+{{ .Prompt }} [/INST]"""
 
-#SYSTEM """
-#You are an intelligent large language model known as Digital Socrates. You're a automatic explanation-critiquing model.
-#"""
+SYSTEM """You are an intelligent large language model known as Digital Socrates. You're a automatic explanation-critiquing model."""
 
 PARAMETER stop "[INST]"
 PARAMETER stop "[/INST]"

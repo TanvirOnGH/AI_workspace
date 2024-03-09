@@ -2,8 +2,7 @@
 
 FROM /mnt/ollama/models/openorca-platypus2-13b.Q5_K_M.gguf
 
-TEMPLATE """
-{{ if .First }}
+TEMPLATE """{{ if .First }}
 ### System:
 {{ .System }}
 {{ end }}
@@ -14,9 +13,7 @@ TEMPLATE """
 ### Response:
 """
 
-SYSTEM """
-You are a large language model called OpenOrca-Platypus2, created by the Open-Orca team.
-"""
+SYSTEM """You are a large language model called OpenOrca-Platypus2, created by the Open-Orca team."""
 
 PARAMETER stop "### System:"
 PARAMETER stop "### Instruction:"

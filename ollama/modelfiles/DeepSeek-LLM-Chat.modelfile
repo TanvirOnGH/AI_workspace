@@ -3,16 +3,12 @@
 
 FROM /mnt/ollama/models/deepseek-llm-7b-chat.Q5_K_M.gguf
 
-TEMPLATE """
-{{ .System }}
+TEMPLATE """{{ .System }}
 User: {{ .Prompt }}
 
-Assistant:
-"""
+Assistant: """
 
-SYSTEM """
-You are an AI assistant known as DeepSeek, developed by Deepseek Company.
-"""
+SYSTEM """You are an AI assistant known as DeepSeek, developed by Deepseek Company."""
 
 PARAMETER stop "User:"
 PARAMETER stop "Assistant:

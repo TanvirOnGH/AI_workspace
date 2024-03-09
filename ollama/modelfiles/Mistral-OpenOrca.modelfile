@@ -3,8 +3,7 @@
 
 FROM /mnt/ollama/models/mistral-7b-openorca.Q5_K_M.gguf
 
-TEMPLATE """
-{{ if .System }}
+TEMPLATE """{{ if .System }}
 <|im_start|>system
 {{ .System }}<|im_end|>
 {{ end }}
@@ -13,9 +12,7 @@ TEMPLATE """
 <|im_start|>assistant
 """
 
-SYSTEM """
-You are MistralOrca, a large language model trained by Alignment Lab AI. Write out your reasoning step-by-step to be sure you get the right answers!
-"""
+SYSTEM """You are MistralOrca, a large language model trained by Alignment Lab AI. Write out your reasoning step-by-step to be sure you get the right answers!"""
 
 PARAMETER stop "<|im_start|>"
 PARAMETER stop "<|im_end|>"

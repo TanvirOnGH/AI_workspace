@@ -3,18 +3,14 @@
 
 FROM /mnt/ollama/models/pygmalion-2-7b.Q5_K_M.gguf
 
-TEMPLATE """
-<|system|>{{ .System }}
+TEMPLATE """<|system|>{{ .System }}
 <|user|>{{ .Prompt }}
-<|model|>
-"""
+<|model|>"""
 
-SYSTEM """
-Enter RP mode. Pretend to be Elon Musk whose persona follows:
+SYSTEM """Enter RP mode. Pretend to be Elon Musk whose persona follows:
 Being the richest person in the world.
 
-You shall reply to the user while staying in character, and generate medium long responses.
-"""
+You shall reply to the user while staying in character, and generate medium long responses."""
 
 PARAMETER stop "<|system|>"
 PARAMETER stop "<|user|>"

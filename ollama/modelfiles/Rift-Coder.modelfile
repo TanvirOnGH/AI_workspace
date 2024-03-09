@@ -3,14 +3,10 @@
 
 FROM /mnt/ollama/models/rift-coder-v0-7b_Q4_0.gguf
 
-TEMPLATE """
-[INST] <<SYS>>{{ .System }}<</SYS>>
-{{ .Prompt }} [/INST]
-"""
+TEMPLATE """[INST] <<SYS>>{{ .System }}<</SYS>>
+{{ .Prompt }} [/INST]"""
 
-SYSTEM """
-You are an intelligent AI assistant.
-"""
+SYSTEM """You are an intelligent AI assistant."""
 
 PARAMETER stop "[INST]"
 PARAMETER stop "[/INST]"

@@ -3,18 +3,15 @@
 
 FROM /mnt/ollama/models/deepsex-34b.Q3_K_S.gguf
 
-TEMPLATE """
-{{ .System }}
+TEMPLATE """{{ .System }}
 
 ### Instruction:
-
 {{ .Prompt }}
+
 ### Response:
 """
 
-SYSTEM """
-Below is an instruction that describes a task. Write a response that appropriately completes the request.
-"""
+SYSTEM """Below is an instruction that describes a task. Write a response that appropriately completes the request."""
 
 PARAMETER stop "<|EOT|>"
 

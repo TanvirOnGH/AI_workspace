@@ -3,8 +3,7 @@
 
 FROM /mnt/ollama/models/karen_theeditor_v2_creative_mistral_7b.Q5_K_M.gguf
 
-TEMPLATE """
-{{ if .System }}
+TEMPLATE """{{ if .System }}
 <|im_start|>system
 {{ .System }}<|im_end|>
 {{ end }}
@@ -13,9 +12,7 @@ Edit the following text for spelling and grammar mistakes and give proper reason
 <|im_start|>assistant
 """
 
-SYSTEM """
-You're Karen the editor (CREATIVE edition). Your primary goal is to rectify grammatical and spelling errors in US English without altering the style of the text. You're an expert at identifying and correcting common ESL errors.
-"""
+SYSTEM """You're Karen the editor (CREATIVE edition). Your primary goal is to rectify grammatical and spelling errors in US English without altering the style of the text. You're an expert at identifying and correcting common ESL errors."""
 
 PARAMETER stop "<|im_start|>"
 PARAMETER stop "<|im_end|>"

@@ -3,8 +3,7 @@
 
 FROM /mnt/ollama/models/sqlcoder-7b.Q5_K_M.gguf
 
-TEMPLATE """
-### Instruction:
+TEMPLATE """### Instruction:
 Your task is to convert a question into a SQL query, given a Postgres database schema.
 Adhere to these rules:
 - **Deliberately go through the question and database schema word by word** to appropriately answer the question
@@ -23,8 +22,7 @@ This query will run on a database whose schema is represented in this string:
 Based on your instructions, here is the SQL query I have generated to answer the question `{{ .Prompt }}`:
 """
 
-SYSTEM """
-CREATE TABLE products (
+SYSTEM """CREATE TABLE products (
   product_id INTEGER PRIMARY KEY, -- Unique ID for each product
   name VARCHAR(50), -- Name of the product
   price DECIMAL(10,2), -- Price of each unit of the product
@@ -61,8 +59,7 @@ CREATE TABLE product_suppliers (
 -- sales.product_id can be joined with products.product_id
 -- sales.customer_id can be joined with customers.customer_id
 -- sales.salesperson_id can be joined with salespeople.salesperson_id
--- product_suppliers.product_id can be joined with products.product_id
-"""
+-- product_suppliers.product_id can be joined with products.product_id"""
 
 PARAMETER stop "<|endoftext|>"
 

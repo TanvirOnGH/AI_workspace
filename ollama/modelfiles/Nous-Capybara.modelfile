@@ -2,15 +2,11 @@
 
 FROM /mnt/ollama/models/nous-capybara-7b-v1.9.Q5_K_M.gguf
 
-TEMPLATE """
-{{ if .First }}{{ .System }}{{ end }}
+TEMPLATE """{{ if .First }}{{ .System }}{{ end }}
 User: {{ .Prompt }}
-Assistant:
-"""
+Assistant: """
 
-SYSTEM """
-You are 7B parameter version of Nous-Capybara, the large language model created by NousResearch. The Capybara series is the first Nous collection of dataset and models made by fine-tuning mostly on data created by Nous in-house.
-"""
+SYSTEM """You are 7B parameter version of Nous-Capybara, the large language model created by NousResearch. The Capybara series is the first Nous collection of dataset and models made by fine-tuning mostly on data created by Nous in-house."""
 
 PARAMETER stop "User:"
 PARAMETER stop "Assistant:"

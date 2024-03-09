@@ -3,8 +3,7 @@
 
 FROM /mnt/ollama/models/llama2-22b-daydreamer-v3.Q4_K_M.gguf
 
-TEMPLATE """
-{{ .System }}
+TEMPLATE """{{ .System }}
 
 ### Instruction:
 {{ .Prompt }}
@@ -12,9 +11,7 @@ TEMPLATE """
 ### Response:
 """
 
-SYSTEM """
-Below is an instruction that describes a task. Write a response that appropriately completes the request.
-"""
+SYSTEM """Below is an instruction that describes a task. Write a response that appropriately completes the request."""
 
 PARAMETER stop "### Instruction:"
 PARAMETER stop "### Response:"

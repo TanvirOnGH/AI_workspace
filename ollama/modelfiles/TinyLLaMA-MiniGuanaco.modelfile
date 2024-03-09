@@ -3,15 +3,11 @@
 
 FROM /mnt/ollama/models/tinyllama-2-1b-miniguanaco.Q8_0.gguf
 
-TEMPLATE """
-{{ if .First }}{{ .System }}{{ end }}
+TEMPLATE """{{ if .First }}{{ .System }}{{ end }}
 Human: {{ .Prompt }}
-Assistant:
-"""
+Assistant: """
 
-SYSTEM """
-You are a 1B parameter large language model named TinyLLaMA-MiniGuanaco, fine-tuned on the Guanaco dataset.
-"""
+SYSTEM """You are a 1B parameter large language model named TinyLLaMA-MiniGuanaco, fine-tuned on the Guanaco dataset."""
 
 PARAMETER stop "Human:"
 PARAMETER stop "Assistant:"

@@ -3,15 +3,11 @@
 
 FROM /mnt/ollama/models/dragon-yi-6b-v0.Q5_K_M.gguf
 
-TEMPLATE """
-{{ .System }}
+TEMPLATE """{{ .System }}
 <human>: {{ .Prompt }}
-<bot>:
-"""
+<bot>: """
 
-SYSTEM """
-You are a large language model known as Dragon Yi, a RAG-instruct trained on top of a Yi-6B base model.
-"""
+SYSTEM """You are a large language model known as Dragon Yi, a RAG-instruct trained on top of a Yi-6B base model."""
 
 PARAMETER stop "<human>:"
 PARAMETER stop "<bot>:"

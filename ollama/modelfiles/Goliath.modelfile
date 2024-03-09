@@ -3,15 +3,11 @@
 
 FROM /mnt/ollama/models/goliath-120b.Q5_K_M.gguf
 
-TEMPLATE """
-{{ .System }}
+TEMPLATE """{{ .System }}
 User: {{ .Prompt }}
-Assistant:
-"""
+Assistant: """
 
-SYSTEM """
-You are an extremely powerful AI assistant.
-"""
+SYSTEM """You are an extremely powerful AI assistant."""
 
 PARAMETER stop "User:"
 PARAMETER stop "Assistant:"

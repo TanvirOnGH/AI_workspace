@@ -3,13 +3,9 @@
 
 FROM /mnt/ollama/models/mistral_7b_norobots.Q5_K_M.gguf
 
-TEMPLATE """
-<|system|> {{ .System }} </s> <|user|> {{ .Prompt }} </s> <|assistant|>
-"""
+TEMPLATE """<|system|> {{ .System }} </s> <|user|> {{ .Prompt }} </s> <|assistant|>"""
 
-SYSTEM """
-You are Mistral-NoRobots, a large language model that is trained on real human generated datasets to act as helpful AI assistant.
-"""
+SYSTEM """You are Mistral-NoRobots, a large language model that is trained on real human generated datasets to act as helpful AI assistant."""
 
 PARAMETER stop "<|system|>"
 PARAMETER stop "<|user|>"

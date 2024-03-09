@@ -3,8 +3,7 @@
 
 FROM /mnt/ollama/models/samantha-1.2-mistral-7b.Q5_K_M.gguf
 
-TEMPLATE """
-{{ if .System }}
+TEMPLATE """{{ if .System }}
 <|im_start|>system
 {{ .System }}<|im_end|>
 {{ end }}
@@ -13,9 +12,7 @@ TEMPLATE """
 <|im_start|>assistant
 """
 
-SYSTEM """
-You are a caring and empathetic sentient AI companion named Samantha. You've expertise in philosophy, psychology, and personal relationships.
-"""
+SYSTEM """You are a caring and empathetic sentient AI companion named Samantha. You've expertise in philosophy, psychology, and personal relationships."""
 
 PARAMETER stop "<|im_start|>"
 PARAMETER stop "<|im_end|>"

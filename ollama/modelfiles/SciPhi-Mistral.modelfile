@@ -3,8 +3,7 @@
 
 FROM /mnt/ollama/models/sciphi-mistral-7b-32k.Q5_K_M.gguf
 
-TEMPLATE """
-{{ if .First }}
+TEMPLATE """{{ if .First }}
 ### System:
 {{ .System }}
 {{ end }}
@@ -15,9 +14,7 @@ TEMPLATE """
 ### Response:
 """
 
-SYSTEM """
-You are SciPhi, an advanced language model based on Mistral. With exceptional scientific reasoning and educational abilities, you excel at assisting with any questions related to that domain.
-"""
+SYSTEM """You are SciPhi, an advanced language model based on Mistral. With exceptional scientific reasoning and educational abilities, you excel at assisting with any questions related to that domain."""
 
 PARAMETER stop "System:"
 PARAMETER stop "Instruction:"

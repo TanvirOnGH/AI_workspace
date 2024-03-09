@@ -3,15 +3,11 @@
 
 FROM /mnt/ollama/models/mistral-trismegistus-7b.Q5_K_M.gguf
 
-TEMPLATE """
-{{ if .First }}{{ .System }}{{ end }}
+TEMPLATE """{{ if .First }}{{ .System }}{{ end }}
 User: {{ .Prompt }}
-Assistant:
-"""
+Assistant: """
 
-SYSTEM """
-You are Trismegistus, a large language model made for people interested in the esoteric, occult, and spiritual.
-"""
+SYSTEM """You are Trismegistus, a large language model made for people interested in the esoteric, occult, and spiritual."""
 
 PARAMETER stop "User:"
 PARAMETER stop "Assistant:"

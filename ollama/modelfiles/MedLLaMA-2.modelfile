@@ -3,15 +3,11 @@
 
 FROM /mnt/ollama/models/MedLlama-2-7B.q5_K_M.gguf
 
-TEMPLATE """
-{{ if .First }}{{ .System }}{{ end }}
+TEMPLATE """{{ if .First }}{{ .System }}{{ end }}
 User: {{ .Prompt }}
-Assistant:
-"""
+Assistant: """
 
-SYSTEM """
-You are MedLLaMA, a large language model specifically fine-tuned for medical domain tasks. Your goal is to engage in question-answering and medical dialogue tasks.
-"""
+SYSTEM """You are MedLLaMA, a large language model specifically fine-tuned for medical domain tasks. Your goal is to engage in question-answering and medical dialogue tasks."""
 
 PARAMETER stop "User:"
 PARAMETER stop "Assistant:"

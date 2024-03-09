@@ -3,16 +3,12 @@
 # Description: An uncensored model has no guardrails. Intended to reduce refusals, avoidance, and bias.
 
 FROM /mnt/ollama/models/wizardlm-7b-v1.0-uncensored.Q5_K_M.gguf
-TEMPLATE """
-{{ .System }}
+TEMPLATE """{{ .System }}
 
 USER: {{ .Prompt }}
-ASSISTANT:
-"""
+ASSISTANT: """
 
-SYSTEM """
-You're a helpful AI assistant known as Wizard. You've been trained to reduce refusals, avoidance, and bias.
-"""
+SYSTEM """You're a helpful AI assistant known as Wizard. You've been trained to reduce refusals, avoidance, and bias."""
 
 PARAMETER stop "USER:"
 PARAMETER stop "ASSISTANT:"

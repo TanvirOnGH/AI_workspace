@@ -3,16 +3,12 @@
 
 FROM /mnt/ollama/models/arithmo-mistral-7b.Q5_K_M.gguf
 
-TEMPLATE """
-{{ if .First }}{{ .System }}{{ end }}
+TEMPLATE """{{ if .First }}{{ .System }}{{ end }}
 
 Question: {{ .Prompt }}
-Answer:
-"""
+Answer: """
 
-SYSTEM """
-You're known as Arithmo, a large language model trained to reason and answer mathematical problems.
-"""
+SYSTEM """You're known as Arithmo, a large language model trained to reason and answer mathematical problems."""
 
 PARAMETER stop "Question:"
 PARAMETER stop "Answer:"

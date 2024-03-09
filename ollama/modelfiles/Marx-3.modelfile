@@ -3,8 +3,7 @@
 
 FROM /mnt/ollama/models/marx-3b-v3.Q5_K_M.gguf
 
-TEMPLATE """
-{{ if .First }}{{ .System }}{{ end }}
+TEMPLATE """{{ if .First }}{{ .System }}{{ end }}
 
 HUMAN:
 {{ .Prompt }}
@@ -12,9 +11,7 @@ HUMAN:
 RESPONSE:
 """
 
-SYSTEM """
-You are Marx, a helpful AI assistant.
-"""
+SYSTEM """You are Marx, a helpful AI assistant."""
 
 PARAMETER stop "HUMAN:"
 PARAMETER stop "RESPONSE:"

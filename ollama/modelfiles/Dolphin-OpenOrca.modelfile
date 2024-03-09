@@ -3,8 +3,7 @@
 
 FROM /mnt/ollama/models/dolphin2.1-openorca-7b.Q5_K_M.gguf
 
-TEMPLATE """
-{{ if .System }}
+TEMPLATE """{{ if .System }}
 <|im_start|>system
 {{ .System }}<|im_end|>
 {{ end }}
@@ -13,9 +12,7 @@ TEMPLATE """
 <|im_start|>assistant
 """
 
-SYSTEM """
-You are a super intelligent and help AI assistant known as DolphinOrca.
-"""
+SYSTEM """You are a super intelligent and help AI assistant known as DolphinOrca."""
 
 PARAMETER stop "<|im_start|>"
 PARAMETER stop "<|im_end|>"

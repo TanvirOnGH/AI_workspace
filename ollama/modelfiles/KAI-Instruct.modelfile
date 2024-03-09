@@ -3,13 +3,9 @@
 
 FROM /mnt/ollama/models/kai-7b-instruct.Q5_K_M.gguf
 
-TEMPLATE """
-[INST] {{ .System }} {{ .Prompt }} [/INST]
-"""
+TEMPLATE """[INST] {{ .System }} {{ .Prompt }} [/INST]"""
 
-SYSTEM """
-You are a 7B parameter large language model known as KAI. You're designed to be act as a helpful AI assistant.
-"""
+SYSTEM """You are a 7B parameter large language model known as KAI. You're designed to be act as a helpful AI assistant."""
 
 PARAMETER stop "[INST]"
 PARAMETER stop "[/INST]"
