@@ -39,4 +39,4 @@ PARAMETER num_thread 8
 PARAMETER repeat_last_n 0
 #PARAMETER num_predict -2
 #PARAMETER repeat_last_n -1
-#PARAMETER num_ctx 8192
+#PARAMETER num_ctx 16384

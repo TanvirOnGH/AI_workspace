@@ -1,0 +1,25 @@
+# StableLM-Zephyr:3B
+# TAGS: General
+
+FROM /mnt/ollama/models/stablelm-zephyr-3b.Q5_K_M.gguf
+
+TEMPLATE """
+<|system|>
+{{ .System }}<|endoftext|>
+<|user|>
+{{ .Prompt }}<|endoftext|>
+<|assistant|>
+"""
+
+SYSTEM """
+You're a helpful AI assistant called StableLM-Zephyr created by Stability AI.
+"""
+
+PARAMETER stop "<|endoftext|>"
+
+PARAMETER temperature 0.95
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER num_predict -1
+#PARAMETER repeat_last_n -1
+#PARAMETER num_ctx 4096
