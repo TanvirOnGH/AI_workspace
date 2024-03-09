@@ -1,5 +1,5 @@
-# Mistral:7B-Instruct
-# TAGS: Instruct
+# Mistral-Instruct:7B_0.1
+# TAGS: General, Chat, Instruct
 
 FROM /mnt/ollama/models/mistral-7b-instruct-v0.1.Q5_K_M.gguf
 

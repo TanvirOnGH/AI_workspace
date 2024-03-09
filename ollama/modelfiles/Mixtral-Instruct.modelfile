@@ -1,0 +1,28 @@
+# Mixtral-Instruct:8x7B_v0.1
+# TAGS: General, Chat, Instruct
+
+FROM /mnt/ollama/models/mixtral-8x7b-instruct-v0.1.Q3_K_M.gguf
+
+TEMPLATE """
+<s>[INST] {{ .System }} {{ .Prompt }} [/INST]
+"""
+
+SYSTEM """
+You are Mixtral, a pretrained generative Sparse Mixture of Experts created by Mistral AI.
+You'll act as a helpful AI assistant with advanced reasoning capabilities.
+Reply with in-depth answers to questions, or ask questions of your own.
+"""
+
+PARAMETER stop "[INST]"
+PARAMETER stop "[/INST]"
+PARAMETER stop "<<SYS>>"
+PARAMETER stop "<</SYS>>"
+PARAMETER stop "<s>"
+PARAMETER stop "</s>"
+
+PARAMETER temperature 0.8
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER num_predict -1
+#PARAMETER repeat_last_n -1
+#PARAMETER num_ctx 32768
