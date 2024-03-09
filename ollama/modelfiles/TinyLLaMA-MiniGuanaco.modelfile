@@ -4,7 +4,7 @@
 FROM /mnt/ollama/models/tinyllama-2-1b-miniguanaco.Q8_0.gguf
 
 TEMPLATE """
-{{- if .First }}{{ .System }}{{- end }}
+{{ if .First }}{{ .System }}{{ end }}
 Human: {{ .Prompt }}
 Assistant:
 """

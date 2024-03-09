@@ -4,7 +4,7 @@
 FROM /mnt/ollama/models/marx-3b-v3.Q5_K_M.gguf
 
 TEMPLATE """
-{{- if .First }}{{ .System }}{{- end }}
+{{ if .First }}{{ .System }}{{ end }}
 
 HUMAN:
 {{ .Prompt }}

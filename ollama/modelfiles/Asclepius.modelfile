@@ -4,7 +4,7 @@
 FROM /mnt/ollama/models/asclepius-13b.Q5_K_M.gguf
 
 TEMPLATE """
-{{- if .First }}{{ .System }}{{- end }}
+{{ if .First }}{{ .System }}{{ end }}
 
 [Discharge Summary Begin]
 <Notes Here>

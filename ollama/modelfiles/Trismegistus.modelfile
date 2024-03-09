@@ -4,7 +4,7 @@
 FROM /mnt/ollama/models/mistral-trismegistus-7b.Q5_K_M.gguf
 
 TEMPLATE """
-{{- if .First }}{{ .System }}{{- end }}
+{{ if .First }}{{ .System }}{{ end }}
 User: {{ .Prompt }}
 Assistant:
 """

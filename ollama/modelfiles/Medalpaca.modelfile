@@ -4,7 +4,7 @@
 FROM /mnt/ollama/models/medalpaca-13b.Q5_K_M.gguf
 
 TEMPLATE """
-{{- if .First }}{{ .System }}{{- end }}
+{{ if .First }}{{ .System }}{{ end }}
 
 ### Instruction:
 {{ .Prompt }}

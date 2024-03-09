@@ -4,7 +4,7 @@
 FROM /mnt/ollama/models/thespis-mistral-7b-v0.5.Q5_K_M.gguf
 
 TEMPLATE """
-{{- if .First }}{{ .System }}{{- end }}
+{{ if .First }}{{ .System }}{{ end }}
 
 Master: {{ .Prompt }}
 Slave:

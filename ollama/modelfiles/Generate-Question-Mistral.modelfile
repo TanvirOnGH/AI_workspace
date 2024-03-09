@@ -5,10 +5,10 @@
 FROM /mnt/ollama/models/generate_question_mistral_7b.Q5_K_M.gguf
 
 TEMPLATE """
-{{- if .System }}
+{{ if .System }}
 <|im_start|>system
 {{ .System }}<|im_end|>
-{{- end }}
+{{ end }}
 <|im_start|>user
 Generate a question based on the following answer: {{ .Prompt }} <|im_end|>
 <|im_start|>assistant

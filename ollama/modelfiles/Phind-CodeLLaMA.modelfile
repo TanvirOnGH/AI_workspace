@@ -4,10 +4,10 @@
 FROM /mnt/ollama/models/phind-codellama-34b-v2.Q5_K_M.gguf
 
 TEMPLATE """
-{{- if .First }}
+{{ if .First }}
 ### System Prompt
 {{ .System }}
-{{- end }}
+{{ end }}
 
 ### User Message
 {{ .Prompt }}

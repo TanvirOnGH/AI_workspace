@@ -3,7 +3,7 @@
 FROM /mnt/ollama/models/collectivecognition-v1.1-mistral-7b.Q5_K_M.gguf
 
 TEMPLATE """
-{{- if .First }}{{ .System }}{{- end }}
+{{ if .First }}{{ .System }}{{ end }}
 User: {{ .Prompt }}
 Assistant:
 """

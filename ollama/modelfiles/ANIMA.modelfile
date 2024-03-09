@@ -4,10 +4,10 @@
 FROM /mnt/ollama/models/anima-phi-neptune-mistral-7b.Q5_K_M.gguf
 
 TEMPLATE """
-{{- if .First }}
+{{ if .First }}
 ### System:
 {{ .System }}
-{{- end }}
+{{ end }}
 
 ### User:
 {{ .Prompt }}

@@ -4,10 +4,10 @@
 FROM /mnt/ollama/models/karen_theeditor_v2_creative_mistral_7b.Q5_K_M.gguf
 
 TEMPLATE """
-{{- if .System }}
+{{ if .System }}
 <|im_start|>system
 {{ .System }}<|im_end|>
-{{- end }}
+{{ end }}
 <|im_start|>user
 Edit the following text for spelling and grammar mistakes and give proper reasoning: {{ .Prompt }} <|im_end|>
 <|im_start|>assistant

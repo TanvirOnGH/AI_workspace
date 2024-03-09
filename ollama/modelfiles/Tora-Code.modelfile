@@ -4,7 +4,7 @@
 FROM /mnt/ollama/models/tora-code-7b-v1.0.Q5_K_M.gguf
 
 TEMPLATE """
-{{- if .First }}{{ .System }}{{- end }}
+{{ if .First }}{{ .System }}{{ end }}
 <|user|>
 {{ .Prompt }}
 <|assistant|>

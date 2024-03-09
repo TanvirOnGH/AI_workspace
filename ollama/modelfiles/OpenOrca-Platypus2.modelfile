@@ -3,10 +3,10 @@
 FROM /mnt/ollama/models/openorca-platypus2-13b.Q5_K_M.gguf
 
 TEMPLATE """
-{{- if .First }}
+{{ if .First }}
 ### System:
 {{ .System }}
-{{- end }}
+{{ end }}
 
 ### Instruction:
 {{ .Prompt }}

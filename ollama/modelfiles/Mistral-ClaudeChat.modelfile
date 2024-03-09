@@ -4,7 +4,7 @@
 FROM /mnt/ollama/models/mistral-7b-claude-chat.Q5_K_M.gguf
 
 TEMPLATE """
-{{- if .System }}{{ .System }}{{- end }}
+{{ if .System }}{{ .System }}{{ end }}
 User: {{ .Prompt }}
 Assistant:
 """

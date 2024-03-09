@@ -4,10 +4,10 @@
 FROM /mnt/ollama/models/sciphi-mistral-7b-32k.Q5_K_M.gguf
 
 TEMPLATE """
-{{- if .First }}
+{{ if .First }}
 ### System:
 {{ .System }}
-{{- end }}
+{{ end }}
 
 ### Instruction:
 {{ .Prompt }}

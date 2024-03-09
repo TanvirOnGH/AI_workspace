@@ -4,10 +4,10 @@
 FROM /mnt/ollama/models/ashhlimarp-mistral-7b.Q5_K_M.gguf
 
 TEMPLATE """
-{{- if .First }}
+{{ if .First }}
 ### Instruction:
 {{ .System }}
-{{- end }}
+{{ end }}
 
 ### Input:
 User: {{ .Prompt }}

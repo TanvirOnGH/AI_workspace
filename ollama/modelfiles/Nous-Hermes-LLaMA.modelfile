@@ -4,7 +4,7 @@
 FROM /mnt/ollama/models/nous-hermes-llama-2-7b.Q5_K_M.gguf
 
 TEMPLATE """
-{{- if .First }}{{ .System }}{{- end }}
+{{ if .First }}{{ .System }}{{ end }}
 
 ### Instruction:
 {{ .Prompt }}

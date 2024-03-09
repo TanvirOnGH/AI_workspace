@@ -5,7 +5,7 @@
 FROM /mnt/ollama/models/openbuddy-zephyr-7b-v14.1.Q5_K_M.gguf
 
 TEMPLATE """
-{{- if .First }}{{ .System }}{{- end }}
+{{ if .First }}{{ .System }}{{ end }}
 
 User: {{ .Prompt }}
 Assistant:

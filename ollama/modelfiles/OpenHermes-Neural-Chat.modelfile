@@ -4,10 +4,10 @@
 FROM /mnt/ollama/models/openhermes-2.5-neural-chat-7b-v3-1-7b.Q5_K_M.gguf
 
 TEMPLATE """
-{{- if .System }}
+{{ if .System }}
 <|im_start|>system
 {{ .System }}<|im_end|>
-{{- end }}
+{{ end }}
 <|im_start|>user
 {{ .Prompt }}<|im_end|>
 <|im_start|>assistant

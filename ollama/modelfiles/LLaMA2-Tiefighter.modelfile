@@ -4,7 +4,7 @@
 FROM /mnt/ollama/models/llama2-13b-tiefighter.Q4_K_M.gguf
 
 TEMPLATE """
-{{- if .First }}{{ .System }}{{- end }}
+{{ if .First }}{{ .System }}{{ end }}
 
 ### Instruction:
 User: {{ .Prompt }}

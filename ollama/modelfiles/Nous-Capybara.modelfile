@@ -3,7 +3,7 @@
 FROM /mnt/ollama/models/nous-capybara-7b-v1.9.Q5_K_M.gguf
 
 TEMPLATE """
-{{- if .First }}{{ .System }}{{- end }}
+{{ if .First }}{{ .System }}{{ end }}
 User: {{ .Prompt }}
 Assistant:
 """
