@@ -1,0 +1,28 @@
+# OpenChat:7B_v3.5-0106
+# TAGS: GPT 3, GPT 3.5, GPT 3.5-Turbo, GPT4, General, Censored
+# DESCRIPTION: The overall best performing open source 7B model.
+
+FROM /mnt/ollama/models/openchat-3.5-0106.Q5_K_M.gguf
+
+# Default Mode (GPT4 Correct): Best for coding, chat and general tasks
+#- GPT4 Correct User: Hello<|end_of_turn|>GPT4 Correct Assistant: Hi<|end_of_turn|>GPT4 Correct User: How are you today?<|end_of_turn|>GPT4 Correct Assistant:
+# Mathematical Reasoning Mode (Math Correct): Tailored for solving math problem
+#- Math Correct User: 10.3 − 7988.8133=<|end_of_turn|>Math Correct Assistant:
+
+TEMPLATE """
+{{ .System }}<|end_of_turn|>GPT4 Correct User: {{ .Prompt }}<|end_of_turn|>GPT4 Correct Assistant:
+"""
+
+SYSTEM """
+You are a large language model known as OpenChat.
+"""
+
+PARAMETER stop "<|endoftext|>"
+PARAMETER stop "<|end_of_turn|>"
+
+PARAMETER temperature 1.0
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER repeat_last_n -1
+#PARAMETER num_predict -1
+#PARAMETER num_ctx 8192
