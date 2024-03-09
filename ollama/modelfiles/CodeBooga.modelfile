@@ -1,0 +1,31 @@
+# CodeBooga:34B
+# TAGS: Code, Programming, SWD, CS
+
+FROM /mnt/ollama/models/codebooga-34b-v0.1.Q4_K_M.gguf
+
+TEMPLATE """
+{{ .System }}
+
+### Instruction:
+{{ .Prompt }}
+
+### Response:
+"""
+
+SYSTEM """
+Below is an instruction that describes a task. Write a response that appropriately completes the request.
+"""
+
+# Recommended parameters
+PARAMETER rope_frequency_base 1e+06
+PARAMETER temperature 1.31
+PARAMETER top_p 0.14
+PARAMETER top_k 49
+PARAMETER repeat_penalty 1.17
+
+#PARAMETER temperature 0.0
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER num_predict -1
+#PARAMETER repeat_last_n -1
+#PARAMETER num_ctx 4096
