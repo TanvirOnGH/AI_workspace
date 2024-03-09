@@ -5,6 +5,8 @@ FROM /mnt/ollama/models/mixtral-8x7b-v0.1.Q2_K.gguf
 
 TEMPLATE """{{ .Prompt }}"""
 
+PARAMETER stop "</s>"
+
 PARAMETER temperature 0.5
 PARAMETER seed 0
 PARAMETER num_thread 8
