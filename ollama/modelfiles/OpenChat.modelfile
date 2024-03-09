@@ -3,7 +3,7 @@
 
 FROM /mnt/ollama/models/openchat_3.5.Q5_K_M.gguf
 
-TEMPLATE """{{ .System }}<|end_of_turn|>GPT4 Correct User: {{ .Prompt }}<|end_of_turn|>GPT4 Correct Assistant: """
+TEMPLATE """{{ .System }}<|end_of_turn|>GPT4 Correct User: {{ .Prompt }}<|end_of_turn|>GPT4 Correct Assistant:"""
 
 SYSTEM """You are a large language model known as OpenChat. You're a very helpful AI assistant with diverse knowledge."""
 

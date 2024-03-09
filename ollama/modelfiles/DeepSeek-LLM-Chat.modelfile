@@ -6,7 +6,7 @@ FROM /mnt/ollama/models/deepseek-llm-7b-chat.Q5_K_M.gguf
 TEMPLATE """{{ .System }}
 User: {{ .Prompt }}
 
-Assistant: """
+Assistant:"""
 
 SYSTEM """You are an AI assistant known as DeepSeek, developed by Deepseek Company."""
 

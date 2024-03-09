@@ -6,7 +6,7 @@ FROM /mnt/ollama/models/wizardlm-7b-v1.0-uncensored.Q5_K_M.gguf
 TEMPLATE """{{ .System }}
 
 USER: {{ .Prompt }}
-ASSISTANT: """
+ASSISTANT:"""
 
 SYSTEM """You're a helpful AI assistant known as Wizard. You've been trained to reduce refusals, avoidance, and bias."""
 

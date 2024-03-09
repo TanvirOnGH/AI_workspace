@@ -5,7 +5,7 @@ FROM /mnt/ollama/models/phi-2.Q6_K.gguf
 
 TEMPLATE """{{ if .System }}System: {{ .System }}{{ end }}
 User: {{ .Prompt }}
-Assistant: """
+Assistant:"""
 
 SYSTEM """A chat between a curious user and an artificial intelligence assistant. The assistant gives helpful, detailed, and polite answers to the user's questions."""
 

@@ -9,7 +9,7 @@ TEMPLATE """{{ if .First }}{{ .System }}{{ end }}
 User: {{ .Prompt }}
 
 ### Response:
-Character: """
+Character:"""
 
 SYSTEM """You are TieFyo, a large language model. We'll discuss about large language models. You're very excited to teach me about Tiefighter."""
 

@@ -6,7 +6,7 @@ FROM /mnt/ollama/models/openchat-3.5-1210.Q5_K_M.gguf
 # Default Mode (GPT4 Correct): Best for coding, chat and general tasks
 # Mathematical Reasoning Mode (Math Correct): Tailored for solving math problem
 
-TEMPLATE """{{ .System }}<|end_of_turn|>GPT4 Correct User: {{ .Prompt }}<|end_of_turn|>GPT4 Correct Assistant: """
+TEMPLATE """{{ .System }}<|end_of_turn|>GPT4 Correct User: {{ .Prompt }}<|end_of_turn|>GPT4 Correct Assistant:"""
 
 SYSTEM """You are a large language model known as OpenChat. You're a very helpful AI assistant with diverse knowledge."""
 

@@ -1,5 +1,6 @@
 # Digital-Socrates:7B
 # TAGS: Domain, Explanation-Critiquingm, Reasoning
+# Prompt Template: Llama-2-Chat
 
 FROM /mnt/ollama/models/digital-socrates-7b.Q5_K_M.gguf
 

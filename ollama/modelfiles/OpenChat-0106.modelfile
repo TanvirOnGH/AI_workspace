@@ -9,7 +9,7 @@ FROM /mnt/ollama/models/openchat-3.5-0106.Q5_K_M.gguf
 # Mathematical Reasoning Mode (Math Correct): Tailored for solving math problem
 #- Math Correct User: 10.3 − 7988.8133=<|end_of_turn|>Math Correct Assistant:
 
-TEMPLATE """{{ .System }}<|end_of_turn|>GPT4 Correct User: {{ .Prompt }}<|end_of_turn|>GPT4 Correct Assistant: """
+TEMPLATE """{{ .System }}<|end_of_turn|>GPT4 Correct User: {{ .Prompt }}<|end_of_turn|>GPT4 Correct Assistant:"""
 
 SYSTEM """You are a large language model known as OpenChat."""
 

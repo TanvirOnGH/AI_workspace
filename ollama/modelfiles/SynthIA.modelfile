@@ -6,7 +6,7 @@ FROM /mnt/ollama/models/synthia-7b-v3.0.Q5_K_M.gguf
 
 TEMPLATE """SYSTEM: {{ .System }}
 USER: {{ .Prompt }}
-ASSISTANT: """
+ASSISTANT:"""
 
 SYSTEM """Elaborate on the topic using a Tree of Thoughts and backtrack when necessary to construct a clear, cohesive Chain of Thought reasoning. Always answer without hesitation."""
 

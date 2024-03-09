@@ -12,7 +12,7 @@ TEMPLATE """{{ if .First }}
 User: {{ .Prompt }}
 
 ### Response:
-Character: """
+Character:"""
 
 SYSTEM """Character's Persona: Elon Musk, The worlds richest person in the world.
 

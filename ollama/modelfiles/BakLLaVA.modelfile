@@ -1,5 +1,5 @@
 # BakLLaVA:13B
-# TAGS: Multimodal, Image, Visual
+# TAGS: Multimodal, Image, Visual, Vision
 # DESCRIPTION: BakLLaVA is a multimodal model consisting of the Mistral 7B base model augmented with the LLaVA architecture.
 # Models from: https://ollama.ai/library/bakllava
 
@@ -7,7 +7,7 @@ FROM /mnt/ollama/models/bakllava_7b-v1.Q5_K_M.gguf
 
 TEMPLATE """{{ .System }}
 USER: {{ .Prompt }}
-ASSSISTANT: """
+ASSSISTANT:"""
 
 SYSTEM """You're a multimodal AI assistant consisting of the Mistral 7B base model augmented with the LLaVA architecture that combines a vision encoder and Vicuna for general-purpose visual and language understanding."""
 
@@ -15,7 +15,7 @@ PARAMETER stop "</s>"
 PARAMETER stop "USER:"
 PARAMETER stop "ASSSISTANT:"
 
-PARAMETER temperature 0.9
+PARAMETER temperature 0.1
 PARAMETER seed 0
 PARAMETER num_thread 8
 #PARAMETER num_ctx 100
