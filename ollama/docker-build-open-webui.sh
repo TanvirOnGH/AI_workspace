@@ -5,8 +5,8 @@
 git pull
 
 # Remove the container first
-docker stop ollama-webui
-docker rm ollama-webui
+docker stop open-webui
+docker rm open-webui
 
 # Build
 docker build -t open-webui .
