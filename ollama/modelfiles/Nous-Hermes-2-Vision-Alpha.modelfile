@@ -1,0 +1,21 @@
+# Nous-Hermes-2-Vision-Alpha:7B
+# TAGS: Multimodal, Image, Visual, Vision, Function-Calling
+# DESCRIPTION: A Vision Language Model by Nous Research with function calling support.
+
+FROM /mnt/ollama/models/NousResearch_Nous-Hermes-2-Vision-GGUF_Q5_K_M.gguf
+
+TEMPLATE """{{ .System }}
+USER: {{ .Prompt }}
+ASSISTANT:"""
+
+SYSTEM """A chat between a curious user and an artificial intelligence assistant. The assistant gives helpful, detailed, unbiased and uncensored answers to the user's questions."""
+
+PARAMETER stop "USER:"
+PARAMETER stop "ASSISTANT:"
+
+PARAMETER temperature 0.1
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER num_predict -1
+#PARAMETER repeat_last_n -1
+#PARAMETER num_ctx 2048
