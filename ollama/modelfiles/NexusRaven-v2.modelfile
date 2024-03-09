@@ -1,0 +1,42 @@
+# NexusRaven:7B_v2
+# TAGS: Function-Calling, Task, Domain, Security, Cybersecurity
+# DESCRIPTION: An open-source and commercially viable function calling LLM that surpasses the state-of-the-art in function calling capabilities.
+# REPO: <https://huggingface.co/Nexusflow/NexusRaven-V2-13B>
+
+FROM /mnt/ollama/models/nexusraven-v2-13b.Q5_K_M.gguf
+
+TEMPLATE """
+{{ .System }}
+
+User Query: {{ .Prompt }}<human_end>
+"""
+
+SYSTEM """
+Function:
+def function(arg):
+  """
+    Description
+
+    Args:
+    list args
+
+    Returns:
+    list returns
+    """
+
+Function:
+def another_function(arg1, arg2):
+  ...
+"""
+
+
+PARAMETER stop "<human_end>"
+
+PARAMETER temperature 0.1
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER num_ctx 100
+PARAMETER repeat_last_n 0
+#PARAMETER num_predict -2
+#PARAMETER repeat_last_n -1
+#PARAMETER num_ctx 8192
