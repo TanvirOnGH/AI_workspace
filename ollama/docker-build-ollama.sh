@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -eu
+#set -eu
 
 export VERSION=$(git describe --tags --first-parent --abbrev=7 --long --dirty --always | sed -e "s/^v//g" 2>/dev/null || echo "0.0.0")-$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "unknown")
 export GOFLAGS="'-ldflags=-w -s \"-X=github.com/ollama/ollama/version.Version=$VERSION\" \"-X=github.com/ollama/ollama/server.mode=release\"'"
