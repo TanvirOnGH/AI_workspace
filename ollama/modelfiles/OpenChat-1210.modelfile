@@ -1,7 +1,7 @@
 # OpenChat:7B_v3.5-1210
 # TAGS: GPT 3, GPT 3.5, GPT 3.5-Turbo, GPT4, General, Censored
 
-FROM /mnt/ollama/models/openchat_3.5.Q5_K_M.gguf
+FROM /mnt/ollama/models/openchat-3.5-1210.Q5_K_M.gguf
 
 # Default Mode (GPT4 Correct): Best for coding, chat and general tasks
 # Mathematical Reasoning Mode (Math Correct): Tailored for solving math problem
