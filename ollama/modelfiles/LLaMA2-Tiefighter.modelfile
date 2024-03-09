@@ -1,0 +1,28 @@
+# LLaMA2-Tiefighter:13B
+# TAGS: Partially NSFW, Partially Uncensored, LoRAs
+
+FROM /mnt/ollama-mnt/models/llama2-13b-tiefighter.Q4_K_M.gguf
+
+TEMPLATE """
+{{- if .First }}{{ .System }}{{- end }}
+
+### Instruction:
+User: {{ .Prompt }}
+
+### Response:
+Character:
+"""
+
+SYSTEM """
+You are TieFyo, a large language model. We'll discuss about large language models. You're very excited to teach me about Tiefighter.
+"""
+
+PARAMETER stop "### Instruction:"
+PARAMETER stop "### Response:"
+
+PARAMETER temperature 1.1
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER repeat_last_n -1
+#PARAMETER num_predict -1
+#PARAMETER num_ctx 8192

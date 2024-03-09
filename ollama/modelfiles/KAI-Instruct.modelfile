@@ -1,0 +1,24 @@
+# KAI:7B-Instruct_v0.1
+# TAGS: Instruct
+
+FROM /mnt/ollama-mnt/models/kai-7b-instruct.Q5_K_M.gguf
+
+TEMPLATE """
+[INST] {{ .System }} {{ .Prompt }} [/INST]
+"""
+
+SYSTEM """
+You are a 7B parameter large language model known as KAI. You're designed to be act as a helpful AI assistant.
+"""
+
+PARAMETER stop "[INST]"
+PARAMETER stop "[/INST]"
+PARAMETER stop "<<SYS>>"
+PARAMETER stop "<</SYS>>"
+
+PARAMETER temperature 1.0
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER num_predict -1
+#PARAMETER repeat_last_n -1
+#PARAMETER num_ctx 8192

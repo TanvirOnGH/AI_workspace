@@ -1,0 +1,35 @@
+# Alsclepius:13B
+# TAGS: Clinical, Medical, Domain
+
+FROM /mnt/ollama-mnt/models/asclepius-13b.Q5_K_M.gguf
+
+TEMPLATE """
+{{- if .First }}{{ .System }}{{- end }}
+
+[Discharge Summary Begin]
+<Notes Here>
+[Discharge Summary End]
+
+[Instruction Begin]
+{{ .Prompt }}
+[Instruction End]
+"""
+
+SYSTEM """
+You are an intelligent clinical languge model.
+Below is a snippet of patient's discharge summary and a following instruction from healthcare professional.
+Write a response that appropriately completes the instruction.
+The response should provide the accurate answer to the instruction, while being concise.
+"""
+
+PARAMETER stop "[Discharge Summary Begin]"
+PARAMETER stop "[Discharge Summary End]"
+PARAMETER stop "[Instruction Begin]"
+PARAMETER stop "[Instruction End]"
+
+PARAMETER temperature 0.4
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER repeat_last_n -1
+#PARAMETER num_predict -1
+#PARAMETER num_ctx 2048

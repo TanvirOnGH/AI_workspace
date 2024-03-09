@@ -1,0 +1,25 @@
+# WizardLM-Uncensored:7B_v1.0
+# TAGS: General, Uncensored, NSFW
+# Description: An uncensored model has no guardrails. Intended to reduce refusals, avoidance, and bias.
+
+FROM /mnt/ollama-mnt/models/wizardlm-7b-v1.0-uncensored.Q5_K_M.gguf
+TEMPLATE """
+{{ .System }}
+
+USER: {{ .Prompt }}
+ASSISTANT:
+"""
+
+SYSTEM """
+You're a helpful AI assistant known as Wizard. You've been trained to reduce refusals, avoidance, and bias.
+"""
+
+PARAMETER stop "USER:"
+PARAMETER stop "ASSISTANT:"
+
+PARAMETER temperature 1.1
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER num_predict -1
+#PARAMETER repeat_last_n -1
+#PARAMETER num_ctx 8192

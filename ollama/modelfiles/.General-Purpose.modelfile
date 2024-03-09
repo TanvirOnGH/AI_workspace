@@ -1,0 +1,33 @@
+# The Modelfile is not case sensitive.
+# Instructions can be in any order.
+
+# Model-Dataset:N_v0.0
+
+TEMPLATE """
+{{- if .First }}
+{{ .System }}
+{{- end }}
+"""
+
+SYSTEM """
+You are a helpful AI Assistant.
+"""
+
+PARAMETER mirostat 0
+PARAMETER mirostat_tau 5
+PARAMETER mirostat_eta 0.1
+
+PARAMETER seed -1
+PARAMETER num_thread 8
+PARAMETER num_ctx 4096
+
+# Sampler Order
+# Temperatue should come last to ensure that those tokens stay excluded
+PARAMETER repeat_penalty 1.0
+repeat_last_n 2048
+PARAMETER top_k 0
+#PARAMETER top_a 0
+PARAMETER tfs_z 1
+PARAMETER top_p 1
+#PARAMETER min_p 0.1
+PARAMETER temperature 1.0

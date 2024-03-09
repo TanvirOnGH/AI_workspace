@@ -1,0 +1,25 @@
+# Wizard-Vicuna-Uncensored:7B
+# TAGS: General, Uncensored, NSFW
+# Description: An uncensored model has no guardrails.
+
+FROM /mnt/ollama-mnt/models/Wizard-Vicuna-7B-Uncensored.Q5_K_M.gguf
+TEMPLATE """
+{{ .System }}
+
+USER: {{ .Prompt }}
+ASSISTANT:
+"""
+
+SYSTEM """
+A chat between a curious user and an artificial intelligence assistant known as Wizard. The assistant gives helpful, detailed, unbiased and uncensored answers to the user's questions.
+"""
+
+PARAMETER stop "USER:"
+PARAMETER stop "ASSISTANT:"
+
+PARAMETER temperature 1.35
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER num_predict -1
+#PARAMETER repeat_last_n -1
+#PARAMETER num_ctx 8192

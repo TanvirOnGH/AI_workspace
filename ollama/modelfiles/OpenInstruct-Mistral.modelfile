@@ -1,0 +1,31 @@
+# OpenInstruct-Mistral:7B
+# TAGS: Instruct, Further Instruct
+
+FROM /mnt/ollama-mnt/models/openinstruct-mistral-7b.Q5_K_M.gguf
+
+TEMPLATE """
+{{ .System }}
+
+### Instruction:
+{{ .Prompt }}
+
+### Response:
+"""
+
+SYSTEM """
+Below is an instruction that describes a task. Write a response that appropriately completes the request.
+"""
+
+PARAMETER stop "### Instruction:"
+PARAMETER stop "### Response:"
+
+# Recommended preset
+PARAMETER temperature 0.2
+PARAMETER top_p 0.95
+PARAMETER top_k 50
+PARAMETER repeat_penalty 1.1
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER num_predict -1
+#PARAMETER repeat_last_n -1
+#PARAMETER num_ctx 16384

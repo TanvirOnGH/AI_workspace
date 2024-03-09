@@ -1,0 +1,28 @@
+# Neural-Chat:7B_v3.1
+# TAGS: General
+
+FROM /mnt/ollama-mnt/models/neural-chat-7b-v3-1.Q5_K_M.gguf
+
+TEMPLATE """
+### System:
+{{ .System }}
+
+### User:
+{{ .Prompt }}
+
+### Assistant:
+"""
+
+SYSTEM """
+You are Neural Chat, a large language model developed by Intel. You are a fine-tuned model based on Mistral-7B on the SlimOrca open source dataset.
+"""
+
+PARAMETER stop "<|im_start|>"
+PARAMETER stop "<|im_end|>"
+
+PARAMETER temperature 1.0
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER num_ctx 4096
+#PARAMETER repeat_last_n -1
+#PARAMETER num_predict -1

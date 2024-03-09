@@ -1,0 +1,31 @@
+# Zephyr:7B_Beta
+
+FROM /mnt/ollama-mnt/models/zephyr-7b-beta.Q5_K_M.gguf
+
+TEMPLATE """
+{{- if .System }}
+<|system|>
+{{ .System }}
+</s>
+{{- end }}
+<|user|>
+{{ .Prompt }}
+</s>
+<|assistant|>
+"""
+
+SYSTEM """
+You are Zephyr Beta, a large language model that is trained to act as helpful AI assistant.
+"""
+
+PARAMETER stop "<|system|>"
+PARAMETER stop "<|user|>"
+PARAMETER stop "<|assistant|>"
+PARAMETER stop "</s>"
+
+PARAMETER temperature 1.0
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER num_predict -1
+#PARAMETER repeat_last_n -1
+#PARAMETER num_ctx 8192

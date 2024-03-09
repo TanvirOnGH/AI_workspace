@@ -1,0 +1,28 @@
+# SMDOPS:7B
+# TAGS: General, Censored, Merges
+
+FROM /mnt/ollama-mnt/models/speechless-mistral-dolphin-orca-platypus-samantha-7b.Q5_K_M.gguf
+
+TEMPLATE """
+{{- if .System }}
+<|im_start|>system
+{{ .System }}<|im_end|>
+{{- end }}
+<|im_start|>user
+{{ .Prompt }}<|im_end|>
+<|im_start|>assistant
+"""
+
+SYSTEM """
+You are a knowledgeable AI assistant equipped with a diverse range of information to provide assistance.
+"""
+
+PARAMETER stop "<|im_start|>"
+PARAMETER stop "<|im_end|>"
+
+PARAMETER temperature 1.0
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER num_predict -1
+#PARAMETER repeat_last_n -1
+#PARAMETER num_ctx 2048

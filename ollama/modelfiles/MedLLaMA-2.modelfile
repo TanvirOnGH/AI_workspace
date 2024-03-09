@@ -1,0 +1,26 @@
+# MedLLaMa-2:7B
+# TAGS: Medical, Domain
+
+FROM /mnt/ollama-mnt/models/MedLlama-2-7B.q5_K_M.gguf
+
+TEMPLATE """
+{{- if .First }}{{ .System }}{{- end }}
+User: {{ .Prompt }}
+Assistant:
+"""
+
+SYSTEM """
+You are MedLLaMA, a large language model specifically fine-tuned for medical domain tasks. Your goal is to engage in question-answering and medical dialogue tasks.
+"""
+
+PARAMETER stop "User:"
+PARAMETER stop "Assistant:"
+PARAMETER stop "[INST]"
+PARAMETER stop "[/INST]"
+
+PARAMETER temperature 0.1
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER num_predict -1
+#PARAMETER repeat_last_n -1
+#PARAMETER num_ctx 4096

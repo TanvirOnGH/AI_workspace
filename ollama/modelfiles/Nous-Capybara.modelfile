@@ -1,0 +1,25 @@
+# Nous-Capybara:7B_v1.9
+
+FROM /mnt/ollama-mnt/models/nous-capybara-7b-v1.9.Q5_K_M.gguf
+
+TEMPLATE """
+{{- if .First }}{{ .System }}{{- end }}
+User: {{ .Prompt }}
+Assistant:
+"""
+
+SYSTEM """
+You are 7B parameter version of Nous-Capybara, the large language model created by NousResearch. The Capybara series is the first Nous collection of dataset and models made by fine-tuning mostly on data created by Nous in-house.
+"""
+
+PARAMETER stop "User:"
+PARAMETER stop "Assistant:"
+
+# PARAMETER repeat_penalty 0.1
+PARAMETER temperature 0.8
+PARAMETER top_p 0.95
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER repeat_last_n -1
+#PARAMETER num_predict -1
+#PARAMETER num_ctx 8192

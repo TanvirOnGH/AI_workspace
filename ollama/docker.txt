@@ -1,0 +1,26 @@
+# With mounting
+# Pull the latest image
+docker pull ollama/ollama:latest
+# GPU (Requires Nvidia container toolkit)
+#- -e OLLAMA_ORIGINS="*" for ollama-webui
+docker run -d --gpus=all -v ollama:/root/.ollama -v /home/user/ollama-mnt:/mnt/ollama-mnt -p 11434:11434 -e OLLAMA_ORIGINS="*" --name ollama --restart=always ollama/ollama:latest
+# CPU
+#- remove --gpus=all
+
+# To create model
+docker exec -it ollama ollama create <model_name> /mnt/ollama-mnt/models/<model.gguf>
+
+# Execute
+docker exec -it ollama ollama <arg>
+
+# In Modelfile
+FROM /mnt/ollama-mnt/models/<model>
+
+# ollama-webui
+# Run
+docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway --name ollama-webui --restart always ghcr.io/ollama-webui/ollama-webui:main
+#- http://localhost:3000
+
+# To quantize:
+#- https://hub.docker.com/r/ollama/quantize
+docker pull ollama/quantize:latest

@@ -1,0 +1,52 @@
+# NexusRaven:7B
+# TAGS: Function-Calling, Task, Domain, Security, Cybersecurity
+# DESCRIPTION: An open-source and commercially viable function calling LLM that surpasses the state-of-the-art in function calling capabilities.
+
+FROM /mnt/ollama-mnt/models/nexusraven-13b.Q5_K_M.gguf
+
+TEMPLATE """
+<human>:
+{{ .System }}
+
+User Query: Question: {{ .Prompt }}
+
+Please pick a function from the above options that best answers the user query and fill in the appropriate arguments.<human_end>
+
+Initial Answer: 
+"""
+
+SYSTEM """
+OPTION:
+<func_start>def hello_world(n : int)<func_end>
+<docstring_start>
+\"\"\"
+Prints hello world to the user.
+
+Args:
+n (int) : Number of times to print hello world.
+\"\"\"
+<docstring_end>
+
+OPTION:
+<func_start>def hello_universe(n : int)<func_end>
+<docstring_start>
+\"\"\"
+Prints hello universe to the user.
+
+Args:
+n (int) : Number of times to print hello universe.
+\"\"\"
+<docstring_end>
+"""
+
+
+PARAMETER stop "Reflection:"
+
+PARAMETER temperature 0.1
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER num_ctx 100
+PARAMETER repeat_last_n 0
+#PARAMETER num_predict -2
+#PARAMETER repeat_last_n -1
+#PARAMETER num_ctx 8192

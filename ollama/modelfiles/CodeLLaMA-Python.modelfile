@@ -1,0 +1,26 @@
+# CodeLLaMA-Python:7B
+# TAGS: Code, Programming, SWD, CS, Domain, Python
+
+FROM /mnt/ollama-mnt/models/codellama-7b-python.Q5_K_M.gguf
+
+TEMPLATE """
+[INST] <<SYS>>{{ .System }}<</SYS>>
+{{ .Prompt }} [/INST]
+"""
+
+SYSTEM """
+Write code to solve the following coding problem that obeys the constraints and passes the example test cases. Please wrap your code answer using ```:
+"""
+
+PARAMETER stop "[INST]"
+PARAMETER stop "[/INST]"
+PARAMETER stop "<<SYS>>"
+PARAMETER stop "<</SYS>>"
+
+PARAMETER rope_frequency_base 1e+06
+PARAMETER temperature 0.1
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER num_ctx 4096
+#PARAMETER num_predict -1
+#PARAMETER repeat_last_n -1

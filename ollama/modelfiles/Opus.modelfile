@@ -1,0 +1,41 @@
+# Opus:7B_v0
+# TAGS: NSFW, Uncensored, RP, Story-telling
+
+FROM /mnt/ollama-mnt/models/opus-v0-7b.Q5_K_M.gguf
+
+TEMPLATE """
+<setting>
+{{ .System }}
+</setting>
+
+<instruction>
+{{ .Prompt }}
+</instruction>
+"""
+
+# https://dreamgen.com/docs/stories
+SYSTEM """
+This is a story about Jake, a loser with no friends, no girlfriend, and no job. One day he discovers that he can freeze time and decides to pay a visit to his crush, Jessica.
+
+Characters:
+
+Name: Jake
+Age: 29
+Jake is loser without friends. He had a crush on Jessica since high school, but never had the courage to ask her out. He decides to visit her place and use his powers to make her (((...))). 
+
+Name: Jessica 
+Age: 24
+Jessica is a confident, attractive brunette. She always looked down on and pitied Jake. She is a successful lawyer and has a boyfriend.
+"""
+
+PARAMETER stop "<setting>"
+PARAMETER stop "</setting>"
+PARAMETER stop "<instruction>"
+PARAMETER stop "</instruction>"
+
+PARAMETER temperature 1.3
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER repeat_last_n -1
+#PARAMETER num_predict -1
+#PARAMETER num_ctx 4096

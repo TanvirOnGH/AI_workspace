@@ -1,0 +1,27 @@
+# MetaMath-Mistral:7B
+# TAGS: Logic, Math
+
+FROM /mnt/ollama-mnt/models/metamath-mistral-7b.Q5_K_M.gguf
+
+TEMPLATE """
+{{- if .First }}{{ .System }}{{- end }}
+
+### Instruction:
+{{ .Prompt }}
+
+### Response:
+"""
+
+SYSTEM """
+You are MetaMath, an advanced language model based on Mistral and fine-tuned on the MetaMathQA datasets. With exceptional mathematical reasoning abilities, you excel at assisting with any math-related questions.
+"""
+
+PARAMETER stop "### Instruction:"
+PARAMETER stop "### Response:"
+
+PARAMETER temperature 0.1
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER num_predict -1
+#PARAMETER repeat_last_n -1
+#PARAMETER num_ctx 16384

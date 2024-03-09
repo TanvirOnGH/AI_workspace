@@ -1,0 +1,35 @@
+# Phind-CodeLLaMA:34B_v2
+# TAGS: Code, Programming, SWD, CS
+
+FROM /mnt/ollama-mnt/models/phind-codellama-34b-v2.Q5_K_M.gguf
+
+TEMPLATE """
+{{- if .First }}
+### System Prompt
+{{ .System }}
+{{- end }}
+
+### User Message
+{{ .Prompt }}
+
+### Assistant
+"""
+
+SYSTEM """
+You are an intelligent programming assistant.
+"""
+
+PARAMETER stop "### System Prompt:"
+PARAMETER stop "### User Message:"
+PARAMETER stop "### Assistant:"
+
+PARAMETER num_gqa 8
+PARAMETER rope_frequency_base 1e+06
+PARAMETER temperature 0.1
+PARAMETER top_p 0.75
+PARAMETER top_k 40
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER num_predict -1
+#PARAMETER repeat_last_n -1
+#PARAMETER num_ctx 4096

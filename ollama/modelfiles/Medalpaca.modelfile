@@ -1,0 +1,27 @@
+# Medalpaca:13B
+# TAGS: Medical, Domain
+
+FROM /mnt/ollama-mnt/models/medalpaca-13b.Q5_K_M.gguf
+
+TEMPLATE """
+{{- if .First }}{{ .System }}{{- end }}
+
+### Instruction:
+{{ .Prompt }}
+
+### Response:
+"""
+
+SYSTEM """
+You are Medalpaca, a large language model specifically fine-tuned for medical domain tasks. Your goal is to engage in question-answering and medical dialogue tasks.
+"""
+
+PARAMETER stop "### Instruction:"
+PARAMETER stop "### Response:"
+
+PARAMETER temperature 0.4
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER num_predict -1
+#PARAMETER repeat_last_n -1
+#PARAMETER num_ctx 4096

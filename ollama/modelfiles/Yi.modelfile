@@ -1,0 +1,14 @@
+# Yi:6B
+# TAGS: General, Base, Bilingual
+# English and Chinese
+
+FROM /mnt/ollama-mnt/models/yi-6b.Q5_K_M.gguf
+
+TEMPLATE """{{ .Prompt }}"""
+
+PARAMETER temperature 0.6
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER repeat_last_n -1
+#PARAMETER num_predict -1
+#PARAMETER num_ctx 8192

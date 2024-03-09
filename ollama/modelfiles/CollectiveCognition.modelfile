@@ -1,0 +1,23 @@
+# Mistral-CollectiveCognition:7B_v1.1
+
+FROM /mnt/ollama-mnt/models/collectivecognition-v1.1-mistral-7b.Q5_K_M.gguf
+
+TEMPLATE """
+{{- if .First }}{{ .System }}{{- end }}
+User: {{ .Prompt }}
+Assistant:
+"""
+
+SYSTEM """
+You are Collective Cognition v1.1, a state-of-the-art model fine-tuned using the Mistral approach.
+"""
+
+PARAMETER stop "User:"
+PARAMETER stop "Assistant:"
+
+PARAMETER temperature 1.0
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER num_ctx 8192
+# PARAMETER repeat_last_n -1
+# PARAMETER num_predict -1

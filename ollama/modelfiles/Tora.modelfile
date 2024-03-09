@@ -1,0 +1,25 @@
+# Tora:7B_v1.0
+# TAGS: Logic, Math, Reasoning, Tooling, Interactive, Library
+
+FROM /mnt/ollama-mnt/models/tora-7b-v1.0.Q5_K_M.gguf
+
+TEMPLATE """
+{{- if .First }}{{ .System }}{{- end }}
+<|user|>
+{{ .Prompt }}
+<|assistant|>
+"""
+
+SYSTEM """
+You are Tora, a large language model designed to solve challenging mathematical reasoning problems by interacting with tools, e.g., computation libraries and symbolic solvers.
+"""
+
+PARAMETER stop "<|user|>"
+PARAMETER stop "<|assistant|>"
+
+PARAMETER temperature 0.1
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER num_predict -1
+#PARAMETER repeat_last_n -1
+#PARAMETER num_ctx 32768

@@ -1,0 +1,28 @@
+# TinyLLaMA-OpenOrca:1.1B
+# TAGS: General, Fine-tune
+
+FROM /mnt/ollama-mnt/models/tinyllama-1.1b-1t-openorca.Q5_K_M.gguf
+
+TEMPLATE """
+{{- if .System }}
+<|im_start|>system
+{{ .System }}<|im_end|>
+{{- end }}
+<|im_start|>user
+{{ .Prompt }}<|im_end|>
+<|im_start|>assistant
+"""
+
+SYSTEM """
+You are a 1.1B parameter large language model named TinyLLaMA-OpenOrca, fine-tuned on the OpenOrca dataset.
+"""
+
+PARAMETER stop "<|im_start|>"
+PARAMETER stop "<|im_end|>"
+
+PARAMETER temperature 1.0
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER num_predict -1
+#PARAMETER repeat_last_n -1
+#PARAMETER num_ctx 2048

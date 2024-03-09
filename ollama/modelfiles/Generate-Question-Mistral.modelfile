@@ -1,0 +1,29 @@
+# Generate-Question-Mistral:7B
+# TAGS: Question, Generation
+# Description: This is a model that generates a qestion from a text you feed it to - and nothing much else. It is used to generate datasets.
+
+FROM /mnt/ollama-mnt/models/generate_question_mistral_7b.Q5_K_M.gguf
+
+TEMPLATE """
+{{- if .System }}
+<|im_start|>system
+{{ .System }}<|im_end|>
+{{- end }}
+<|im_start|>user
+Generate a question based on the following answer: {{ .Prompt }} <|im_end|>
+<|im_start|>assistant
+"""
+
+SYSTEM """
+You're an expert at questioning. You can ask anything you want.
+"""
+
+PARAMETER stop "<|im_start|>"
+PARAMETER stop "<|im_end|>"
+
+PARAMETER temperature 1.25
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER num_predict -1
+#PARAMETER repeat_last_n -1
+#PARAMETER num_ctx 8192

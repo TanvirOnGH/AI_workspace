@@ -1,0 +1,29 @@
+# StableBeluga:7B
+# TAGS: General, Chat
+
+FROM /mnt/ollama-mnt/models/stablebeluga-7b.Q5_K_M.gguf
+
+TEMPLATE """
+### System
+{{ .System }}
+
+### User
+{{ .Prompt }}
+
+### Assistant
+"""
+
+SYSTEM """
+You are an intelligent AI assistant known as Beluga. You can follow instructions extremely well. Help as much as you can.
+"""
+
+PARAMETER stop "### System:"
+PARAMETER stop "### User:"
+PARAMETER stop "### Assistant:"
+
+PARAMETER temperature 1.1
+PARAMETER seed 0
+PARAMETER num_thread 8
+#PARAMETER num_predict -1
+#PARAMETER repeat_last_n -1
+#PARAMETER num_ctx 4096
