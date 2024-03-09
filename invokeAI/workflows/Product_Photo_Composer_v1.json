@@ -1,0 +1,1268 @@
+{
+  "name": "Product Photo Composer",
+  "author": "Daniel Schweinert",
+  "description": "Takes a PNG image with transparent background and composes it over AI generated background.",
+  "version": "1.00",
+  "contact": "technerd_official",
+  "tags": "",
+  "notes": "1. Create a prompt matching your \"PNG file\". Low angle or high angle shot, bright or dark etc. or it will look fake. Don't forget you can further enhance the output by adding details in the foreground via Inpainting in Unified Canvas.\n\nWith newer SD1.5 models I was able to use PNG pics up to 1024x1280px (Realistic Vision 5.1, CyberRealistic 3.3, etc.)\n\nCheck the \"Info\" button on the following nodes:\nOutput for Photoshop (for manual composing)\nUncorrected Image (composed result - can be really good)\nColor Corrected Image (can be hit or miss, depends on PNG)\n\nI am still a beginner with nodes. I wish I could also change the lighting on the \"PNG file\" itself, to make it look more realistic. If you know how, please let me know on discord or via email. Happy denoising! \n\nwww.schweinert.com\n",
+  "exposedFields": [
+    {
+      "nodeId": "705db5f8-0b37-43cc-b052-5f92740589e6",
+      "fieldName": "prompt"
+    },
+    {
+      "nodeId": "209920a0-998e-475d-ad32-cba538e9bcea",
+      "fieldName": "prompt"
+    },
+    {
+      "nodeId": "f35a12f6-14de-4661-a987-57162bc0997c",
+      "fieldName": "image"
+    },
+    {
+      "nodeId": "976190f2-3570-4905-8faa-babfda8050c3",
+      "fieldName": "model"
+    },
+    {
+      "nodeId": "8285e35a-a213-49b3-b20f-7ddc01da6ea3",
+      "fieldName": "steps"
+    },
+    {
+      "nodeId": "8285e35a-a213-49b3-b20f-7ddc01da6ea3",
+      "fieldName": "cfg_scale"
+    },
+    {
+      "nodeId": "8285e35a-a213-49b3-b20f-7ddc01da6ea3",
+      "fieldName": "scheduler"
+    }
+  ],
+  "meta": {
+    "version": "1.0.0"
+  },
+  "nodes": [
+    {
+      "id": "a057c2fc-77c4-49d2-8afb-f46dc967f82a",
+      "type": "invocation",
+      "data": {
+        "id": "a057c2fc-77c4-49d2-8afb-f46dc967f82a",
+        "type": "tomask",
+        "inputs": {
+          "image": {
+            "id": "85c2b404-49c2-47db-8245-d6e1ba246ef9",
+            "name": "image",
+            "type": "ImageField",
+            "fieldKind": "input",
+            "label": ""
+          },
+          "invert": {
+            "id": "e0cae75c-2add-4c8a-a7d7-b5dfe5b45c0c",
+            "name": "invert",
+            "type": "boolean",
+            "fieldKind": "input",
+            "label": "",
+            "value": false
+          }
+        },
+        "outputs": {
+          "image": {
+            "id": "462fdc5a-3057-4536-93bf-7b9ca8beac3c",
+            "name": "image",
+            "type": "ImageField",
+            "fieldKind": "output"
+          },
+          "width": {
+            "id": "11a5aedd-5122-4f33-999a-84a0a788bd5c",
+            "name": "width",
+            "type": "integer",
+            "fieldKind": "output"
+          },
+          "height": {
+            "id": "fae713ad-464b-4c18-ba6e-d2fa69abed81",
+            "name": "height",
+            "type": "integer",
+            "fieldKind": "output"
+          }
+        },
+        "label": "",
+        "isOpen": true,
+        "notes": "",
+        "embedWorkflow": false,
+        "isIntermediate": true,
+        "version": "1.0.0"
+      },
+      "width": 320,
+      "height": 274,
+      "position": {
+        "x": 425,
+        "y": -275
+      }
+    },
+    {
+      "id": "209920a0-998e-475d-ad32-cba538e9bcea",
+      "type": "invocation",
+      "data": {
+        "id": "209920a0-998e-475d-ad32-cba538e9bcea",
+        "type": "compel",
+        "inputs": {
+          "prompt": {
+            "id": "d4cc5e03-a96d-4f58-89d9-2952376b4921",
+            "name": "prompt",
+            "type": "string",
+            "fieldKind": "input",
+            "label": "Negative Prompt",
+            "value": "painting, ugly, cgi, (3d render), cartoon, (low quality), (3d modeling), "
+          },
+          "clip": {
+            "id": "a38c3d3e-745e-41b5-a19e-8a49041b9703",
+            "name": "clip",
+            "type": "ClipField",
+            "fieldKind": "input",
+            "label": ""
+          }
+        },
+        "outputs": {
+          "conditioning": {
+            "id": "3b5b41a7-ba23-4a67-a7b2-ddd4cfd05a56",
+            "name": "conditioning",
+            "type": "ConditioningField",
+            "fieldKind": "output"
+          }
+        },
+        "label": "Negative Prompt",
+        "isOpen": true,
+        "notes": "",
+        "embedWorkflow": false,
+        "isIntermediate": true,
+        "version": "1.0.0"
+      },
+      "width": 320,
+      "height": 235,
+      "position": {
+        "x": 0,
+        "y": 525
+      }
+    },
+    {
+      "id": "705db5f8-0b37-43cc-b052-5f92740589e6",
+      "type": "invocation",
+      "data": {
+        "id": "705db5f8-0b37-43cc-b052-5f92740589e6",
+        "type": "compel",
+        "inputs": {
+          "prompt": {
+            "id": "d4cc5e03-a96d-4f58-89d9-2952376b4921",
+            "name": "prompt",
+            "type": "string",
+            "fieldKind": "input",
+            "label": "Positive Prompt",
+            "value": "award winning photography, RAW photo, (low angle)1.3, bottle buried in sand, epic desert panorama, masterpiece, highly detailed"
+          },
+          "clip": {
+            "id": "a38c3d3e-745e-41b5-a19e-8a49041b9703",
+            "name": "clip",
+            "type": "ClipField",
+            "fieldKind": "input",
+            "label": ""
+          }
+        },
+        "outputs": {
+          "conditioning": {
+            "id": "3b5b41a7-ba23-4a67-a7b2-ddd4cfd05a56",
+            "name": "conditioning",
+            "type": "ConditioningField",
+            "fieldKind": "output"
+          }
+        },
+        "label": "Positive Prompt",
+        "isOpen": true,
+        "notes": "",
+        "embedWorkflow": false,
+        "isIntermediate": true,
+        "version": "1.0.0"
+      },
+      "width": 320,
+      "height": 235,
+      "position": {
+        "x": 0,
+        "y": 250
+      }
+    },
+    {
+      "id": "976190f2-3570-4905-8faa-babfda8050c3",
+      "type": "invocation",
+      "data": {
+        "id": "976190f2-3570-4905-8faa-babfda8050c3",
+        "type": "main_model_loader",
+        "inputs": {
+          "model": {
+            "id": "1f08ed6f-bdbd-406b-8292-ff57e53e18ae",
+            "name": "model",
+            "type": "MainModelField",
+            "fieldKind": "input",
+            "label": "",
+            "value": {
+              "model_name": "cyberrealistic_v33",
+              "base_model": "sd-1",
+              "model_type": "main"
+            }
+          }
+        },
+        "outputs": {
+          "unet": {
+            "id": "b0eb7dd2-7562-403b-bd1d-353d14ebf166",
+            "name": "unet",
+            "type": "UNetField",
+            "fieldKind": "output"
+          },
+          "clip": {
+            "id": "2fc2109b-b88d-4f01-853b-cb2c66fd3b4c",
+            "name": "clip",
+            "type": "ClipField",
+            "fieldKind": "output"
+          },
+          "vae": {
+            "id": "19ebe38a-1fb5-4f7f-ba9c-16b2e7a3a570",
+            "name": "vae",
+            "type": "VaeField",
+            "fieldKind": "output"
+          }
+        },
+        "label": "",
+        "isOpen": true,
+        "notes": "",
+        "embedWorkflow": false,
+        "isIntermediate": true,
+        "version": "1.0.0"
+      },
+      "width": 320,
+      "height": 202,
+      "position": {
+        "x": 0,
+        "y": 25
+      }
+    },
+    {
+      "id": "a0156558-c3ef-406b-a878-9df58799108f",
+      "type": "invocation",
+      "data": {
+        "id": "a0156558-c3ef-406b-a878-9df58799108f",
+        "type": "noise",
+        "inputs": {
+          "seed": {
+            "id": "ca0e4de8-42e1-4fbb-ae60-8d2d5f6e86b4",
+            "name": "seed",
+            "type": "integer",
+            "fieldKind": "input",
+            "label": "",
+            "value": 28479367
+          },
+          "width": {
+            "id": "f85587c6-ad8d-446d-96f0-ba8b3dad4412",
+            "name": "width",
+            "type": "integer",
+            "fieldKind": "input",
+            "label": "",
+            "value": 1024
+          },
+          "height": {
+            "id": "0d2a0c43-9723-41d7-8472-6de9794d87fa",
+            "name": "height",
+            "type": "integer",
+            "fieldKind": "input",
+            "label": "",
+            "value": 1024
+          },
+          "use_cpu": {
+            "id": "04bd3d8d-19c8-46c5-91c2-8857f2d6a283",
+            "name": "use_cpu",
+            "type": "boolean",
+            "fieldKind": "input",
+            "label": "",
+            "value": true
+          }
+        },
+        "outputs": {
+          "noise": {
+            "id": "4791050c-600d-45e3-b5bc-c47e5d13467b",
+            "name": "noise",
+            "type": "LatentsField",
+            "fieldKind": "output"
+          },
+          "width": {
+            "id": "bc5040a4-7dda-47dd-b2cb-e3f5498b9d53",
+            "name": "width",
+            "type": "integer",
+            "fieldKind": "output"
+          },
+          "height": {
+            "id": "95ef0c04-a108-4a32-8bb7-60bf2d1224ad",
+            "name": "height",
+            "type": "integer",
+            "fieldKind": "output"
+          }
+        },
+        "label": "",
+        "isOpen": true,
+        "notes": "",
+        "embedWorkflow": false,
+        "isIntermediate": true,
+        "version": "1.0.0"
+      },
+      "width": 320,
+      "height": 364,
+      "position": {
+        "x": 425,
+        "y": 575
+      }
+    },
+    {
+      "id": "8285e35a-a213-49b3-b20f-7ddc01da6ea3",
+      "type": "invocation",
+      "data": {
+        "id": "8285e35a-a213-49b3-b20f-7ddc01da6ea3",
+        "type": "denoise_latents",
+        "inputs": {
+          "noise": {
+            "id": "849410c6-6e1a-4f8a-beb2-8bd650057bc5",
+            "name": "noise",
+            "type": "LatentsField",
+            "fieldKind": "input",
+            "label": ""
+          },
+          "steps": {
+            "id": "d8248469-fe43-4214-94e3-1026b59467b8",
+            "name": "steps",
+            "type": "integer",
+            "fieldKind": "input",
+            "label": "",
+            "value": 40
+          },
+          "cfg_scale": {
+            "id": "5f691461-1cb4-47c2-b48f-77168a301b57",
+            "name": "cfg_scale",
+            "type": "float",
+            "fieldKind": "input",
+            "label": "",
+            "value": 7.5
+          },
+          "denoising_start": {
+            "id": "0e978109-db06-4277-90a3-90ea628566bd",
+            "name": "denoising_start",
+            "type": "float",
+            "fieldKind": "input",
+            "label": "",
+            "value": 0
+          },
+          "denoising_end": {
+            "id": "7c4b7da1-96e0-4a3e-a6df-87b7bdd29190",
+            "name": "denoising_end",
+            "type": "float",
+            "fieldKind": "input",
+            "label": "",
+            "value": 1
+          },
+          "scheduler": {
+            "id": "0f1f266e-3894-410e-b7ce-1988f1f8e52b",
+            "name": "scheduler",
+            "type": "Scheduler",
+            "fieldKind": "input",
+            "label": "",
+            "value": "dpmpp_2m_k"
+          },
+          "control": {
+            "id": "f68acf90-a79c-479f-a083-dc00e594edbf",
+            "name": "control",
+            "type": "ControlPolymorphic",
+            "fieldKind": "input",
+            "label": ""
+          },
+          "latents": {
+            "id": "30e3a5c5-bfd7-454e-9ba7-981552d9cac3",
+            "name": "latents",
+            "type": "LatentsField",
+            "fieldKind": "input",
+            "label": ""
+          },
+          "denoise_mask": {
+            "id": "293814f1-4b75-47e4-9dbd-a7e62b83e6e2",
+            "name": "denoise_mask",
+            "type": "DenoiseMaskField",
+            "fieldKind": "input",
+            "label": ""
+          },
+          "positive_conditioning": {
+            "id": "776fc632-23fe-4e34-b598-dd91ec4b1b40",
+            "name": "positive_conditioning",
+            "type": "ConditioningField",
+            "fieldKind": "input",
+            "label": ""
+          },
+          "negative_conditioning": {
+            "id": "0c662ead-fac0-4de3-8b9d-ca6e38bfa2a0",
+            "name": "negative_conditioning",
+            "type": "ConditioningField",
+            "fieldKind": "input",
+            "label": ""
+          },
+          "unet": {
+            "id": "68fadc5c-9172-4d9c-a171-dcd31c5e2860",
+            "name": "unet",
+            "type": "UNetField",
+            "fieldKind": "input",
+            "label": ""
+          }
+        },
+        "outputs": {
+          "latents": {
+            "id": "a7759cf9-0802-4a6a-a5b5-5111feaed8b4",
+            "name": "latents",
+            "type": "LatentsField",
+            "fieldKind": "output"
+          },
+          "width": {
+            "id": "e250fc3f-3939-42a1-9b22-c379e9ccec9f",
+            "name": "width",
+            "type": "integer",
+            "fieldKind": "output"
+          },
+          "height": {
+            "id": "522eae30-a25e-4b56-ba4b-5e0871d7e2b7",
+            "name": "height",
+            "type": "integer",
+            "fieldKind": "output"
+          }
+        },
+        "label": "",
+        "isOpen": true,
+        "notes": "",
+        "embedWorkflow": false,
+        "isIntermediate": true,
+        "version": "1.0.0"
+      },
+      "width": 320,
+      "height": 558,
+      "position": {
+        "x": 900,
+        "y": -200
+      }
+    },
+    {
+      "id": "f35a12f6-14de-4661-a987-57162bc0997c",
+      "type": "invocation",
+      "data": {
+        "id": "f35a12f6-14de-4661-a987-57162bc0997c",
+        "type": "image",
+        "inputs": {
+          "image": {
+            "id": "6a70f6a2-b8fd-44b4-b0d3-582836472414",
+            "name": "image",
+            "type": "ImageField",
+            "fieldKind": "input",
+            "label": "PNG Image (with transparent background)"
+          }
+        },
+        "outputs": {
+          "image": {
+            "id": "e8bf532a-bda9-4396-a685-862b88523a30",
+            "name": "image",
+            "type": "ImageField",
+            "fieldKind": "output"
+          },
+          "width": {
+            "id": "a8070317-a584-44d5-b072-a0ac6ce253c1",
+            "name": "width",
+            "type": "integer",
+            "fieldKind": "output"
+          },
+          "height": {
+            "id": "b6c7c995-10d4-4501-b449-4492da3d5ebe",
+            "name": "height",
+            "type": "integer",
+            "fieldKind": "output"
+          }
+        },
+        "label": "Load PNG Image here:",
+        "isOpen": true,
+        "notes": "Load here your PNG image with transparent background.",
+        "embedWorkflow": false,
+        "isIntermediate": true,
+        "version": "1.0.0"
+      },
+      "width": 320,
+      "height": 225,
+      "position": {
+        "x": 0,
+        "y": -575
+      }
+    },
+    {
+      "id": "168baacd-68fc-4488-a344-774cfc435a26",
+      "type": "invocation",
+      "data": {
+        "id": "168baacd-68fc-4488-a344-774cfc435a26",
+        "type": "tomask",
+        "inputs": {
+          "image": {
+            "id": "85c2b404-49c2-47db-8245-d6e1ba246ef9",
+            "name": "image",
+            "type": "ImageField",
+            "fieldKind": "input",
+            "label": ""
+          },
+          "invert": {
+            "id": "e0cae75c-2add-4c8a-a7d7-b5dfe5b45c0c",
+            "name": "invert",
+            "type": "boolean",
+            "fieldKind": "input",
+            "label": "",
+            "value": true
+          }
+        },
+        "outputs": {
+          "image": {
+            "id": "462fdc5a-3057-4536-93bf-7b9ca8beac3c",
+            "name": "image",
+            "type": "ImageField",
+            "fieldKind": "output"
+          },
+          "width": {
+            "id": "11a5aedd-5122-4f33-999a-84a0a788bd5c",
+            "name": "width",
+            "type": "integer",
+            "fieldKind": "output"
+          },
+          "height": {
+            "id": "fae713ad-464b-4c18-ba6e-d2fa69abed81",
+            "name": "height",
+            "type": "integer",
+            "fieldKind": "output"
+          }
+        },
+        "label": "",
+        "isOpen": true,
+        "notes": "",
+        "embedWorkflow": false,
+        "isIntermediate": true,
+        "version": "1.0.0"
+      },
+      "width": 320,
+      "height": 274,
+      "position": {
+        "x": 425,
+        "y": -575
+      }
+    },
+    {
+      "id": "a19a64ab-80c5-4ff1-942e-7aa327909c1c",
+      "type": "invocation",
+      "data": {
+        "id": "a19a64ab-80c5-4ff1-942e-7aa327909c1c",
+        "type": "controlnet",
+        "inputs": {
+          "image": {
+            "id": "c702f625-532d-4b21-b8b0-b8c41be92a15",
+            "name": "image",
+            "type": "ImageField",
+            "fieldKind": "input",
+            "label": ""
+          },
+          "control_model": {
+            "id": "f438374c-1463-4ea2-a2dc-32ca1305c891",
+            "name": "control_model",
+            "type": "ControlNetModelField",
+            "fieldKind": "input",
+            "label": "",
+            "value": {
+              "model_name": "canny",
+              "base_model": "sd-1"
+            }
+          },
+          "control_weight": {
+            "id": "43f5f202-a43e-4798-a191-c7c77e92a611",
+            "name": "control_weight",
+            "type": "float",
+            "fieldKind": "input",
+            "label": "",
+            "value": 1
+          },
+          "begin_step_percent": {
+            "id": "bcc56d1b-6a8e-425d-a607-b2dfb4b2239f",
+            "name": "begin_step_percent",
+            "type": "float",
+            "fieldKind": "input",
+            "label": "",
+            "value": 0
+          },
+          "end_step_percent": {
+            "id": "6296108a-88f3-419e-9b4c-819289049729",
+            "name": "end_step_percent",
+            "type": "float",
+            "fieldKind": "input",
+            "label": "",
+            "value": 1
+          },
+          "control_mode": {
+            "id": "e5959fcc-ed5a-4db5-a781-53281e66ae6d",
+            "name": "control_mode",
+            "type": "enum",
+            "fieldKind": "input",
+            "label": "",
+            "value": "more_control"
+          },
+          "resize_mode": {
+            "id": "b1a61902-f730-4bf7-979e-15d4dae91148",
+            "name": "resize_mode",
+            "type": "enum",
+            "fieldKind": "input",
+            "label": "",
+            "value": "fill_resize"
+          }
+        },
+        "outputs": {
+          "control": {
+            "id": "91f3a58c-ab0a-4c9a-a5d6-2df58988dccc",
+            "name": "control",
+            "type": "ControlField",
+            "fieldKind": "output"
+          }
+        },
+        "label": "",
+        "isOpen": true,
+        "notes": "Canny\nSoftedge\nDepth",
+        "embedWorkflow": false,
+        "isIntermediate": true,
+        "version": "1.0.0"
+      },
+      "width": 320,
+      "height": 480,
+      "position": {
+        "x": 1275,
+        "y": -575
+      }
+    },
+    {
+      "id": "bbbe45bb-d4cc-4ec3-9751-47e0bdd34cb6",
+      "type": "invocation",
+      "data": {
+        "id": "bbbe45bb-d4cc-4ec3-9751-47e0bdd34cb6",
+        "type": "l2i",
+        "inputs": {
+          "tiled": {
+            "id": "ac822319-1669-4f08-b207-038f17cd7683",
+            "name": "tiled",
+            "type": "boolean",
+            "fieldKind": "input",
+            "label": "",
+            "value": false
+          },
+          "fp32": {
+            "id": "be0096f4-9b2f-4b4d-82d8-8e8b17e4fc53",
+            "name": "fp32",
+            "type": "boolean",
+            "fieldKind": "input",
+            "label": "",
+            "value": false
+          },
+          "latents": {
+            "id": "e0c60b12-c17d-4679-8937-bbb572fad868",
+            "name": "latents",
+            "type": "LatentsField",
+            "fieldKind": "input",
+            "label": ""
+          },
+          "vae": {
+            "id": "6dbd9624-f4e3-4a7e-a6a3-a144fae0a54d",
+            "name": "vae",
+            "type": "VaeField",
+            "fieldKind": "input",
+            "label": ""
+          }
+        },
+        "outputs": {
+          "image": {
+            "id": "64101a71-eaae-4f66-abfa-3e2ed4c9b54a",
+            "name": "image",
+            "type": "ImageField",
+            "fieldKind": "output"
+          },
+          "width": {
+            "id": "5fce74b3-52af-495b-afd8-7e23106e2124",
+            "name": "width",
+            "type": "integer",
+            "fieldKind": "output"
+          },
+          "height": {
+            "id": "b25e5b33-dc5a-40f4-aa48-bc09e9dc00b3",
+            "name": "height",
+            "type": "integer",
+            "fieldKind": "output"
+          }
+        },
+        "label": "Output for Photoshop",
+        "isOpen": true,
+        "notes": "Use this output if you want to work in Photoshop to paste your PNG file manually and do some retouching to the edges if needed. Hint: Use the new Remove tool, Liquify or Warp if something sticks out.\n\nIf you need this output > activate the checkmark \"Save to Gallery\"",
+        "embedWorkflow": false,
+        "isIntermediate": true,
+        "version": "1.0.0"
+      },
+      "width": 320,
+      "height": 266,
+      "position": {
+        "x": 1275,
+        "y": -50
+      }
+    },
+    {
+      "id": "2cb3a07d-04ce-4a4b-abc0-9c48582f913b",
+      "type": "invocation",
+      "data": {
+        "id": "2cb3a07d-04ce-4a4b-abc0-9c48582f913b",
+        "type": "canny_image_processor",
+        "inputs": {
+          "image": {
+            "id": "e0c633a4-681e-4963-9b8b-53ec2428dee2",
+            "name": "image",
+            "type": "ImageField",
+            "fieldKind": "input",
+            "label": ""
+          },
+          "low_threshold": {
+            "id": "59550a6b-2e86-438b-9057-d2d1741db5d9",
+            "name": "low_threshold",
+            "type": "integer",
+            "fieldKind": "input",
+            "label": "",
+            "value": 100
+          },
+          "high_threshold": {
+            "id": "5ae9d91c-b3e6-4c63-8e50-090352fcd7b4",
+            "name": "high_threshold",
+            "type": "integer",
+            "fieldKind": "input",
+            "label": "",
+            "value": 200
+          }
+        },
+        "outputs": {
+          "image": {
+            "id": "72fc3a0f-e54b-4194-8ca9-492bacbc9123",
+            "name": "image",
+            "type": "ImageField",
+            "fieldKind": "output"
+          },
+          "width": {
+            "id": "8c3206fe-b2d9-47ba-b0d1-e27071bf8bf7",
+            "name": "width",
+            "type": "integer",
+            "fieldKind": "output"
+          },
+          "height": {
+            "id": "8330a0d6-f137-4f38-9a31-50ec9964493b",
+            "name": "height",
+            "type": "integer",
+            "fieldKind": "output"
+          }
+        },
+        "label": "",
+        "isOpen": true,
+        "notes": "",
+        "embedWorkflow": false,
+        "isIntermediate": true,
+        "version": "1.0.0"
+      },
+      "width": 320,
+      "height": 339,
+      "position": {
+        "x": 900,
+        "y": -575
+      }
+    },
+    {
+      "id": "2096b016-6d3e-4249-b42a-ac77c40bb306",
+      "type": "invocation",
+      "data": {
+        "id": "2096b016-6d3e-4249-b42a-ac77c40bb306",
+        "type": "color_correct",
+        "inputs": {
+          "image": {
+            "id": "0003738f-f175-4bb4-a752-e647f2c219b4",
+            "name": "image",
+            "type": "ImageField",
+            "fieldKind": "input",
+            "label": ""
+          },
+          "reference": {
+            "id": "cc8295d4-a309-474f-8861-244492a2f5fa",
+            "name": "reference",
+            "type": "ImageField",
+            "fieldKind": "input",
+            "label": ""
+          },
+          "mask": {
+            "id": "24576157-933a-483c-a12b-c022ea6aa0fd",
+            "name": "mask",
+            "type": "ImageField",
+            "fieldKind": "input",
+            "label": ""
+          },
+          "mask_blur_radius": {
+            "id": "61fb4b69-9cee-42ca-8751-4839b2a1d9d8",
+            "name": "mask_blur_radius",
+            "type": "float",
+            "fieldKind": "input",
+            "label": "",
+            "value": 0
+          }
+        },
+        "outputs": {
+          "image": {
+            "id": "38aa2845-9a1d-42d3-b07e-9aa7efa85b74",
+            "name": "image",
+            "type": "ImageField",
+            "fieldKind": "output"
+          },
+          "width": {
+            "id": "94841b83-f8c8-43c7-b400-f67229294218",
+            "name": "width",
+            "type": "integer",
+            "fieldKind": "output"
+          },
+          "height": {
+            "id": "87d4374c-0d7f-4a44-a916-119c0c3bd3c0",
+            "name": "height",
+            "type": "integer",
+            "fieldKind": "output"
+          }
+        },
+        "label": "Color Corrected Image",
+        "isOpen": true,
+        "notes": "This node tries to match the colors in the background based on your PNG object. Depending on your brightness of your PNG object this can look very good or is completely messed up.\n\nIf you don't need this output > remove the checkmark \"Save to Gallery\"",
+        "embedWorkflow": false,
+        "isIntermediate": false,
+        "version": "1.0.0"
+      },
+      "width": 320,
+      "height": 396,
+      "position": {
+        "x": 2075,
+        "y": -50
+      }
+    },
+    {
+      "id": "b559dd4b-e971-4496-83fc-e5c1bd00ad1c",
+      "type": "invocation",
+      "data": {
+        "id": "b559dd4b-e971-4496-83fc-e5c1bd00ad1c",
+        "type": "rand_int",
+        "inputs": {
+          "low": {
+            "id": "7a71a66a-cd6f-4b8d-bd8b-28176e9e6a68",
+            "name": "low",
+            "type": "integer",
+            "fieldKind": "input",
+            "label": "",
+            "value": 0
+          },
+          "high": {
+            "id": "d71283b7-1c3b-4723-9580-e1595a928e1b",
+            "name": "high",
+            "type": "integer",
+            "fieldKind": "input",
+            "label": "",
+            "value": 2147483647
+          }
+        },
+        "outputs": {
+          "value": {
+            "id": "6838a5c2-3efc-4b8e-8745-5e1243f49586",
+            "name": "value",
+            "type": "integer",
+            "fieldKind": "output"
+          }
+        },
+        "label": "",
+        "isOpen": true,
+        "notes": "",
+        "embedWorkflow": false,
+        "isIntermediate": true,
+        "version": "1.0.0"
+      },
+      "width": 320,
+      "height": 194,
+      "position": {
+        "x": 425,
+        "y": 350
+      }
+    },
+    {
+      "id": "b2ffe135-21ba-4a2d-a97a-ec324c8c9eb1",
+      "type": "invocation",
+      "data": {
+        "id": "b2ffe135-21ba-4a2d-a97a-ec324c8c9eb1",
+        "type": "img_paste",
+        "inputs": {
+          "base_image": {
+            "id": "bd4afaa1-4fde-4014-a609-0c089dcf694b",
+            "name": "base_image",
+            "type": "ImageField",
+            "fieldKind": "input",
+            "label": ""
+          },
+          "image": {
+            "id": "d8f34c99-7a15-472e-a463-a7a8244a3dfc",
+            "name": "image",
+            "type": "ImageField",
+            "fieldKind": "input",
+            "label": ""
+          },
+          "mask": {
+            "id": "89978df6-9b8f-4674-89dc-5b157f1b409a",
+            "name": "mask",
+            "type": "ImageField",
+            "fieldKind": "input",
+            "label": ""
+          },
+          "x": {
+            "id": "60337d5c-4f0b-41e9-a917-6f1b5a650d5c",
+            "name": "x",
+            "type": "integer",
+            "fieldKind": "input",
+            "label": "",
+            "value": 0
+          },
+          "y": {
+            "id": "a5708347-e55b-4658-b729-b55c1d70a093",
+            "name": "y",
+            "type": "integer",
+            "fieldKind": "input",
+            "label": "",
+            "value": 0
+          }
+        },
+        "outputs": {
+          "image": {
+            "id": "f5984e8a-f08f-40fb-8226-f9342a94c5e2",
+            "name": "image",
+            "type": "ImageField",
+            "fieldKind": "output"
+          },
+          "width": {
+            "id": "f0ae7f8a-3c8c-473a-be94-8f6ce9b98f9a",
+            "name": "width",
+            "type": "integer",
+            "fieldKind": "output"
+          },
+          "height": {
+            "id": "cb628fbc-701b-44a9-97f9-42d3d32493a6",
+            "name": "height",
+            "type": "integer",
+            "fieldKind": "output"
+          }
+        },
+        "label": "Uncorrected Image",
+        "isOpen": true,
+        "notes": "This is the composed image (AI background + PNG object). Depending on your prompt this can look really good! Most of the time I use this output.\n\nIf you don't need this output > remove the checkmark \"Save to Gallery\"",
+        "embedWorkflow": false,
+        "isIntermediate": false,
+        "version": "1.0.0"
+      },
+      "width": 320,
+      "height": 453,
+      "position": {
+        "x": 1675,
+        "y": -50
+      }
+    },
+    {
+      "id": "9dcddbc1-b3f1-4a23-90df-06aa3f012885",
+      "type": "invocation",
+      "data": {
+        "id": "9dcddbc1-b3f1-4a23-90df-06aa3f012885",
+        "type": "i2l",
+        "inputs": {
+          "image": {
+            "id": "56131d74-b0de-4fbb-afe2-40fb7daca5be",
+            "name": "image",
+            "type": "ImageField",
+            "fieldKind": "input",
+            "label": ""
+          },
+          "vae": {
+            "id": "c4f4a820-3ffe-460d-b922-7dccd97c4935",
+            "name": "vae",
+            "type": "VaeField",
+            "fieldKind": "input",
+            "label": ""
+          },
+          "tiled": {
+            "id": "059be904-50e6-4adc-80c3-0b6cf0e7130f",
+            "name": "tiled",
+            "type": "boolean",
+            "fieldKind": "input",
+            "label": "",
+            "value": false
+          },
+          "fp32": {
+            "id": "e89f637d-5956-41ab-bb2d-43fea5b87cb0",
+            "name": "fp32",
+            "type": "boolean",
+            "fieldKind": "input",
+            "label": "",
+            "value": false
+          }
+        },
+        "outputs": {
+          "latents": {
+            "id": "ace0f9e0-d739-4dce-a6fd-3aa82f444644",
+            "name": "latents",
+            "type": "LatentsField",
+            "fieldKind": "output"
+          },
+          "width": {
+            "id": "0a123acb-9cd5-40d6-92f0-769c95fd6795",
+            "name": "width",
+            "type": "integer",
+            "fieldKind": "output"
+          },
+          "height": {
+            "id": "c096e8f7-1c68-441c-929a-05f9fe7fa4f3",
+            "name": "height",
+            "type": "integer",
+            "fieldKind": "output"
+          }
+        },
+        "label": "",
+        "isOpen": true,
+        "notes": "",
+        "embedWorkflow": false,
+        "isIntermediate": true,
+        "version": "1.0.0"
+      },
+      "width": 320,
+      "height": 299,
+      "position": {
+        "x": 425,
+        "y": 25
+      }
+    },
+    {
+      "id": "de3f278f-a128-4fa3-bfb0-08b689b7a127",
+      "type": "notes",
+      "data": {
+        "id": "de3f278f-a128-4fa3-bfb0-08b689b7a127",
+        "type": "notes",
+        "label": "Notes",
+        "isOpen": true,
+        "notes": "1. Create a prompt matching your \"PNG file\". Low angle or high angle shot, bright or dark etc. or it will look fake. Don't forget you can further enhance the output by adding details in the foreground via Inpainting in Unified Canvas.\n\nWith newer SD1.5 models I was able to use PNG pics up to 1024x1280px (Realistic Vision 5.1, CyberRealistic 3.3, etc.)\n\nCheck the \"Info\" button on the following nodes:\nOutput for Photoshop (for manual composing)\nUncorrected Image (composed result - can be really good)\nColor Corrected Image (can be hit or miss, depends on PNG)\n\nI am still a beginner with nodes. I wish I could also change the lighting on the \"PNG file\" itself, to make it look more realistic. If you know how, please let me know on discord or via email. Happy denoising! \n\nwww.schweinert.com\n"
+      },
+      "width": 320,
+      "height": 200,
+      "position": {
+        "x": 1675,
+        "y": 450
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "976190f2-3570-4905-8faa-babfda8050c3",
+      "sourceHandle": "clip",
+      "target": "209920a0-998e-475d-ad32-cba538e9bcea",
+      "targetHandle": "clip",
+      "id": "reactflow__edge-976190f2-3570-4905-8faa-babfda8050c3clip-209920a0-998e-475d-ad32-cba538e9bceaclip",
+      "type": "default"
+    },
+    {
+      "source": "976190f2-3570-4905-8faa-babfda8050c3",
+      "sourceHandle": "clip",
+      "target": "705db5f8-0b37-43cc-b052-5f92740589e6",
+      "targetHandle": "clip",
+      "id": "reactflow__edge-976190f2-3570-4905-8faa-babfda8050c3clip-705db5f8-0b37-43cc-b052-5f92740589e6clip",
+      "type": "default"
+    },
+    {
+      "source": "705db5f8-0b37-43cc-b052-5f92740589e6",
+      "sourceHandle": "conditioning",
+      "target": "8285e35a-a213-49b3-b20f-7ddc01da6ea3",
+      "targetHandle": "positive_conditioning",
+      "id": "reactflow__edge-705db5f8-0b37-43cc-b052-5f92740589e6conditioning-8285e35a-a213-49b3-b20f-7ddc01da6ea3positive_conditioning",
+      "type": "default"
+    },
+    {
+      "source": "209920a0-998e-475d-ad32-cba538e9bcea",
+      "sourceHandle": "conditioning",
+      "target": "8285e35a-a213-49b3-b20f-7ddc01da6ea3",
+      "targetHandle": "negative_conditioning",
+      "id": "reactflow__edge-209920a0-998e-475d-ad32-cba538e9bceaconditioning-8285e35a-a213-49b3-b20f-7ddc01da6ea3negative_conditioning",
+      "type": "default"
+    },
+    {
+      "source": "976190f2-3570-4905-8faa-babfda8050c3",
+      "sourceHandle": "unet",
+      "target": "8285e35a-a213-49b3-b20f-7ddc01da6ea3",
+      "targetHandle": "unet",
+      "id": "reactflow__edge-976190f2-3570-4905-8faa-babfda8050c3unet-8285e35a-a213-49b3-b20f-7ddc01da6ea3unet",
+      "type": "default"
+    },
+    {
+      "source": "a0156558-c3ef-406b-a878-9df58799108f",
+      "sourceHandle": "noise",
+      "target": "8285e35a-a213-49b3-b20f-7ddc01da6ea3",
+      "targetHandle": "noise",
+      "id": "reactflow__edge-a0156558-c3ef-406b-a878-9df58799108fnoise-8285e35a-a213-49b3-b20f-7ddc01da6ea3noise",
+      "type": "default"
+    },
+    {
+      "source": "a19a64ab-80c5-4ff1-942e-7aa327909c1c",
+      "sourceHandle": "control",
+      "target": "8285e35a-a213-49b3-b20f-7ddc01da6ea3",
+      "targetHandle": "control",
+      "id": "reactflow__edge-a19a64ab-80c5-4ff1-942e-7aa327909c1ccontrol-8285e35a-a213-49b3-b20f-7ddc01da6ea3control",
+      "type": "default"
+    },
+    {
+      "source": "8285e35a-a213-49b3-b20f-7ddc01da6ea3",
+      "sourceHandle": "latents",
+      "target": "bbbe45bb-d4cc-4ec3-9751-47e0bdd34cb6",
+      "targetHandle": "latents",
+      "id": "reactflow__edge-8285e35a-a213-49b3-b20f-7ddc01da6ea3latents-bbbe45bb-d4cc-4ec3-9751-47e0bdd34cb6latents",
+      "type": "default"
+    },
+    {
+      "source": "976190f2-3570-4905-8faa-babfda8050c3",
+      "sourceHandle": "vae",
+      "target": "bbbe45bb-d4cc-4ec3-9751-47e0bdd34cb6",
+      "targetHandle": "vae",
+      "id": "reactflow__edge-976190f2-3570-4905-8faa-babfda8050c3vae-bbbe45bb-d4cc-4ec3-9751-47e0bdd34cb6vae",
+      "type": "default"
+    },
+    {
+      "source": "f35a12f6-14de-4661-a987-57162bc0997c",
+      "sourceHandle": "image",
+      "target": "168baacd-68fc-4488-a344-774cfc435a26",
+      "targetHandle": "image",
+      "id": "reactflow__edge-f35a12f6-14de-4661-a987-57162bc0997cimage-168baacd-68fc-4488-a344-774cfc435a26image",
+      "type": "default"
+    },
+    {
+      "source": "2cb3a07d-04ce-4a4b-abc0-9c48582f913b",
+      "sourceHandle": "image",
+      "target": "a19a64ab-80c5-4ff1-942e-7aa327909c1c",
+      "targetHandle": "image",
+      "id": "reactflow__edge-2cb3a07d-04ce-4a4b-abc0-9c48582f913bimage-a19a64ab-80c5-4ff1-942e-7aa327909c1cimage",
+      "type": "default"
+    },
+    {
+      "source": "f35a12f6-14de-4661-a987-57162bc0997c",
+      "sourceHandle": "image",
+      "target": "2cb3a07d-04ce-4a4b-abc0-9c48582f913b",
+      "targetHandle": "image",
+      "id": "reactflow__edge-f35a12f6-14de-4661-a987-57162bc0997cimage-2cb3a07d-04ce-4a4b-abc0-9c48582f913bimage",
+      "type": "default"
+    },
+    {
+      "source": "f35a12f6-14de-4661-a987-57162bc0997c",
+      "sourceHandle": "image",
+      "target": "a057c2fc-77c4-49d2-8afb-f46dc967f82a",
+      "targetHandle": "image",
+      "id": "reactflow__edge-f35a12f6-14de-4661-a987-57162bc0997cimage-a057c2fc-77c4-49d2-8afb-f46dc967f82aimage",
+      "type": "default"
+    },
+    {
+      "source": "a057c2fc-77c4-49d2-8afb-f46dc967f82a",
+      "sourceHandle": "image",
+      "target": "2096b016-6d3e-4249-b42a-ac77c40bb306",
+      "targetHandle": "mask",
+      "id": "reactflow__edge-a057c2fc-77c4-49d2-8afb-f46dc967f82aimage-2096b016-6d3e-4249-b42a-ac77c40bb306mask",
+      "type": "default"
+    },
+    {
+      "source": "bbbe45bb-d4cc-4ec3-9751-47e0bdd34cb6",
+      "sourceHandle": "image",
+      "target": "2096b016-6d3e-4249-b42a-ac77c40bb306",
+      "targetHandle": "image",
+      "id": "reactflow__edge-bbbe45bb-d4cc-4ec3-9751-47e0bdd34cb6image-2096b016-6d3e-4249-b42a-ac77c40bb306image",
+      "type": "default"
+    },
+    {
+      "source": "f35a12f6-14de-4661-a987-57162bc0997c",
+      "sourceHandle": "image",
+      "target": "2096b016-6d3e-4249-b42a-ac77c40bb306",
+      "targetHandle": "reference",
+      "id": "reactflow__edge-f35a12f6-14de-4661-a987-57162bc0997cimage-2096b016-6d3e-4249-b42a-ac77c40bb306reference",
+      "type": "default"
+    },
+    {
+      "source": "bbbe45bb-d4cc-4ec3-9751-47e0bdd34cb6",
+      "sourceHandle": "image",
+      "target": "b2ffe135-21ba-4a2d-a97a-ec324c8c9eb1",
+      "targetHandle": "base_image",
+      "id": "reactflow__edge-bbbe45bb-d4cc-4ec3-9751-47e0bdd34cb6image-b2ffe135-21ba-4a2d-a97a-ec324c8c9eb1base_image",
+      "type": "default"
+    },
+    {
+      "source": "f35a12f6-14de-4661-a987-57162bc0997c",
+      "sourceHandle": "image",
+      "target": "b2ffe135-21ba-4a2d-a97a-ec324c8c9eb1",
+      "targetHandle": "image",
+      "id": "reactflow__edge-f35a12f6-14de-4661-a987-57162bc0997cimage-b2ffe135-21ba-4a2d-a97a-ec324c8c9eb1image",
+      "type": "default"
+    },
+    {
+      "source": "168baacd-68fc-4488-a344-774cfc435a26",
+      "sourceHandle": "image",
+      "target": "b2ffe135-21ba-4a2d-a97a-ec324c8c9eb1",
+      "targetHandle": "mask",
+      "id": "reactflow__edge-168baacd-68fc-4488-a344-774cfc435a26image-b2ffe135-21ba-4a2d-a97a-ec324c8c9eb1mask",
+      "type": "default"
+    },
+    {
+      "source": "976190f2-3570-4905-8faa-babfda8050c3",
+      "sourceHandle": "vae",
+      "target": "9dcddbc1-b3f1-4a23-90df-06aa3f012885",
+      "targetHandle": "vae",
+      "id": "reactflow__edge-976190f2-3570-4905-8faa-babfda8050c3vae-9dcddbc1-b3f1-4a23-90df-06aa3f012885vae",
+      "type": "default"
+    },
+    {
+      "source": "f35a12f6-14de-4661-a987-57162bc0997c",
+      "sourceHandle": "image",
+      "target": "9dcddbc1-b3f1-4a23-90df-06aa3f012885",
+      "targetHandle": "image",
+      "id": "reactflow__edge-f35a12f6-14de-4661-a987-57162bc0997cimage-9dcddbc1-b3f1-4a23-90df-06aa3f012885image",
+      "type": "default"
+    },
+    {
+      "source": "9dcddbc1-b3f1-4a23-90df-06aa3f012885",
+      "sourceHandle": "latents",
+      "target": "8285e35a-a213-49b3-b20f-7ddc01da6ea3",
+      "targetHandle": "latents",
+      "id": "reactflow__edge-9dcddbc1-b3f1-4a23-90df-06aa3f012885latents-8285e35a-a213-49b3-b20f-7ddc01da6ea3latents",
+      "type": "default"
+    },
+    {
+      "source": "f35a12f6-14de-4661-a987-57162bc0997c",
+      "sourceHandle": "width",
+      "target": "a0156558-c3ef-406b-a878-9df58799108f",
+      "targetHandle": "width",
+      "id": "reactflow__edge-f35a12f6-14de-4661-a987-57162bc0997cwidth-a0156558-c3ef-406b-a878-9df58799108fwidth",
+      "type": "default"
+    },
+    {
+      "source": "f35a12f6-14de-4661-a987-57162bc0997c",
+      "sourceHandle": "height",
+      "target": "a0156558-c3ef-406b-a878-9df58799108f",
+      "targetHandle": "height",
+      "id": "reactflow__edge-f35a12f6-14de-4661-a987-57162bc0997cheight-a0156558-c3ef-406b-a878-9df58799108fheight",
+      "type": "default"
+    },
+    {
+      "source": "b559dd4b-e971-4496-83fc-e5c1bd00ad1c",
+      "sourceHandle": "value",
+      "target": "a0156558-c3ef-406b-a878-9df58799108f",
+      "targetHandle": "seed",
+      "id": "reactflow__edge-b559dd4b-e971-4496-83fc-e5c1bd00ad1cvalue-a0156558-c3ef-406b-a878-9df58799108fseed",
+      "type": "default"
+    }
+  ]
+}

@@ -1,0 +1,255 @@
+{
+  "name": "Upscale Images from a Board",
+  "author": "Jack Brittain",
+  "description": "",
+  "version": "1.0",
+  "contact": "",
+  "tags": "",
+  "notes": "",
+  "exposedFields": [],
+  "meta": {
+    "version": "1.0.0"
+  },
+  "nodes": [
+    {
+      "id": "4aa552d5-de29-4557-bdf6-2cc7a47be744",
+      "type": "invocation",
+      "data": {
+        "id": "4aa552d5-de29-4557-bdf6-2cc7a47be744",
+        "type": "iterate",
+        "inputs": {
+          "collection": {
+            "id": "c235f6ed-2632-4bef-bd18-4caf842699df",
+            "name": "collection",
+            "type": "Collection",
+            "fieldKind": "input",
+            "label": "",
+            "value": []
+          }
+        },
+        "outputs": {
+          "item": {
+            "id": "68b83e99-3010-4ac0-bae6-97015c62497d",
+            "name": "item",
+            "type": "CollectionItem",
+            "fieldKind": "output"
+          }
+        },
+        "label": "Iterate",
+        "isOpen": true,
+        "notes": "",
+        "embedWorkflow": false,
+        "isIntermediate": true,
+        "useCache": true,
+        "version": "1.0.0"
+      },
+      "width": 320,
+      "height": 104,
+      "position": {
+        "x": 425,
+        "y": 75
+      }
+    },
+    {
+      "id": "d7b7fd59-cc5a-4634-9d38-3190e8dba12d",
+      "type": "invocation",
+      "data": {
+        "id": "d7b7fd59-cc5a-4634-9d38-3190e8dba12d",
+        "type": "save_image",
+        "inputs": {
+          "image": {
+            "id": "b88ae9e9-4623-40b9-a6d4-20c052640983",
+            "name": "image",
+            "type": "ImageField",
+            "fieldKind": "input",
+            "label": ""
+          },
+          "board": {
+            "id": "69552548-c5de-4442-acbd-1eed7589c4ab",
+            "name": "board",
+            "type": "BoardField",
+            "fieldKind": "input",
+            "label": "",
+            "value": {
+              "board_id": "78c0245f-33ab-4a0b-9dbd-8d62e729eba5"
+            }
+          }
+        },
+        "outputs": {
+          "image": {
+            "id": "847b9c7c-fbad-47cc-bffd-8622ff647305",
+            "name": "image",
+            "type": "ImageField",
+            "fieldKind": "output"
+          },
+          "width": {
+            "id": "8072c153-ebf6-4b74-87be-1a90186eaca8",
+            "name": "width",
+            "type": "integer",
+            "fieldKind": "output"
+          },
+          "height": {
+            "id": "3c184672-be18-4553-ab97-db43a2deeadd",
+            "name": "height",
+            "type": "integer",
+            "fieldKind": "output"
+          }
+        },
+        "label": "",
+        "isOpen": true,
+        "notes": "",
+        "embedWorkflow": false,
+        "isIntermediate": false,
+        "useCache": true,
+        "version": "1.0.1"
+      },
+      "width": 320,
+      "height": 282,
+      "position": {
+        "x": 425,
+        "y": 225
+      }
+    },
+    {
+      "id": "d5fe012f-b8aa-4c6f-9292-011e37819f8b",
+      "type": "invocation",
+      "data": {
+        "id": "d5fe012f-b8aa-4c6f-9292-011e37819f8b",
+        "type": "Retrieve_Board_Images",
+        "inputs": {
+          "input_board": {
+            "id": "66511597-5b2b-4bd4-99b3-bdb856f76758",
+            "name": "input_board",
+            "type": "BoardField",
+            "fieldKind": "input",
+            "label": "",
+            "value": {
+              "board_id": "fd655e9e-5024-4f17-a2b4-3f5259f61094"
+            }
+          },
+          "num_images": {
+            "id": "8dc28e64-6ece-4fa7-85f3-9bb7b2feb2db",
+            "name": "num_images",
+            "type": "string",
+            "fieldKind": "input",
+            "label": "",
+            "value": "all"
+          }
+        },
+        "outputs": {
+          "collection": {
+            "id": "969ceded-91d0-4b21-be33-da2a47dad6f9",
+            "name": "collection",
+            "type": "ImageCollection",
+            "fieldKind": "output"
+          }
+        },
+        "label": "",
+        "isOpen": true,
+        "notes": "",
+        "embedWorkflow": false,
+        "isIntermediate": true,
+        "useCache": false,
+        "version": "0.0.5"
+      },
+      "width": 320,
+      "height": 218,
+      "position": {
+        "x": 75,
+        "y": -25
+      }
+    },
+    {
+      "id": "98472057-0e60-426e-918b-975518be04f7",
+      "type": "invocation",
+      "data": {
+        "id": "98472057-0e60-426e-918b-975518be04f7",
+        "type": "esrgan",
+        "inputs": {
+          "image": {
+            "id": "351ba5a2-6323-40e1-8465-81c14202a347",
+            "name": "image",
+            "type": "ImageField",
+            "fieldKind": "input",
+            "label": ""
+          },
+          "model_name": {
+            "id": "94c5def1-6f12-4e1f-bf1b-83d9fcbbec5e",
+            "name": "model_name",
+            "type": "enum",
+            "fieldKind": "input",
+            "label": "",
+            "value": "RealESRGAN_x2plus.pth"
+          },
+          "tile_size": {
+            "id": "c71c3a32-1507-431a-8cb1-7c0eb2b376b6",
+            "name": "tile_size",
+            "type": "integer",
+            "fieldKind": "input",
+            "label": "",
+            "value": 1024
+          }
+        },
+        "outputs": {
+          "image": {
+            "id": "ad2da21b-7756-4061-b8c8-d438441a0a66",
+            "name": "image",
+            "type": "ImageField",
+            "fieldKind": "output"
+          },
+          "width": {
+            "id": "766f7e35-5ba9-409f-a582-2b311ad4145f",
+            "name": "width",
+            "type": "integer",
+            "fieldKind": "output"
+          },
+          "height": {
+            "id": "2d17cc6a-57f7-4746-9b83-6426607a4096",
+            "name": "height",
+            "type": "integer",
+            "fieldKind": "output"
+          }
+        },
+        "label": "",
+        "isOpen": true,
+        "notes": "",
+        "embedWorkflow": false,
+        "isIntermediate": true,
+        "useCache": true,
+        "version": "1.1.0"
+      },
+      "width": 320,
+      "height": 339,
+      "position": {
+        "x": 75,
+        "y": 225
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "d5fe012f-b8aa-4c6f-9292-011e37819f8b",
+      "sourceHandle": "collection",
+      "target": "4aa552d5-de29-4557-bdf6-2cc7a47be744",
+      "targetHandle": "collection",
+      "id": "reactflow__edge-d5fe012f-b8aa-4c6f-9292-011e37819f8bcollection-4aa552d5-de29-4557-bdf6-2cc7a47be744collection",
+      "type": "default"
+    },
+    {
+      "source": "4aa552d5-de29-4557-bdf6-2cc7a47be744",
+      "sourceHandle": "item",
+      "target": "98472057-0e60-426e-918b-975518be04f7",
+      "targetHandle": "image",
+      "id": "reactflow__edge-4aa552d5-de29-4557-bdf6-2cc7a47be744item-98472057-0e60-426e-918b-975518be04f7image",
+      "type": "default"
+    },
+    {
+      "source": "98472057-0e60-426e-918b-975518be04f7",
+      "sourceHandle": "image",
+      "target": "d7b7fd59-cc5a-4634-9d38-3190e8dba12d",
+      "targetHandle": "image",
+      "id": "reactflow__edge-98472057-0e60-426e-918b-975518be04f7image-d7b7fd59-cc5a-4634-9d38-3190e8dba12dimage",
+      "type": "default"
+    }
+  ]
+}
