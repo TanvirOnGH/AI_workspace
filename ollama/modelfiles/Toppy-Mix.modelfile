@@ -1,7 +1,8 @@
 # Toppy-Mix:4x7B
-# TAGS: NSFW, ERP, RP, Uncensored
+# TAGS: MoE, NSFW, ERP, RP, Uncensored
+# Prompt Template: Alpaca
 
-FROM /mnt/ollama/models/Toppy-Mix-4x7B.q4_0.gguf
+FROM /mnt/ollama/models/Toppy-Mix-4x7B.q5_k_m.gguf
 
 TEMPLATE """{{ .System }}
 
