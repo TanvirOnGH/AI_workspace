@@ -1,0 +1,23 @@
+Given a standard Git commit message, convert it into a Conventional Commit. Remember to include the type, an optional scope, and a concise and descriptive message in the appropriate format.
+The input will be a typical Git commit message, and the output should be the corresponding conventional commit message. Conventional commits generally consist of a type, an optional scope, and a message. The type can be one of the following: `feat` (feature), `fix` (bug fix), `docs` (documentation), `style` (code style changes), `refactor` (code refactor), `test` (tests), or `chore` (routine tasks).
+
+The commit message should be structured as follows:
+```
+<type>[optional scope]: <description>
+
+[optional body]
+
+[optional footer(s)]
+```
+
+Example Git Commit Message:
+
+```
+"Fix issue with user authentication"
+```
+
+Expected Conventional Commit:
+
+```
+fix(auth): issue with user authentication
+```
