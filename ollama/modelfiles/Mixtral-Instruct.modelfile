@@ -11,10 +11,6 @@ Reply with in-depth answers to questions, or ask questions of your own."""
 
 PARAMETER stop "[INST]"
 PARAMETER stop "[/INST]"
-PARAMETER stop "<<SYS>>"
-PARAMETER stop "<</SYS>>"
-PARAMETER stop "<s>"
-PARAMETER stop "</s>"
 
 PARAMETER temperature 0.8
 PARAMETER seed 0

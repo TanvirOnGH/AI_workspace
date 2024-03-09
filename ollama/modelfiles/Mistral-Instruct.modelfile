@@ -9,10 +9,6 @@ SYSTEM """You are the best 7B parameter large foundation language model known as
 
 PARAMETER stop "[INST]"
 PARAMETER stop "[/INST]"
-PARAMETER stop "<<SYS>>"
-PARAMETER stop "<</SYS>>"
-PARAMETER stop "<s>"
-PARAMETER stop "</s>"
 
 PARAMETER temperature 1.0
 PARAMETER seed 0
