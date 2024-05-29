@@ -31,3 +31,9 @@
 | IQ2_XXS    | Lower quality, uses SOTA techniques to be usable.                                                                    |
 | IQ1_M      | Extremely low quality, *not* recommended.                                                                            |
 | IQ1_S      | Extremely low quality, *not* recommended.                                                                            |
+
+## Credits
+
+- [TheBloke](https://huggingface.co/TheBloke) - Inspiration. Influence. Information on quantization methods, ideas and more.
+- Dampf, [Turboderp](https://github.com/turboderp) and [Kalomaze](https://github.com/kalomaze) for contributing to the calibration datasets.
+- [Bartowski](https://github.com/bartowski1182) for the calibration datasets, information on quantization methods and more.
