@@ -1,0 +1,4 @@
+huggingface-cli login
+git lfs install
+huggingface-cli lfs-enable-largefiles .
+git lfs track "*.your_extension"

@@ -72,7 +72,7 @@
 ## Credits
 
 - [TheBloke](https://huggingface.co/TheBloke) - Inspiration. Influence. Information on quantization methods, ideas and more.
-- Dampf, [Turboderp](https://github.com/turboderp) and [Kalomaze](https://github.com/kalomaze) for contributing to the calibration datasets.
-- [Bartowski](https://github.com/bartowski1182) for the calibration datasets, information on quantization methods and more.
+- Dampf, [Turboderp](https://github.com/turboderp) and [Kalomaze](https://github.com/kalomaze) - For contributing to the calibration datasets.
+- [Bartowski](https://github.com/bartowski1182) - For the calibration datasets, information on quantization methods and more.
 - [Artefact2](https://github.com/Artefact2) - For scripts, guides, information and more.
 - [llama.cpp](https://github.com/ggerganov/llama.cpp) - Various information, source code and more.
