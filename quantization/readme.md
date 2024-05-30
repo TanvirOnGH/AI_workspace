@@ -6,6 +6,9 @@
 - [Tensor Encoding Schemes](https://github.com/ggerganov/llama.cpp/wiki/Tensor-Encoding-Schemes)
 - [llama.cpp Feature matrix](https://github.com/ggerganov/llama.cpp/wiki/Feature-matrix)
 - [ggify](https://github.com/akx/ggify) -  Tool to download models from Huggingface Hub and convert them to GGML for llama.cpp
+- [Convert model to GGUF (llama.cpp)](https://github.com/ggerganov/llama.cpp/blob/master/docs/HOWTO-add-model.md#1-convert-the-model-to-gguf)
+- [GGUF specification](https://github.com/ggerganov/ggml/blob/master/docs/gguf.md)
+- [gguf-my-repo](https://huggingface.co/spaces/ggml-org/gguf-my-repo) Huggingface space to create your own GGUF Quants, blazingly fast and easy.
 
 ## Explanation of Quantization methods
 
