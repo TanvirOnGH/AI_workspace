@@ -1,9 +1,11 @@
 # References
 
 - [Which GGUF is right for me? (Opinionated)](https://gist.github.com/Artefact2/b5f810600771265fc1e39442288e8ec9)
-- [calibration_datav3.txt - Used for calibrating GGUF imatrix files](https://gist.github.com/bartowski1182/eb213dccb3571f863da82e99418f81e8)
+- [calibration_datav3.txt](https://gist.github.com/bartowski1182/eb213dccb3571f863da82e99418f81e8) - Used for calibrating GGUF imatrix files
+- [calibration_data.txt](https://gist.github.com/bartowski1182/b6ac44691e994344625687afe3263b3a)
 - [Tensor Encoding Schemes](https://github.com/ggerganov/llama.cpp/wiki/Tensor-Encoding-Schemes)
 - [llama.cpp Feature matrix](https://github.com/ggerganov/llama.cpp/wiki/Feature-matrix)
+- [ggify](https://github.com/akx/ggify) -  Tool to download models from Huggingface Hub and convert them to GGML for llama.cpp
 
 ## Explanation of Quantization methods
 
