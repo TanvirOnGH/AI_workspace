@@ -2,7 +2,7 @@
 
 Mostly from [camenduru](https://github.com/camenduru) and original (relevant) sources. Some own and some forked with custom edits.
 
-And from github, github gists, gitlab, kaggle, huggingface, Twitter, Reddit, etc.
+And from github, github gists, gitlab, kaggle, huggingface, Twitter, Reddit, Discord etc.
 
 ## Notable mentions
 
