@@ -1,0 +1,7 @@
+<setting>
+{system_message}
+</setting>
+
+<instruction>
+{prompt}
+</instruction>

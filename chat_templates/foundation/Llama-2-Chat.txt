@@ -1,0 +1,4 @@
+[INST] <<SYS>>
+{system_message}
+<</SYS>>
+{prompt} [/INST]

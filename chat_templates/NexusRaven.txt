@@ -1,0 +1,8 @@
+:
+{{ .System }}
+
+User Query: Question: {{ .Prompt }}
+
+Please pick a function from the above options that best answers the user query and fill in the appropriate arguments.
+
+Initial Answer:

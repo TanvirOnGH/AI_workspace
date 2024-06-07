@@ -1,0 +1,10 @@
+<s>system
+test</s>
+<s>user
+hello</s>
+<s>assistant
+response</s>
+<s>user
+again</s>
+<s>assistant
+response</s>

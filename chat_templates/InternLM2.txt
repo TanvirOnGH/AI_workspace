@@ -1,0 +1,5 @@
+<|im_start|>system
+{system}<|im_end|>
+<|im_start|>user
+{query}<|im_end|>
+<|im_start|>assistant

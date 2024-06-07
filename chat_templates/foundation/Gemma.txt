@@ -1,0 +1,8 @@
+<start_of_turn>user
+hello<end_of_turn>
+<start_of_turn>model
+response<end_of_turn>
+<start_of_turn>user
+again<end_of_turn>
+<start_of_turn>model
+response<end_of_turn>

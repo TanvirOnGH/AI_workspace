@@ -1,0 +1,3 @@
+SYSTEM: {system_message}
+USER: {prompt}
+ASSISTANT:

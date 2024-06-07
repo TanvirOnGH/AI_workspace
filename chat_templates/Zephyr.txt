@@ -1,0 +1,9 @@
+{{- if .System }}
+<|system|>
+{{ .System }}
+
+{{- end }}
+<|user|>
+{{ .Prompt }}
+
+<|assistant|>

@@ -1,0 +1,3 @@
+[INST] <>{{ .System }}<>
+
+{{ .Prompt }} [/INST]
