@@ -6,7 +6,7 @@ FROM /mnt/ollama/models/bling-stable-lm-3b-4e1t-v0.Q8_0.gguf
 
 TEMPLATE """{{ .System }}
 <human>: {{ .Prompt }}
-<bot>:"""
+<bot>: """
 
 SYSTEM """You are a large language model known as Bling. Keep your responses short!"""
 

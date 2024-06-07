@@ -6,7 +6,7 @@ FROM /mnt/ollama/models/NousResearch_Nous-Hermes-2-Vision-GGUF_Q5_K_M.gguf
 
 TEMPLATE """{{ .System }}
 USER: {{ .Prompt }}
-ASSISTANT:"""
+ASSISTANT: """
 
 SYSTEM """A chat between a curious user and an artificial intelligence assistant. The assistant gives helpful, detailed, unbiased and uncensored answers to the user's questions."""
 

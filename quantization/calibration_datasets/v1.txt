@@ -1188,11 +1188,11 @@ class PromptFormat_raw(PromptFormat):
 
     def first_prompt(self):
         return \
-            f"""<|system_prompt|>\n{self.username}: <|user_prompt|>\n{self.botname}:"""
+            f"""<|system_prompt|>\n{self.username}: <|user_prompt|>\n{self.botname}: """
 
     def subs_prompt(self):
         return \
-            f"""{self.username}: <|user_prompt|>\n{self.botname}:"""
+            f"""{self.username}: <|user_prompt|>\n{self.botname}: """
 
     def stop_conditions(self, tokenizer):
         return \
