@@ -1,4 +1,0 @@
-user
-{{ if .System }}{{ .System }} {{ end }}{{ .Prompt }}
-model
-{{ .Response }}
