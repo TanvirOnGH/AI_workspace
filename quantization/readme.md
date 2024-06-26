@@ -75,6 +75,8 @@
 
 ## Tensor Encoding Scheme Mapping
 
+[Source](https://github.com/ggerganov/llama.cpp/wiki/Tensor-Encoding-Schemes)
+
 | Scheme   | Bits/Weight | Data Type                     | Block Configuration                                                                   |
 | -------- | ----------- | ----------------------------- | ------------------------------------------------------------------------------------- |
 | BF16     | 16          | bfloat16 (trunc 32b IEEE754)  | Homogonous Array Of Floating Weights                                                  |
